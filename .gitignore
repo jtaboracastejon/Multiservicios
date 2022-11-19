@@ -7,3 +7,4 @@ data
 .htaccess
 docs/manual_tecnico
 composer.lock
+/node_modules
