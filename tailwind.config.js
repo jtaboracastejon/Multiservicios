@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{html,js,tpl}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'multiDarkBlue': '#1C3879'
+      },
+      fontFamily: {
+          'body': ['Montserrat', 'sans-serif']
+
+      }
+    }
   },
   plugins: [],
 }
