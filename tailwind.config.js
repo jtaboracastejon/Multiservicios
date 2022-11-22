@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'multiDarkBlue': '#1C3879'
+        'multiDarkBlue': '#1C3879',
+        'multiYellow': '#EA9F2E',
       },
       fontFamily: {
           'body': ['Montserrat', 'sans-serif']
