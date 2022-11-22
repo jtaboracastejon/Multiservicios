@@ -20,7 +20,7 @@
   {{{page_content}}}
   </main>
   <footer>
-    <div>Todo los Derechos Reservados 2022 &copy;</div>
+    {{include common/footer}}
   </footer>
   {{foreach EndScripts}}
     <script src="/{{~BASE_DIR}}/{{this}}"></script>
