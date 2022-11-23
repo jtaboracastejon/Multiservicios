@@ -30,6 +30,9 @@
     <div class="row right flex-end px-4">
       <button class="primary" id="btnLogin" type="submit">Iniciar Sesión</button>
     </div>
+    <div class="row right flex-start">
+      <a href="index.php?page=sec_resetpassword">Olvide mi Contraseña</a>
+    </div>
     </section>
   </form>
 </section>
