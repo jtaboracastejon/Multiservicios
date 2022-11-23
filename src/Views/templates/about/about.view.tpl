@@ -3,3 +3,15 @@
 {{include common/navbar}}
 asdasd
 </div>
+<div>
+    {{include common/scrollbar}}
+    aaa
+</div>
+
+<div>
+    {{include common/scrollbar2}}
+    
+</div>
+<div>
+    {{include common/barra}}
+</div>
