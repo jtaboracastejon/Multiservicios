@@ -15,3 +15,6 @@ asdasd
 <div>
     {{include common/barra}}
 </div>
+<div>
+    {{include common/fondo}}
+</div>
