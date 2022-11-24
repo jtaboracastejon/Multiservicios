@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div class="">
+<div class="m-10">
     <p class="text-xl font-bold">Reseñas</p>
 </div>
 <div class="flex rounded-2xl m-10" style="box-shadow: -1px 10px 30px 5px rgba(0,0,0,0.2);">
