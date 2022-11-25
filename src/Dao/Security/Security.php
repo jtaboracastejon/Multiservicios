@@ -47,31 +47,32 @@ class Security extends \Dao\Table
         return self::obtenerRegistros($sqlstr, array());
     }
 
-    static public function newUsuario($email, $password)
+    static public function newUsuario($userType, $email, $userN, $password)
     {
         if (!\Utilities\Validators::IsValidEmail($email)) {
             throw new Exception("Correo no es válido");
         }
         if (!\Utilities\Validators::IsValidPassword($password)) {
-            throw new Exception("Contraseña debe ser almenos 8 caracteres, 1 número, 1 mayúscula, 1 símbolo especial");
+            throw new Exception("Debe ser almenos 8 caracteres, 1 número, 1 mayúscula, 1 símbolo especial");
         }
 
         $newUser = self::_usuarioStruct();
         //Tratamiento de la Contraseña
         $hashedPassword = self::_hashPassword($password);
+        
 
         unset($newUser["usercod"]);
         unset($newUser["userfching"]);
         unset($newUser["userpswdchg"]);
 
         $newUser["useremail"] = $email;
-        $newUser["username"] = "John Doe";
+        $newUser["username"] = $userN;
         $newUser["userpswd"] = $hashedPassword;
         $newUser["userpswdest"] = Estados::ACTIVO;
         $newUser["userpswdexp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
         $newUser["userest"] = Estados::ACTIVO;
         $newUser["useractcod"] = hash("sha256", $email.time());
-        $newUser["usertipo"] = UsuarioTipo::PUBLICO;
+        $newUser["usertipo"] = $userType;
 
         $sqlIns = "INSERT INTO `usuario` (`useremail`, `username`, `userpswd`,
             `userfching`, `userpswdest`, `userpswdexp`, `userest`, `useractcod`,
@@ -82,8 +83,27 @@ class Security extends \Dao\Table
             now(), :usertipo);";
 
         return self::executeNonQuery($sqlIns, $newUser);
+    }
+
+    static public function crearDetalleUsuario($lastusercod, $zonalaboral){
 
     }
+
+    //obtener todos los wort_zones
+    static public function getZones()
+    {
+        $sqlstr = "SELECT * FROM work_zones;";
+        return self::obtenerRegistros($sqlstr, array());
+    }
+
+    //obtener todos los municipios
+    static public function getMunicipios()
+    {
+        $sqlstr = "SELECT * FROM work_municipalities;";
+        return self::obtenerRegistros($sqlstr, array());
+    }
+
+
 
     static public function getUsuarioByEmail($email)
     {
