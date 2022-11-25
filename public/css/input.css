@@ -2,8 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    html{
+@layer base {
+    html {
         font-family: 'Montserrat', sans-serif;
     }
+}
+
+.form-input {
+    @apply bg-white border border-gray-300 text-gray-900 text-base rounded-lg focus:outline-none focus:border-multiDarkBlue focus:ring-1 focus:ring-multiDarkBlue w-full p-2.5;
+}
+
+.form-label {
+    @apply block mb-2 text-sm font-medium text-gray-900;
+}
+
+.form-helper {
+    @apply mt-2 text-sm text-gray-500;
+}
+
+.form-helperLink {
+    @apply font-medium text-multiDarkBlue hover:underline;
+}
+
+.form-inputFile {
+    @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none p-2.5;
+}
+
+
+.form-select {
+    background: #f7f7f7;
+    border: 1px solid #b1b1b1;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    height: 48px;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px);
+    @apply form-input;
+}
+
+.form-checkbox{
+    @apply appearance-none h-6 w-6 bg-gray-400 rounded checked:bg-multiDarkBlue transition-all duration-200;
+    --tw-scale-x: .6;
+    --tw-scale-y: .6;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.form-checkbox:checked{
+    border: none;
+    outline: 0.2rem solid #1C3879;
+    outline-offset: 0.3rem;
+    background-image: url('../public/svgs/check.svg');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: center;
+}
+
+.form-checkboxLabel {
+    @apply ml-2 text-sm font-medium text-gray-900 dark:text-gray-300;
 }

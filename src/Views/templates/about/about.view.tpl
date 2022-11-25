@@ -12,3 +12,42 @@
         </div>
     </div>
 </div>
+<div class="grid gap-6 mb-6 md:grid-cols-2 p-10">
+    <!-- Input texto o números -->
+    <fieldset>
+        <label for="inputField" class="form-label">Input Label</label>
+        <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+        <p class="form-helper">Al hacer clic en continuar usted acepta que su correo sera almacenado y compartido dentro
+            de nuestra empresa dentro de los <a href="#" class="form-helperLink">Términos y condiciones</a>.</p>
+    </fieldset>
+
+    <!-- Input para archivos -->
+    <fieldset>
+
+        <label class="form-label" for="inputFile">Subir DNI</label>
+        <input class="form-inputFile" id="inputFile" name="inputFile" type="file">
+        <p class="form-helper">PNG, JPG, JPEG</p>
+
+    </fieldset>
+
+    <fieldset>
+        <label class="form-label" for="select">Seleccione un numero</label>
+        <select name="select" id="select" class="form-select">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </fieldset>
+
+    <div>
+        <label class="form-label" for="select">Checkboxes</label>
+        <div class="flex items-center mb-4">
+            <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
+            <label for="default-checkbox" class="form-checkboxLabel">Rol 1</label>
+        </div>
+        <div class="flex items-center">
+            <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
+            <label for="checked-checkbox" class="form-checkboxLabel">Rol 2</label>
+        </div>
+    </div>
+</div>
