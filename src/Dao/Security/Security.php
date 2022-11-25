@@ -122,7 +122,7 @@ class Security extends \Dao\Table
         );
     }
 
-    static private function _hashPassword($password)
+    static public function _hashPassword($password)
     {
         return password_hash(self::_saltPassword($password), PASSWORD_ALGORITHM);
     }
@@ -275,6 +275,38 @@ class Security extends \Dao\Table
     }
     private function __clone()
     {
+    }
+    //Actualiza el token del usuario creando uno nuevo con una nueva fecha de expiración de 1 hora
+    static public function updateToken($user){
+        $sqlstr = "UPDATE usuario SET token=:token, tokenexp=:tokenexp, tokenest='ACT' WHERE usercod=:usercod;";
+        return self::executeNonQuery(
+            $sqlstr,
+            array(
+                "usercod" => $user["usercod"],
+                "token" => $user["token"],
+                "tokenexp" => $user["tokenexp"]
+            )
+        );
+    }
+
+    //Obtiene el usuario por el token
+    static public function getByToken($token){
+        $sqlstr = "SELECT tokenexp, token, useremail FROM usuario WHERE token=:token AND tokenest='ACT';";
+        $usuarios = self::obtenerRegistros($sqlstr, array("token" => $token));
+        return count($usuarios) > 0 ? $usuarios[0] : false;
+    }
+
+    //Actualiza la contraseña del usuario (La contraseña ya debe estar encriptada) y desactiva el token
+    static public function updatePassword($user){
+        $sqlstr = "UPDATE usuario SET userpswd=:userpswd, tokenest=:tokenest   WHERE usercod=:usercod;";
+        return self::executeNonQuery(
+            $sqlstr,
+            array(
+                "usercod" => $user["usercod"],
+                "userpswd" => $user["password"],
+                "tokenest" => $user["tokenest"]
+            )
+        );
     }
 }
 

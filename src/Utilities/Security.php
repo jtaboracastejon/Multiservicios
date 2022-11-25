@@ -62,6 +62,18 @@ class Security {
         }
         return \Dao\Security\Security::isUsuarioInRol($userId, $rol);
     }
+
+    // retorna un "token" random de maximo 32 caracteres
+    public static function generateRandomString($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 }
 
 

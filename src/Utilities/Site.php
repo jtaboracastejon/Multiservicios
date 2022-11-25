@@ -70,5 +70,10 @@ class Site
         }
         \Utilities\Context::setContext("EndScripts", $tmpSrcs);
     }
+    //Retorna la direccion del servidor establecida en el archivo de parameters
+    public static function getPublicPath()
+    {
+        return \Utilities\Context::getContextByKey("PUBLIC_PATH");
+    }
 }
 ?>
