@@ -38,16 +38,82 @@
             <option value="">3</option>
         </select>
     </fieldset>
+    <fieldset>
+        <label for="txtDateX" class="form-label">Fecha X</label>
+        <input type="date" name="txtDateX" class="form-input">
+    </fieldset>
+    <fieldset>
+        <label class="form-label" for="select">Checkboxes & Radio Buttons</label>
+        <div class="flex gap-10">
+            <div>
+                <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
+                    <label for="default-checkbox" class="form-checkboxLabel">Casilla 1</label>
+                </div>
+                <div class="flex items-center">
+                    <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
+                    <label for="checked-checkbox" class="form-checkboxLabel">Casilla 2</label>
+                </div>
+            </div>
+            <!-- Inicio radio buttons -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <input id="btnRadio1" type="radio" value="" name="default-radio" class="form-radioButton">
+                    <label for="btnRadio1" class="checkboxRadioLabel">Radio 1</label>
+                </div>
+                <div class="flex items-center">
+                    <input checked id="btnRadio2" type="radio" value="" name="default-radio" class="form-radioButton">
+                    <label for="btnRadio2" class="checkboxRadioLabel">Radio 2</label>
+                </div>
+            </div>
+            <!-- Fin radio buttons -->
+            <div>
+                <div class="flex">
+                    <input type="checkbox" id="btnBgChk" class="peer hidden" />
+                    <label for="btnBgChk" class="form-checkboxRadioBG">
+                        Coloreame</label>
+                </div>
+            </div>
+            <div>
+                <div class="flex">
+                    <input type="radio" id="btnBgRb1" name="btnBgRbUSO" class="peer hidden" />
+                    <label for="btnBgRb1" class="form-checkboxRadioBG">Radio con Bg 1</label>
+                </div>
+                <div class="flex">
+                    <input type="radio" id="btnBgRb2" name="btnBgRbUSO" class="peer hidden" />
+                    <label for="btnBgRb2" class="form-checkboxRadioBG">Radio con Bg 2</label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <label for="" class="form-label">Botones</label>
+        <button type="button" class="form-primaryButton">Primario</button>
+        <button type="button" class="form-secondaryButton">Secundario</button>
+        <button type="button" class="form-dangerButton">Peligro</button>
+        <button type="button" class="form-warningButton">Peligro</button>
+        <button type="button" class="form-successButton">Éxito</button>
+    </fieldset>
+    <fieldset>
 
+
+        <label class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="peer multi-switch">
+            </div>
+            <span class="ml-3 text-sm font-medium text-gray-900">Cámbiame</span>
+        </label>
+
+
+    </fieldset>
+</div>
+<div class="p-10">
     <div>
-        <label class="form-label" for="select">Checkboxes</label>
-        <div class="flex items-center mb-4">
-            <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
-            <label for="default-checkbox" class="form-checkboxLabel">Rol 1</label>
-        </div>
-        <div class="flex items-center">
-            <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
-            <label for="checked-checkbox" class="form-checkboxLabel">Rol 2</label>
-        </div>
+        <label for="" class="form-label">Titulo 1</label>
+        <h1 class="multi-titleG1">Lorem ipsum dolor</h1>
+    </div>
+    <div>
+        <label for="" class="form-label">Titulo 2</label>
+        <h1 class="multi-titleG2">Lorem ipsum dolor</h1>
     </div>
 </div>

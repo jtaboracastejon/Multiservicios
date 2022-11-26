@@ -64,6 +64,57 @@
     background-position: center;
 }
 
-.form-checkboxLabel {
+.form-checkboxRadioLabel {
     @apply ml-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+}
+
+.form-radioButton{
+    @apply appearance-none h-6 w-6 bg-gray-400 rounded-full checked:bg-multiDarkBlue transition-all duration-200;
+    --tw-scale-x: .6;
+    --tw-scale-y: .6;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.form-radioButton:checked{
+    border: none;
+    outline: 0.2rem solid #1C3879;
+    outline-offset: 0.3rem;
+}
+
+.form-checkboxRadioBG{
+    @apply select-none cursor-pointer rounded-lg border border-multiDarkBlue py-3 px-6 font-medium text-black transition-colors duration-200 ease-in-out peer-checked:bg-multiDarkBlue peer-checked:text-white peer-checked:border-gray-200;
+}
+
+.multi-btn {
+    @apply py-2.5 px-5 mr-2 mb-2 text-sm font-medium;
+}
+.form-primaryButton{
+    @apply multi-btn text-white bg-multiDarkBlue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm focus:outline-none;
+}
+
+
+.form-secondaryButton{
+    @apply multi-btn text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-multiDarkBlue focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.form-dangerButton {
+    @apply multi-btn  text-white focus:outline-none bg-red-500 rounded-lg border border-gray-200 hover:bg-red-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+.form-warningButton{
+    @apply multi-btn  text-white focus:outline-none bg-amber-500 rounded-lg border border-gray-200 hover:bg-amber-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.form-successButton{
+    @apply multi-btn text-white focus:outline-none bg-emerald-500 rounded-lg border border-gray-200 hover:bg-emerald-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.multi-titleG1{
+    @apply mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white;
+}
+.multi-titleG2{
+    @apply text-4xl font-extrabold;
+}
+
+.multi-switch{
+    @apply w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600;
 }
