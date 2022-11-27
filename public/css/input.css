@@ -97,15 +97,36 @@
     @apply multi-btn text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-multiDarkBlue focus:z-10 focus:ring-4 focus:ring-gray-200;
 }
 
+.multi-danger{
+    @apply bg-red-500;
+}
+.multi-danger:hover{
+    @apply bg-red-600;
+}
+
+.multi-warning{
+    @apply bg-amber-500;
+}
+.multi-warning:hover{
+    @apply bg-amber-600;
+}
+
+.multi-success{
+    @apply bg-emerald-500;
+}
+.multi-success:hover{
+    @apply bg-emerald-600;
+}
+
 .form-dangerButton {
-    @apply multi-btn  text-white focus:outline-none bg-red-500 rounded-lg border border-gray-200 hover:bg-red-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+    @apply multi-btn  text-white focus:outline-none multi-danger rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
 }
 .form-warningButton{
-    @apply multi-btn  text-white focus:outline-none bg-amber-500 rounded-lg border border-gray-200 hover:bg-amber-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+    @apply multi-btn  text-white focus:outline-none multi-warning rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
 }
 
 .form-successButton{
-    @apply multi-btn text-white focus:outline-none bg-emerald-500 rounded-lg border border-gray-200 hover:bg-emerald-600 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+    @apply multi-btn text-white focus:outline-none multi-success rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
 }
 
 .multi-titleG1{

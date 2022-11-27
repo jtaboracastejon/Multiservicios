@@ -48,22 +48,22 @@
             <div>
                 <div class="flex items-center mb-4">
                     <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
-                    <label for="default-checkbox" class="form-checkboxLabel">Casilla 1</label>
+                    <label for="default-checkbox" class="form-checkboxRadioLabel">Casilla 1</label>
                 </div>
                 <div class="flex items-center">
                     <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
-                    <label for="checked-checkbox" class="form-checkboxLabel">Casilla 2</label>
+                    <label for="checked-checkbox" class="form-checkboxRadioLabel">Casilla 2</label>
                 </div>
             </div>
             <!-- Inicio radio buttons -->
             <div>
                 <div class="flex items-center mb-4">
                     <input id="btnRadio1" type="radio" value="" name="default-radio" class="form-radioButton">
-                    <label for="btnRadio1" class="checkboxRadioLabel">Radio 1</label>
+                    <label for="btnRadio1" class="form-checkboxRadioLabel">Radio 1</label>
                 </div>
                 <div class="flex items-center">
                     <input checked id="btnRadio2" type="radio" value="" name="default-radio" class="form-radioButton">
-                    <label for="btnRadio2" class="checkboxRadioLabel">Radio 2</label>
+                    <label for="btnRadio2" class="form-checkboxRadioLabel">Radio 2</label>
                 </div>
             </div>
             <!-- Fin radio buttons -->
@@ -91,7 +91,7 @@
         <button type="button" class="form-primaryButton">Primario</button>
         <button type="button" class="form-secondaryButton">Secundario</button>
         <button type="button" class="form-dangerButton">Peligro</button>
-        <button type="button" class="form-warningButton">Peligro</button>
+        <button type="button" class="form-warningButton">Precaución</button>
         <button type="button" class="form-successButton">Éxito</button>
     </fieldset>
     <fieldset>
