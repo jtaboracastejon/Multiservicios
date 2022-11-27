@@ -1,3 +1,141 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+.form-input {
+    @apply bg-white border border-gray-300 text-gray-900 text-base rounded-lg focus:outline-none focus:border-multiDarkBlue focus:ring-1 focus:ring-multiDarkBlue w-full p-2.5;
+}
+
+.form-label {
+    @apply block mb-2 text-sm font-medium text-gray-900;
+}
+
+.form-helper {
+    @apply mt-2 text-sm text-gray-500;
+}
+
+.form-helperLink {
+    @apply font-medium text-multiDarkBlue hover:underline;
+}
+
+.form-inputFile {
+    @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none p-2.5;
+}
+
+
+.form-select {
+    background: #f7f7f7;
+    border: 1px solid #b1b1b1;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    height: 48px;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px);
+    @apply form-input;
+}
+
+.form-checkbox{
+    @apply appearance-none h-6 w-6 bg-gray-400 rounded checked:bg-multiDarkBlue transition-all duration-200;
+    --tw-scale-x: .6;
+    --tw-scale-y: .6;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.form-checkbox:checked{
+    border: none;
+    outline: 0.2rem solid #1C3879;
+    outline-offset: 0.3rem;
+    background-image: url('../public/svgs/check.svg');
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: center;
+}
+
+.form-checkboxRadioLabel {
+    @apply ml-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+}
+
+.form-radioButton{
+    @apply appearance-none h-6 w-6 bg-gray-400 rounded-full checked:bg-multiDarkBlue transition-all duration-200;
+    --tw-scale-x: .6;
+    --tw-scale-y: .6;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.form-radioButton:checked{
+    border: none;
+    outline: 0.2rem solid #1C3879;
+    outline-offset: 0.3rem;
+}
+
+.form-checkboxRadioBG{
+    @apply select-none cursor-pointer rounded-lg border border-multiDarkBlue py-3 px-6 font-medium text-black transition-colors duration-200 ease-in-out peer-checked:bg-multiDarkBlue peer-checked:text-white peer-checked:border-gray-200;
+}
+
+.multi-btn {
+    @apply py-2.5 px-5 mr-2 mb-2 text-sm font-medium;
+}
+.form-primaryButton{
+    @apply multi-btn text-white bg-multiDarkBlue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm focus:outline-none;
+}
+
+
+.form-secondaryButton{
+    @apply multi-btn text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-multiDarkBlue focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.multi-danger{
+    @apply bg-red-500;
+}
+.multi-danger:hover{
+    @apply bg-red-600;
+}
+
+.multi-warning{
+    @apply bg-amber-500;
+}
+.multi-warning:hover{
+    @apply bg-amber-600;
+}
+
+.multi-success{
+    @apply bg-emerald-500;
+}
+.multi-success:hover{
+    @apply bg-emerald-600;
+}
+
+.form-dangerButton {
+    @apply multi-btn  text-white focus:outline-none multi-danger rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+.form-warningButton{
+    @apply multi-btn  text-white focus:outline-none multi-warning rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.form-successButton{
+    @apply multi-btn text-white focus:outline-none multi-success rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200;
+}
+
+.multi-titleG1{
+    @apply mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white;
+}
+.multi-titleG2{
+    @apply text-4xl font-extrabold;
+}
+
+.multi-switch{
+    @apply w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600;
+}
