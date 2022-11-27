@@ -6,15 +6,32 @@
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
                 <!-- Aquí podes meter código -->
                 <div>
-                    <h1 class="multi-titleG2 !text-center">Iniciar Sesión</h1>
+                    <h1 class="multi-titleG2 !text-center">Unete a nosotros</h1>
                 </div>
                 <fieldset>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-rows-1">
+                            <div class="flex items-center mb-4 mt-10 border-2 rounded-lg ">
+                                <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
+                                <label for="default-checkbox" class="form-checkboxRadioLabel">Cliente</label>
+                            </div>
+
+                        </div>
+                        <div class="flex items-center mb-4 mt-10 border-2 rounded-lg ">
+                            <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
+                            <label for="checked-checkbox" class="form-checkboxRadioLabel">Casilla 2</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo
+                        Electronico/Usuario</label>
                     <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Contraseña</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
-                    <button type="button" class="form-primaryButton !align-middle !ml-28 !mt-3">Continuar</button>
+                    <button type="button" class="form-primaryButton !ml-36 !mt-3">Continuar</button>
+                    <p class="form-helper !text-center">Al hacer clic en continuar usted acepta que su correo sera almacenado y
+                        compartido dentro
+                        de nuestra empresa dentro de los <a href="#" class="form-helperLink">Términos y condiciones</a>.
+                    </p>
                 </fieldset>
             </div>
         </div>

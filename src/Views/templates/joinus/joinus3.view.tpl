@@ -6,16 +6,23 @@
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
                 <!-- Aquí podes meter código -->
                 <div>
-                    <h1 class="multi-titleG2 !text-center">Iniciar Sesión</h1>
+                    <h1 class="multi-titleG2 !text-xl !text-center">¡Estas un paso mas cerca!</h1>
                 </div>
                 <fieldset>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Contraseña</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
-                    <button type="button" class="form-primaryButton !align-middle !ml-28 !mt-3">Continuar</button>
+                    <p class="text-justify">
+                        jdoe, antes de que puedas empezar con nosotros, necesitamos verificar tu correo electronico por
+                        motivos de seguridad.
+                    </p>
+                    <p class="text-justify">
+                        Se ha enviado un correo con un código de verificación a: jhondoe@realmail.com
+                    </p>
                 </fieldset>
+                <div class="grid grid-cols-1 justify-items-center">
+                    <input type="text" name="inputField" id="inputField" class="form-input !w-6/12"
+                        placeholder="Código de Seguridad">
+                    <button type="button"
+                        class="form-primaryButton !align-middle !mt-3 !w-6/12">Continuar</button>
+                </div>
             </div>
         </div>
     </div>
