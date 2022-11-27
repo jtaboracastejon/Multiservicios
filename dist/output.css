@@ -521,6 +521,10 @@ html{
   visibility: hidden;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -671,6 +675,10 @@ html{
 
 .flex {
   display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 .table {
@@ -1118,6 +1126,14 @@ html{
   font-weight: 900;
 }
 
+.font-black {
+  font-weight: 900;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1183,10 +1199,13 @@ html{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  --tw-content: '';
+  content: var(--tw-content);
 }
 
-.duration-200 {
-  transition-duration: 200ms;
+.peer:checked ~ .multi-switch {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
 .hover\:border-blue-600:hover {

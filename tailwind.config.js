@@ -5,7 +5,12 @@ module.exports = {
     extend: {
       colors: {
         'multiDarkBlue': '#1C3879',
-        'multiYellow': '#EA9F2E',
+        'multiDarkYellow': '#e4a400',
+        'multiDarkGray': '#6b7280',	
+        'multiLightGray': '#d1d5db',
+        'multiDanger': "#ef4444",
+        "multiSuccess": "#10b981",
+        "multiWarning": "#f59e0b",
       },
       fontFamily: {
           'body': ['Montserrat', 'sans-serif']
