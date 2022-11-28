@@ -11,50 +11,15 @@
     <div class="z-0 w-screen overflow-hidden">
         <div class="overflow-x-scroll scroll-smooth hide-scroll-bar p-10" id="services">
             <div class="flex flex-nowrap lg:ml-30 ml-10">
+                {{foreach services}}
                 <div class="inline-block inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('{{imagepath}}')]">
                         <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
-                            <p class="font-bold text-white">Plomeria</p>
+                            <p class="font-bold text-white">{{servicename}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
-                            <p class="font-bold text-white">Albañileria</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        <p>Electricista</p>
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        <p>Hotel</p>
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        0
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        1
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        2
-                    </div>
-                </div>
-                <div class="inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
-                        3
-                    </div>
-                </div>
+                {{endfor services}}
             </div>
         </div>
     </div>

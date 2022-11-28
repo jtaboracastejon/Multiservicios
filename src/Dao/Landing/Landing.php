@@ -5,7 +5,7 @@ use Dao\Table;
 class Landing extends Table{
     //Funcion que trae todos los servicios de la base de datos
     public static function getAllServices(){
-        $selectSql = "SELECT * FROM services";
+        $selectSql = "SELECT * FROM services WHERE status = 'ACT'";
         return self::obtenerRegistros($selectSql, array());
     }
 
