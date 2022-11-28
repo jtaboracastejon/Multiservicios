@@ -2,11 +2,11 @@
     <div class="py-44 bg-black bg-opacity-80 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
         id="modal" style="opacity: -0.1; display: none;">
         <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
-            <!-- contenedor, parte white -->
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
-                <!-- Aquí podes meter código -->
-                <div>
+                
+                <div class="flex justify-between">
                     <h1 class="multi-titleG2 !text-xl !text-center">¡Estas un paso mas cerca!</h1>
+                    <button class="" onclick="modalHandler()"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
                 <fieldset>
                     <p class="text-justify">
@@ -20,8 +20,8 @@
                 <div class="grid grid-cols-1 justify-items-center">
                     <input type="text" name="inputField" id="inputField" class="form-input !w-6/12"
                         placeholder="Código de Seguridad">
-                    <button type="button"
-                        class="form-primaryButton !align-middle !mt-3 !w-6/12">Continuar</button>
+                    <button type="button" class="form-primaryButton !align-middle !mt-3 !w-6/12">Continuar</button>
+                    
                 </div>
             </div>
         </div>

@@ -912,6 +912,10 @@ html {
   width: 50% !important;
 }
 
+.\!w-full {
+  width: 100% !important;
+}
+
 .max-w-sm {
   max-width: 24rem;
 }
@@ -926,6 +930,10 @@ html {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.grid-flow-row {
+  grid-auto-flow: row;
 }
 
 .grid-cols-1 {
@@ -1006,6 +1014,14 @@ html {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.place-self-end {
+  place-self: end;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .overflow-hidden {

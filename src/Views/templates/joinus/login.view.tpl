@@ -15,6 +15,7 @@
                     <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
                     <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
                     <button type="button" class="form-primaryButton !align-middle !ml-28 !mt-3">Continuar</button>
+                    <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
                 </fieldset>
             </div>
         </div>
