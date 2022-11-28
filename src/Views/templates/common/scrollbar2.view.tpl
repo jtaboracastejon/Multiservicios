@@ -1,87 +1,104 @@
-<div class="flex flex-col bg-blue-white m-auto p-auto">
-    <h1 class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
-        Conoce las areas con personal capacitado
-    </h1>
-
-
-<div>
-  
-<button id="slideLeft"  class="multi-btn" type="button">Slide left</button>
-<button id="slideRight" class="multi-btn"  type="button">Slide right</button>
-</div>
-
-    <div class="flex overflow-x-scroll pb-10 max-w-7xl pr-8 pl-8 justify-center hide-scroll-bar" id="services">
-        <div class=" flex flex-nowrap lg:ml-30 md:ml-20 ml-10 ">
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                    <p>Plomeria</p>
+<div class="flex items-center justify-center max-w-screen">
+    <div class="z-10 absolute left-4">
+        <button id="slideLeft" class="" type="button">
+            <i class="fa-solid fa-circle-left fa-xl shadow-lg text-white"></i>
+        </button>
+    </div>
+    <div class="z-10 absolute right-4">
+        <button id="slideRight" class="" type="button">
+            <i class="fa-solid fa-circle-right fa-xl shadow-lg text-white"></i></button>
+    </div>
+    <div class="z-0 w-screen overflow-hidden">
+        <div class="overflow-x-scroll scroll-smooth hide-scroll-bar p-10" id="services">
+            <div class="flex flex-nowrap lg:ml-30 ml-10">
+                <div class="inline-block inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
+                            <p class="font-bold text-white">Plomeria</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3 ">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                    <p >Albañileria</p>
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
+                            <p class="font-bold text-white">Albañileria</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                    <p>Electricista</p>
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        <p>Electricista</p>
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                    <p>Hotel</p>
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        <p>Hotel</p>
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                0
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        0
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                1
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        1
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                2
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        2
+                    </div>
                 </div>
-            </div>
-            <div class="inline-block px-3">
-                <div class="w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md bg-blue-600 hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                3
+                <div class="inline-block px-3">
+                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg')]">
+                        3
+                    </div>
                 </div>
             </div>
         </div>
-        
-
     </div>
-    
-    
-    
-    
-
 </div>
 <style>
-.hide-scroll-bar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.hide-scroll-bar::-webkit-scrollbar {
-  display: none;
-}
+    .hide-scroll-bar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .hide-scroll-bar::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <script>
-  const buttonRight = document.getElementById('slideRight');
-  const buttonLeft = document.getElementById('slideLeft');
+    const buttonRight = document.getElementById('slideRight');
+    const buttonLeft = document.getElementById('slideLeft');
 
-  buttonRight.onclick = function () {
-    document.getElementById('services').scrollLeft += 100;
-    
-  };
-  buttonLeft.onclick = function () {
-    document.getElementById('services').scrollLeft -= 100;
-  };
-  
+    buttonRight.onclick = function () {
+        document.getElementById('services').scrollLeft += 500;
+
+    };
+    buttonLeft.onclick = function () {
+        document.getElementById('services').scrollLeft -= 500;
+    };
+
+    const callback = function (entries) {
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                console.log('intersecting');
+                entry.target.classList.add("animate-fadeIn");
+            } else {
+                entry.target.classList.remove("animate-fadeIn");
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(callback);
+
+    const targets = document.querySelectorAll(".js-show-on-scroll");
+    targets.forEach(function (target) {
+        observer.observe(target);
+    });
+
 </script>
