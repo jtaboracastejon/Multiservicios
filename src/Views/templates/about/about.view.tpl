@@ -1,20 +1,90 @@
-<div class="bg-no-repeat bg-cover bg-center bg-[url('../public/imgs/landing/plumber.jpg')]">
-    {{include common/navbar}}
-    <div class="h-[45rem] grid md:grid-cols-2 md:gap-2 content-center p-10">
-        <div class="drop-shadow-2xl">
-            <h1 class="font-black text-white text-5xl">Encuentra la persona para resolver tus problemas</h1>
-            <div class="mt-4 w-full">
-                <input type="text" placeholder="Hora de arreglarlo..." class="text-xl rounded-l-full px-5 py-2 w-9/12">
-                <a href="" class="bg-multiDarkBlue px-5 py-3 text-white rounded-r-full text-xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
+<div class="bg-no-repeat bg-cover bg-center">
+    {{include common/navbarS}}
+</div>
+
+
+<div class="mx-10 mt-16">
+    <div class="w-full flex flex-row">
+        <div class="basis-2/3">
+            <style>
+                .carousel-open:checked+.carousel-item {
+                    position: static;
+                    opacity: 100;
+                }
+
+                .carousel-item {
+                    -webkit-transition: opacity 0.6s ease-out;
+                    transition: opacity 0.6s ease-out;
+                }
+                .carousel-indicators {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        bottom: 2%;
+                        left: 0;
+                        right: 0;
+                        text-align: center;
+                        z-index: 10;
+                    }
+            </style>
+            <style id="js-targetStyleControls">
+            </style>
+            <style id="js-targetStyleIndicators">
+            </style>
+            <div class="bg-white font-sans leading-normal tracking-normal">
+                <div class="carousel relative shadow-2xl bg-white">
+                    <div class="carousel-inner relative overflow-hidden w-full">
+                        <!--Slide 1-->
+                        {{foreach imagenes}}
+                        <input class="carousel-open js-targetInput" type="radio" id="" name="carousel" aria-hidden="true" hidden="" checked="">
+                        <div class="carousel-item absolute opacity-0">
+                            <img src="{{img}}" class="object-cover object-center h-full w-full" alt="">
+                        </div>
+                        <label for="" class="prev multi-slidePrev js-targetPrevLabel"><i class="fa-solid fa-circle-arrow-left"></i></label>
+                        <label for="" class="next multi-slideNext js-targetNextLabel"><i class="fa-solid fa-circle-arrow-right"></i></label>
+                        {{endfor imagenes}}
+                        <!-- Add additional indicators for each slide-->
+                        <ol class="carousel-indicators" id="js-targetCarouselIndicators">
+                        </ol>
+
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="basis-1/3 pl-10">
+            <div class="border-[2px] border-multiDarkBlue h-full">
+            <div class="z-0 grid h-2/4 bg-[url('../public/imgs/carpinteria.png')] bg-cover">
+                <div class="z-10 grid place-items-end">
+                    <div class="p-2 rounded-tl-lg bg-white text-center">
+                        <div class="flex items-center justify-center">
+                            <i class="fa-solid fa-star text-multiDarkYellow mr-3"></i>
+                            <span class="font-semibold text-lg">4.5</span>
+                        </div>
+                        <span class="text-xs text-gray-500">Calificación</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid m-3">
+                <div class="flex flex-col my-auto">
+                    <p class="text-lg font-medium">Javier Tabora</p>
+                    <p class="text-sm text-multiDarkBlue">Santa Rosa de Copan</p>
+                </div>
+                <p class="text-xs text-justify">1 Joven emprendedor con su nuevo negocio, en el cual nos ofrece una
+                    gran variedad de trabajos en la madera, con bellos acabados y delineados únicos que solamente el
+                    ofrece.
+                    Llame al 9090-4040 para mas información.
+                </p>
+                
+                <a href="" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
+                    <i class="fa-solid fa-paper-plane text-white mr-4"></i>
+                    <span href="" class="text-white font-semibold ">Contactar</span>
+                </a>
+            </div>
+            
+        </div>
+        </div>
     </div>
-</div>
-<div class="mx-10 mt-16">
-    <div class="font-bold text-xl">Visto recientemente en tu zona</div>
-
     <div class="mt-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 2xl:gap-20">
         <!-- Inicia Tarjeta-->
         <div class="border-[2px] border-multiDarkBlue">
@@ -81,3 +151,48 @@
         <!-- Fin Tarjeta-->
     </div>
 </div>
+<script>
+    const targets = document.querySelectorAll(".js-targetInput");    
+    var styleControls = document.getElementById("js-targetStyleControls");
+    var styleIndicators = document.getElementById("js-targetStyleIndicators");
+    var carouselIndicators = document.getElementById("js-targetCarouselIndicators");
+    var i = 1;
+    targets.forEach(target => {
+        target.id = "carousel-" + i;
+        i++;       
+    });
+    const targetsPrevLabel = document.querySelectorAll(".js-targetPrevLabel");
+    i = 1;    
+    var targetsCount = targetsPrevLabel.length;
+    targetsPrevLabel.forEach(target => {
+        if(i == 1){
+            target.htmlFor = "carousel-" + targetsCount;
+            target.checked = true;
+        }else{
+            target.htmlFor = "carousel-" + (i-1);
+        }
+        target.classList.add("control-"+i);
+        i++;
+    });
+    const targetsNextLabel = document.querySelectorAll(".js-targetNextLabel");
+    i = 1;
+    targetsNextLabel.forEach(target => {
+        if(i == targetsCount){
+            target.htmlFor = "carousel-" + 1;
+            styleControls.innerHTML += "#carousel-" + i + ":checked~.control-" + i + "{display: block;}";
+            styleIndicators.innerHTML += "#carousel-" + i + ":checked~.control-" + i + "~.carousel-indicators li:nth-child(" + i + ") .carousel-bullet { height: 3.5rem; }";
+        }else{
+            target.htmlFor = "carousel-" + (i+1);
+            styleControls.innerHTML += "#carousel-" + i + ":checked~.control-" + i + ",";
+            styleIndicators.innerHTML += "#carousel-" + i + ":checked~.control-" + i + "~.carousel-indicators li:nth-child(" + i + ") .carousel-bullet,";
+        }        
+        target.classList.add("control-"+i);
+        i++;
+    });
+    const encoded = ({{encoded}});
+    Object.keys(encoded).forEach(function(key) {
+        carouselIndicators.innerHTML += '<li class="inline-block mr-3"> <label for="carousel-' + key + '" class="carousel-bullet cursor-pointer block text-white"><img src="'+ encoded[key]['img'] +'" class="h-10 hover:shadow-md"/></li>';
+    });
+
+</script>
+
