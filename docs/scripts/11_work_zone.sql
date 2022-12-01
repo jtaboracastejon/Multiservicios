@@ -1,15 +1,21 @@
-CREATE TABLE `nw202203`.`work_zones` (
-  `idworkzone` INT NOT NULL AUTO_INCREMENT,
-  `depto` VARCHAR(45) NOT NULL,
-  `status` ENUM('DISP', 'NODISP') NOT NULL COMMENT 'Estado de la zona laboral si se esta operando o no.',
-  PRIMARY KEY (`idworkzone`));
-
-  CREATE TABLE `nw202203`.`work_municipalities` (
-  `iddepto` INT NOT NULL,
-  `municipality` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`iddepto`),
-  CONSTRAINT `depto_municipalities`
-    FOREIGN KEY (`iddepto`)
-    REFERENCES `nw202203`.`work_zones` (`idworkzone`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+CREATE TABLE `departments` (
+  `iddepto` tinyint NOT NULL AUTO_INCREMENT,
+  `department` varchar(20) NOT NULL,
+  PRIMARY KEY (`iddepto`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `municipalities` (
+  `idmunicipality` int NOT NULL AUTO_INCREMENT,
+  `municipality` varchar(20) NOT NULL,
+  PRIMARY KEY (`idmunicipality`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `work_zones` (
+  `idworkzone` int NOT NULL AUTO_INCREMENT,
+  `iddepto` tinyint NOT NULL,
+  `idmunicipality` int NOT NULL,
+  `status` enum('DIS','NODIS') DEFAULT NULL,
+  PRIMARY KEY (`idworkzone`),
+  KEY `workzone_depto_key_idx` (`iddepto`),
+  KEY `workzone_municipalities_key_idx` (`idmunicipality`),
+  CONSTRAINT `workzone_depto_key` FOREIGN KEY (`iddepto`) REFERENCES `departments` (`iddepto`),
+  CONSTRAINT `workzone_municipalities_key` FOREIGN KEY (`idmunicipality`) REFERENCES `municipalities` (`idmunicipality`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

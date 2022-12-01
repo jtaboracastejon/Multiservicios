@@ -71,44 +71,120 @@ class Security extends \Dao\Table
         $newUser["userpswdest"] = Estados::ACTIVO;
         $newUser["userpswdexp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
         $newUser["userest"] = Estados::ACTIVO;
-        $newUser["useractcod"] = hash("sha256", $email.time());
+        //$newUser["useractcod"] = hash("sha256", $email.time());
+        $newUser["emailverified"] = "ITSNV";
+        $newUser["useractcod"] ="";
         $newUser["usertipo"] = $userType;
 
         $sqlIns = "INSERT INTO `usuario` (`useremail`, `username`, `userpswd`,
             `userfching`, `userpswdest`, `userpswdexp`, `userest`, `useractcod`,
-            `userpswdchg`, `usertipo`)
+            `userpswdchg`, `usertipo`, `emailverified`) 
             VALUES
             ( :useremail, :username, :userpswd,
             now(), :userpswdest, :userpswdexp, :userest, :useractcod,
-            now(), :usertipo);";
+            now(), :usertipo, :emailverified);";
 
         return self::executeNonQuery($sqlIns, $newUser);
     }
 
-    static public function crearDetalleUsuario($lastusercod, $zonalaboral){
+    //funcion que inserte en userdetails solo el usercod y idworzone
+    static public function newUserDetails($usercod, $idworkzone)
+    {
+        $sqlIns = "INSERT INTO `user_details` (`usercod`, `idworkzone`) 
+            VALUES
+            ( :usercod, :idworkzone);";
 
+        return self::executeNonQuery($sqlIns, array("usercod" => $usercod, "idworkzone" => $idworkzone));
     }
 
-    //obtener todos los wort_zones
+    //funcion para actualizar tabla userdetails
+    static public function updateUserDetails($iduserdetails, $firstname,
+     $lastname, $address, $phonenumber, $imgprofile, $img_portada)
+    {
+      $params = array(
+        "iduserdetails" => $iduserdetails,
+        "firstname" => $firstname,
+        "lastname" => $lastname,
+        "address" => $address,
+        "phonenumber" => $phonenumber,
+        "imgprofile" => $imgprofile,
+        "img_portada" => $img_portada
+      );
+        $sqlUpd = "UPDATE user_details SET
+         firstname = :firstname,
+          lastname = :lastname,
+            address = :address,
+            phonenumber = :phonenumber, 
+            imgprofile = :imgprofile,
+            img_portada = :img_portada
+            WHERE iduserdetails = :iduserdetails;";
+        return self::executeNonQuery($sqlUpd, $params);
+    }
+    
+   
+    static public function updatePin($useremail, $pin){
+        $sqlupd="UPDATE usuario SET useractcod=:useractcod WHERE useremail=:useremail;";
+        $params = array(
+            "useremail" => $useremail,
+            "useractcod" => $pin
+        );
+        return self::executeNonQuery($sqlupd, $params);
+    }
+    
+    static public function updateEmailVerified($useremail, $emailverified){
+        $sqlstr = "UPDATE usuario SET emailverified = :emailverified WHERE useremail = :useremail;";
+        return self::executeNonQuery($sqlstr, array("useremail" => $useremail, "emailverified" => $emailverified));
+    }
+
+    static public function insertWorkZones($iddepto, $idmunicipality,$status){
+        $sqlstr = "INSERT INTO work_zones (iddepto, idmunicipality, status) VALUES (:iddepto, :idmunicipality, :status);";
+        return self::executeNonQuery($sqlstr, array("iddepto" => $iddepto, "idmunicipality" => $idmunicipality, "status" => $status));
+       
+    }
+    static public function getDepartments()
+    {
+        $sqlstr = "SELECT * FROM departments;";
+        return self::obtenerRegistros($sqlstr, array());
+    }
+   
     static public function getZones()
     {
         $sqlstr = "SELECT * FROM work_zones;";
         return self::obtenerRegistros($sqlstr, array());
     }
 
-    //obtener todos los municipios
     static public function getMunicipios()
     {
-        $sqlstr = "SELECT * FROM work_municipalities;";
+        $sqlstr = "SELECT * FROM municipalities;";
         return self::obtenerRegistros($sqlstr, array());
     }
-
-
 
     static public function getUsuarioByEmail($email)
     {
         $sqlstr = "SELECT * from `usuario` where `useremail` = :useremail ;";
         $params = array("useremail"=>$email);
+
+        return self::obtenerUnRegistro($sqlstr, $params);
+    }
+
+//get last iduserdetails
+    static public function getLastIdUserDetails()
+    {
+        $sqlstr = "SELECT MAX(iduserdetails) iduserdetails FROM user_details;";
+        $userid=self::obtenerUnRegistro($sqlstr, array());
+        return $userid["iduserdetails"];
+    }
+    static public function getLastUsercod()
+    {
+        $sqlstr = "SELECT MAX(usercod) usercod from `usuario`;";
+        $usercod= self::obtenerUnRegistro($sqlstr, array());
+        return $usercod["usercod"];
+    }
+
+    static public function getWorkzoneByDeptoAndMunicipality($iddepto, $idmunicipality)
+    {
+        $sqlstr = "SELECT * from work_zones where iddepto = :iddepto and idmunicipality = :idmunicipality;";
+        $params = array("iddepto"=>$iddepto, "idmunicipality"=>$idmunicipality);
 
         return self::obtenerUnRegistro($sqlstr, $params);
     }
@@ -192,6 +268,12 @@ class Security extends \Dao\Table
         return count($resultados) > 0;
     }
 
+    static public function existWorkzone($iddepto,$idmunicipality)
+    {
+        $sqlstr = "SELECT * from work_zones where iddepto=:iddepto and idmunicipality=:idmunicipality;";
+        $workzonesList = self::obtenerRegistros($sqlstr, array("iddepto"=>$iddepto,"idmunicipality"=>$idmunicipality));
+        return (count($workzonesList) > 0) ? $workzonesList[0]["idworkzone"] : "0";
+    } 
     static public function getRol($rolescod)
     {
         $sqlstr = "SELECT * from roles where rolescod=:rolescod;";

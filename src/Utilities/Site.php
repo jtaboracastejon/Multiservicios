@@ -34,6 +34,11 @@ class Site
         
         die();
     }
+    //solo mostrar mensaje
+    public static function sentMsj($msg)
+    {
+        echo '<script>alert("'.$msg. '");';
+    }
     public static function redirectToWithMsg($url, $msg)
     {
         echo '<script>alert("'.$msg. '");';

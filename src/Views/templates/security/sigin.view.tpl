@@ -3,6 +3,9 @@
     <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
       <h1 class="col-12">Crea tu cuenta</h1>
       <input type="text" name="txtEmail" value="{{txtEmail}}">
+       {{if errorEmail}}
+        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorEmail}}</div>
+        {{endif errorEmail}}
     </section>
     <section class="depth-1 py-5 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
       <div class="row">
@@ -34,12 +37,21 @@
       </div>
       <div class="row">
         <label for="Departamentos">Departamentos</label>
-        <select name="Departamentos" id="departamentos">
+        <select name="cbDepartamentos" id="cbDepartamentos">
         {{foreach dbDeptos}}
-          <option value="{{idworkzone}}">{{depto}}</option>
+          <option value="{{iddepto}}">{{department}}</option>
         {{endfor dbDeptos}}
         </select>
       </div>
+      <div class="row">
+        <label for="municipios">municipios</label>
+        <select name="cbMunicipios" id="cbMunicipios">
+          <option value="1">municipio1</option>
+            <option value="2">municipio2</option>
+              <option value="3">municipio3</option>
+                <option value="4">municipio4</option>
+        </select>
+      <!--
       <div class="row">
         <label for="Municipios">Municipios</label>
         <select name="municipio" id="municipio">
@@ -48,6 +60,7 @@
           {{endfor dbMunicipios}}
         </select>
       </div>
+      -->
       <div class="row right flex-end px-4">
           <button class="primary" id="btnSignin" type="submit">Siguiente</button>
       </div>

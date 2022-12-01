@@ -1,8 +1,6 @@
 
 <form action="index.php?page=sec_prueba" method="post">
    <fieldset>
-    <legend>Choose your monster's features:</legend>
-
     <div>
       <input value="PRV" type="radio" id="Cbusuarios" name="Cbusuarios" checked>
       <label for="scales">Proveedor</label>
@@ -13,7 +11,12 @@
       <label for="horns">usuario</label>
     </div>
 </fieldset>
+<div>
     <input type="email" name="txtEmail" id="txtEmail" placeholder="Correo electronico" required>
     <input name="btnEnviar" type="submit" value="Enviar">
+    {{if errorEmailE}}
+        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorEmailE}}</div>
+        {{endif errorEmailE}}
+</div>
 </form>
 

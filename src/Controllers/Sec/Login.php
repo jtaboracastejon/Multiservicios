@@ -47,21 +47,36 @@ class Login extends \Controllers\PublicController
                                 $dbUser["useremail"]
                             )
                         );
-                        // Aqui se debe establecer acciones segun la politica de la institucion.
                     }
+                  
                     if (! $this->hasError) {
+                        $dbUser["emailverified"] == "ITSV" ? $dbUser["emailverified"]= TRUE :$dbUser["emailverified"]= FALSE;
+
                         \Utilities\Security::login(
                             $dbUser["usercod"],
                             $dbUser["username"],
-                            $dbUser["useremail"]
+                            $dbUser["useremail"],
+                            $dbUser["emailverified"]
+                            
                         );
+                        //die(var_dump($dbUser));
+                        
                         if (\Utilities\Context::getContextByKey("redirto") !== "") {
                             \Utilities\Site::redirectTo(
                                 \Utilities\Context::getContextByKey("redirto")
                             );
-                        } else {
-                            \Utilities\Site::redirectTo("index.php");
                         }
+                        else  if (!$dbUser["emailverified"]){
+                            //mensaje de vista
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php",
+                                "Bienvenido, recuerda verificar tu cuenta!"
+                            );
+                                        
+                        }else {
+
+                            \Utilities\Site::redirectToWithMsg("index.php", "¡Bienvenido!");
+                        }    
                     }
                 } else {
                     error_log(

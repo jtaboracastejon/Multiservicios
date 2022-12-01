@@ -15,14 +15,16 @@ class Security {
     {
         unset($_SESSION["login"]);
     }
-    public static function login($userId, $userName, $userEmail)
+    public static function login($userId, $userName, $userEmail, $emailVerified)
     {
-        $_SESSION["login"] = array(
+        $_SESSION["login"] = [
             "isLogged" => true,
             "userId" => $userId,
             "userName" => $userName,
-            "userEmail" => $userEmail
-        );
+            "userEmail" => $userEmail,
+            "emailVerified" => $emailVerified
+        ];
+    
     }
     public static function isLogged():bool
     {
@@ -42,6 +44,7 @@ class Security {
         }
         return 0;
     }
+
     public static function isAuthorized($userId, $function):bool
     {
         if (\Utilities\Context::getContextByKey("DEVELOPMENT") == "1") {

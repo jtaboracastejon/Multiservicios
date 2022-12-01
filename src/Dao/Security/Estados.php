@@ -9,4 +9,5 @@ final class Estados extends \Utilities\Enum
     const BLOQUEADO = "BLQ";
     const SUSPENDIDO = "SUS";
 }
-?>
+
+
