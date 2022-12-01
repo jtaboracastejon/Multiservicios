@@ -55,7 +55,24 @@ public function run(): void
         }
     }
 
-    private function store(){}
+/*
+    public function multiPhotos(){
+        $imagepath=array();
+        if($this->file('imagepath')){
+            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
+            $files = $this->file('imagepath');
+        
+            foreach($files as $file){
+                $filename= $file->
+            }
+        }
+
+        
+
+        
+
+    }
+    */
 
 
     private function process_postback()
@@ -118,6 +135,23 @@ public function run(): void
     {
        // $Fecha = date();
         #$nombreFoto = $imagepath != "" ? $Fecha->getTime
+        /*
+        if(!file_exists($_FILES['imagepath']['tmpname'])  || !is_uploaded_file($_FILES['imagen']['tmp_name']))
+        {
+            $imagepath =$_POST["imagepath"];
+        }
+        else{
+            $ext = explode(".", $_FILES["imagepath"]["name"]);
+            if($_FILES['imagepath']['type'] == "image/jpg"  || $_FILES['imagepath']['type'] == "image/jpeg" || $_FILES['imagepath']['type']) ==
+            "image/png")
+            {
+                $imagepath = round(microtime(true)) . '.' . end($ext);
+                move_uploaded_file($_FILES["imagepath"]["tmp_name"], "../public/imgs/"  .  $imagepath);
+            }
+        
+        }
+        */
+
 
         $insertResult=\Dao\Mnt\Services::addService(
             $this->viewData["servicename"] ,

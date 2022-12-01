@@ -11,14 +11,12 @@
     <input type="text" class="col-8" name="description" id="description" {{if readonly}} disable {{endif readonly}}
       value="{{description}}" />
   </section>
-  <form action="" method="POST" >
   <section class="row my-2 align-center">
     <label for="imagepath" class="col-4">Imagen</label>
-    <input type="file" class="col-8" name="imagepath" id="imagepath" accept="image/*"  {{if readonly}} disable {{endif readonly}}
+    <input type="text" class="col-8" name="imagepath" id="imagepath" {{if readonly}} disable {{endif readonly}}
       value="{{imagepath}}" />
   </section>
   
-  </form>
 
   <!--
   <section class="row my-2 align-center">
