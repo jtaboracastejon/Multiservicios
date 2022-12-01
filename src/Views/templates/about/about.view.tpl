@@ -4,7 +4,7 @@
 
 
 <div class="mx-10 mt-16">
-    <div class="w-full flex flex-row">
+    <div class="w-full flex flex-col lg:flex-row">
         <div class="basis-2/3">
             <style>
                 .carousel-open:checked+.carousel-item {
@@ -38,8 +38,8 @@
                         <!--Slide 1-->
                         {{foreach imagenes}}
                         <input class="carousel-open js-targetInput" type="radio" id="" name="carousel" aria-hidden="true" hidden="" checked="">
-                        <div class="carousel-item absolute opacity-0">
-                            <img src="{{img}}" class="object-cover object-center h-full w-full" alt="">
+                        <div class="carousel-item absolute opacity-0 rounded-t-lg">
+                            <img src="{{img}}" class="object-cover object-center h-full w-full rounded-t-2xl" alt="">
                         </div>
                         <label for="" class="prev multi-slidePrev js-targetPrevLabel"><i class="fa-solid fa-circle-arrow-left"></i></label>
                         <label for="" class="next multi-slideNext js-targetNextLabel"><i class="fa-solid fa-circle-arrow-right"></i></label>
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="basis-1/3 pl-10">
+        <div class="basis-1/3 p-20">
             <div class="border-[2px] border-multiDarkBlue h-full">
             <div class="z-0 grid h-2/4 bg-[url('../public/imgs/carpinteria.png')] bg-cover">
                 <div class="z-10 grid place-items-end">
@@ -85,72 +85,103 @@
         </div>
         </div>
     </div>
-    <div class="mt-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 2xl:gap-20">
-        <!-- Inicia Tarjeta-->
-        <div class="border-[2px] border-multiDarkBlue">
-            <div class="z-0 grid h-56 bg-[url('../public/imgs/carpinteria.png')] bg-cover">
-                <div class="z-10">
-                    <div class="rounded-r-md w-32 shadow-md border-l-transparent bg-black bg-opacity-90 mt-5 p-1">
-                        <span class="text-white font-medium text-sm">Patrocinado</span>
-                    </div>
-                </div>
-                <div class="z-10 grid place-items-end">
-                    <div class="p-2 rounded-tl-lg bg-white text-center">
-                        <div class="flex items-center justify-center">
-                            <i class="fa-solid fa-star text-multiDarkYellow mr-3"></i>
-                            <span class="font-semibold text-lg">4.5</span>
-                        </div>
-                        <span class="text-xs text-gray-500">Calificación</span>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-5">
-                <div class="grid col-span-5 lg:col-span-3 m-3">
-                    <div class="flex flex-row ">
-                        <img class="w-12 h-12 m-2 justify-start rounded-full object-cover"
-                            src="public/imgs/carpinteria.png" alt=".">
-                        <div class="flex flex-col my-auto">
-                            <p class="text-xs font-medium">Javier Tabora</p>
-                            <p class="text-xs">Carpintero</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-justify">1 Joven emprendedor con su nuevo negocio, en el cual nos ofrece una
-                        gran variedad de trabajos en la madera, con bellos acabados y delineados únicos que solamente el
-                        ofrece.
-                        Llame al 9090-4040 para mas información.
-                    </p>
-                </div>
-                <!-- Contenedor de botones-->
-                <div class="col-span-5 lg:col-span-2 border-l-[1px] border-gray-400 p-2 my-auto">
-                    <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
-                        <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
-                        <h3 class="text-xs text-multiDarkBlue font-medium mx-auto">Verificado</h3>
-                        <a href="">
-                            <i class="fa-solid fa-circle-question text-zinc-400 "></i>
-                        </a>
-                    </div>
-                    <!-- Botón Pro -->
-                    <div class="mt-4 rounded-full bg-multiDarkBlue py-1 px-4 flex flex-row items-center">
-                        <i class="fa-solid fa-screwdriver-wrench text-xs text-multiDarkYellow"></i>
-                        <span class="text-xs text-white font-medium mx-auto">Pro</span>
-                        <a href="">
-                            <i class="fa-solid fa-circle-question text-zinc-400"></i>
-                        </a>
-                    </div>
-                    <div class="text-center mt-4">
-                        <p class="text-xs font-medium text-gray-400">Tiempo en la plataforma</p>
-                        <p class="text-xs font-medium">4 Meses</p>
-                    </div>
-                </div>
-            </div>
-            <a href="" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
-                <i class="fa-solid fa-paper-plane text-white mr-4"></i>
-                <span href="" class="text-white font-semibold ">Contactar</span>
+</div>
+<div class="m-10">
+    <p class="font-bold">Insignias</p>
+    <div class="flex gap-6 mt-3">
+        <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
+            <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
+            <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">Verificado</h3>
+            <a href="">
+                <i class="fa-solid fa-circle-question text-zinc-400 "></i>
             </a>
         </div>
-        <!-- Fin Tarjeta-->
+        <!-- Botón Pro -->
+        <div class="rounded-full bg-multiDarkBlue py-1 px-3 flex flex-row items-center">
+            <i class="fa-solid fa-screwdriver-wrench text-xs text-multiDarkYellow"></i>
+            <span class="text-medium text-white font-medium mx-auto px-3">Pro</span>
+            <a href="">
+                <i class="fa-solid fa-circle-question text-zinc-400"></i>
+            </a>
+        </div>
+        <div class="rounded-full py-1 px-3 border flex items-center">
+            <div class="flex-col mr-3">
+                <p class="text-lg font-medium text-center">4</p>
+                <p class="text-xs font-medium text-center">Meses</p>
+            </div>
+            <p class="text-xs font-medium text-gray-400">En la<br>Plataforma</p>
+        </div>
     </div>
 </div>
+<div class="flex mt-10 ml-10">
+    <div class="basis-2/3">
+        <div class="flex items-center mb-5">
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">376 Calificaciones</p>
+        </div>
+        <div class="gap-8 sm:grid sm:grid-cols-2">
+            <div>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Tiempo</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Conocimiento</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Actitud</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                    </dd>
+                </dl>
+
+            </div>
+            <div>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Comunicación</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 59%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5.9</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Puntualidad</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Responsabilidad</dt>
+                    <dd class="flex items-center mb-3">
+                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 70%"></div>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">7.0</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     const targets = document.querySelectorAll(".js-targetInput");    
     var styleControls = document.getElementById("js-targetStyleControls");

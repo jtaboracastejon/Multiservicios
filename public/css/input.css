@@ -147,3 +147,6 @@
 .multi-slideNext{
     @apply w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl text-white rounded-full leading-tight text-center z-10 inset-y-0 right-0 my-auto;
 }
+.multi-horizontalSlide{
+    @apply w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md hover:shadow-xl bg-no-repeat bg-cover bg-center;
+}
