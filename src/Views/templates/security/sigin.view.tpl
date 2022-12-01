@@ -2,16 +2,20 @@
   <form class="grid" method="post" action="index.php?page=sec_register">
     <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
       <h1 class="col-12">Crea tu cuenta</h1>
+      <input type="text" name="txtEmail" value="{{txtEmail}}">
+       {{if errorEmail}}
+        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorEmail}}</div>
+        {{endif errorEmail}}
     </section>
     <section class="depth-1 py-5 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
       <div class="row">
-        <label class="col-12 col-m-4 flex align-center" for="txtEmail">Correo Electrónico</label>
+        <label class="col-12 col-m-4 flex align-center" for="txtUser">Nombre de usuario</label>
         <div class="col-12 col-m-8">
-          <input class="width-full" type="email" id="txtEmail" name="txtEmail" value="{{txtEmail}}" />
+          <input class="width-full" type="text" id="txtUser" name="txtUser" value="{{txtUser}}" />
         </div>
-        {{if errorEmail}}
-        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorEmail}}</div>
-        {{endif errorEmail}}
+         {{if errorUser}}
+        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorUser}}</div>
+        {{endif errorUser}}
       </div>
       <div class="row">
         <label class="col-12 col-m-4 flex align-center" for="txtPswd">Contraseña</label>
@@ -22,8 +26,43 @@
         <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorPswd}}</div>
         {{endif errorPswd}}
       </div>
+      <div class="row">
+        <label class="col-12 col-m-4 flex align-center" for="txtPswd2">Confirmar contraseña</label>
+        <div class="col-12 col-m-8">
+          <input class="width-full" type="password" id="txtPswd2" name="txtPswd2" value="{{txtPswd2}}" />
+        </div>
+        {{if errorPswd2}}
+        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorPswd2}}</div>
+        {{endif errorPswd2}}
+      </div>
+      <div class="row">
+        <label for="Departamentos">Departamentos</label>
+        <select name="cbDepartamentos" id="cbDepartamentos">
+        {{foreach dbDeptos}}
+          <option value="{{iddepto}}">{{department}}</option>
+        {{endfor dbDeptos}}
+        </select>
+      </div>
+      <div class="row">
+        <label for="municipios">municipios</label>
+        <select name="cbMunicipios" id="cbMunicipios">
+          <option value="1">municipio1</option>
+            <option value="2">municipio2</option>
+              <option value="3">municipio3</option>
+                <option value="4">municipio4</option>
+        </select>
+      <!--
+      <div class="row">
+        <label for="Municipios">Municipios</label>
+        <select name="municipio" id="municipio">
+          {{foreach dbMunicipios}}
+          <option value="{{iddepto}}">{{municipality}}</option>
+          {{endfor dbMunicipios}}
+        </select>
+      </div>
+      -->
       <div class="row right flex-end px-4">
-        <button class="primary" id="btnSignin" type="submit">Crear Cuenta</button>
+          <button class="primary" id="btnSignin" type="submit">Siguiente</button>
       </div>
     </section>
   </form>

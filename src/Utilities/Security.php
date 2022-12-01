@@ -15,14 +15,16 @@ class Security {
     {
         unset($_SESSION["login"]);
     }
-    public static function login($userId, $userName, $userEmail)
+    public static function login($userId, $userName, $userEmail, $emailVerified)
     {
-        $_SESSION["login"] = array(
+        $_SESSION["login"] = [
             "isLogged" => true,
             "userId" => $userId,
             "userName" => $userName,
-            "userEmail" => $userEmail
-        );
+            "userEmail" => $userEmail,
+            "emailVerified" => $emailVerified
+        ];
+    
     }
     public static function isLogged():bool
     {
@@ -42,6 +44,7 @@ class Security {
         }
         return 0;
     }
+
     public static function isAuthorized($userId, $function):bool
     {
         if (\Utilities\Context::getContextByKey("DEVELOPMENT") == "1") {
@@ -61,6 +64,18 @@ class Security {
             }
         }
         return \Dao\Security\Security::isUsuarioInRol($userId, $rol);
+    }
+
+    // retorna un "token" random de maximo 32 caracteres
+    public static function generateRandomString($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
 

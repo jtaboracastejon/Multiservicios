@@ -145,3 +145,8 @@
     </div>
 </div>
 {{include joinus/joinus1}}
+{{with login}}
+{{ifnot emailVerified}}
+ <a href='http://localhost/Multiservicios/index.php?page=sec_verificacion'>verificar cuenta<a/>
+{{endifnot emailVerified}}
+{{endwith login}}

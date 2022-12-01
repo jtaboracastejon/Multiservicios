@@ -16,6 +16,22 @@
   {{endfor BeginScripts}}
 </head>
 <body>
+  <header>
+    <input type="checkbox" class="menu_toggle" id="menu_toggle" />
+    <label for="menu_toggle" class="menu_toggle_icon" >
+      <div class="hmb dgn pt-1"></div>
+      <div class="hmb hrz"></div>
+      <div class="hmb dgn pt-2"></div>
+    </label>
+    <h1>{{SITE_TITLE}}</h1>
+    <nav id="menu">
+      <ul>
+        <li><a href="index.php?page=index"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
+        <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a></li>
+        <li><a href="index.php?page=sec_register"><i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
   {{{page_content}}}
   </main>
