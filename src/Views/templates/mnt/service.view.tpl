@@ -1,6 +1,5 @@
 <h2>{{mode_dsc}}</h2>
-<form action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post"
-  class="row col-6 offset-3">
+<form action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post" enctype="multipart/form-data" class="row col-6 offset-3">
   <section class="row my-2 align-center">
     <label for="servicename" class="col-4">Nombre del Servicio</label>
     <input type="text" class="col-8" name="servicename" id="servicename" {{if readonly}} disable {{endif readonly}}
@@ -13,20 +12,10 @@
   </section>
   <section class="row my-2 align-center">
     <label for="imagepath" class="col-4">Imagen</label>
-    <input type="text" class="col-8" name="imagepath" id="imagepath" {{if readonly}} disable {{endif readonly}}
+    <input type="file" class="col-8" accept="image/png, image/jpeg" name="imagepath" id="imagepath" {{if readonly}} disable {{endif readonly}}
       value="{{imagepath}}" />
+    <p>{{imagepath}}</p>
   </section>
-  
-
-  <!--
-  <section class="row my-2 align-center">
-    <label for="categoria_id" class="col-4">categoria</label>
-    <input type="text" class="col-8" name="categoria_id" id="categoria_id" {{if readonly}} disable {{endif readonly}}
-      value="{{categoria_id}}" />
-  </section>
-  -->
-
-
   <section class="row my-2 align-center">
     <label for="status" class="col-4">Estado</label>
     <select name="status" class="col-8" id="status" {{if readonly}} disable {{endif readonly}}>
@@ -36,7 +25,6 @@
   </section>
 
   <br /><br />
-  }
   <section class="row flex-end my-2">
     {{if showSaveBtn}}
     <button class="mx-2 primary" type="submit" name="btnGuardar">Guardar</button>

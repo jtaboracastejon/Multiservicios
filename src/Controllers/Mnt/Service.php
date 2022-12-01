@@ -55,28 +55,30 @@ public function run(): void
         }
     }
 
-/*
-    public function multiPhotos(){
-        $imagepath=array();
-        if($this->file('imagepath')){
-            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
-            $files = $this->file('imagepath');
-        
-            foreach($files as $file){
-                $filename= $file->
-            }
-        }
-
-        
-
-        
-
-    }
-    */
-
-
     private function process_postback()
     {
+        if (($_FILES['imagepath']['name']!="")){
+
+                //get path server                
+                $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/services/";
+                $file = $_FILES['imagepath']['name'];
+                $path = pathinfo($file);
+                $filename = $path['filename'];
+                $ext = $path['extension'];
+                $temp_name = $_FILES['imagepath']['tmp_name'];
+                $path_filename_ext = $target_dir.$this->viewData["servicename"].".".$ext;
+             
+            
+                if (file_exists($path_filename_ext)) {
+                    //echo "Sorry, file already exists.";
+                }else{
+                    move_uploaded_file($temp_name,$path_filename_ext);
+                    //echo "Congratulations! File Uploaded Successfully.";
+                }
+
+            $this->viewData["imagepath"] = "../public/imgs/services/".$this->viewData["servicename"].".".$ext;
+        }
+
         if($this->validate_inputs()){
             switch($this->viewData["mode"]){
                 case "INS":
@@ -97,7 +99,7 @@ public function run(): void
         //validando entrada de datos
         $this->viewData["servicename"] = $_POST["servicename"];
         $this->viewData["description"] = $_POST["description"];
-        $this->viewData["imagepath"] = $_POST["imagepath"];
+        // $this->viewData["imagepath"] = $_FILES["imagepath"]["name"];
         $this->viewData["status"] = $_POST["status"];
 
         return true;
@@ -133,39 +135,10 @@ public function run(): void
     }
     private function on_insert_clicked()
     {
-       // $Fecha = date();
-        #$nombreFoto = $imagepath != "" ? $Fecha->getTime
-        /*
-        if(!file_exists($_FILES['imagepath']['tmpname'])  || !is_uploaded_file($_FILES['imagen']['tmp_name']))
-        {
-            $imagepath =$_POST["imagepath"];
-        }
-        else{
-            $ext = explode(".", $_FILES["imagepath"]["name"]);
-            if($_FILES['imagepath']['type'] == "image/jpg"  || $_FILES['imagepath']['type'] == "image/jpeg" || $_FILES['imagepath']['type']) ==
-            "image/png")
-            {
-                $imagepath = round(microtime(true)) . '.' . end($ext);
-                move_uploaded_file($_FILES["imagepath"]["tmp_name"], "../public/imgs/"  .  $imagepath);
-            }
-        
-        }
-        */
-
 
         $insertResult=\Dao\Mnt\Services::addService(
             $this->viewData["servicename"] ,
             $this->viewData["description"] ,
-            /*
-            $Fecha = date(),
-            $nombreFoto=($imagepath!="") ? $Fecha->getTimestamp()."_".$_FILES["imagepath"]["name"]:"imagen.jpg",
-            $tmpFoto= $_FILES["imagepath"]["tmp_name"],
-
-            if($tmpFoto=""){
-                move_uploaded_file($tmpFoto, "../public/imgs/". $nombreFoto);
-            }
-            #die()
-            */
             $this->viewData["imagepath"],
             $this->viewData["status"] 
         );
@@ -187,7 +160,7 @@ public function run(): void
             $this->viewData["mode_dsc"]=sprintf(
                 $this->arrModeDsc[$this->viewData["mode"]],
                 $this->viewData["idservice"],
-                $this->viewData["description"]
+                $this->viewData["description"],
             );
         }else{
             $this->viewData["mode_dsc"]=$this->arrModeDsc["INS"];

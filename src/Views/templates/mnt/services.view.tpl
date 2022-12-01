@@ -26,14 +26,6 @@
                 Editar
               </ion-icon>
             </a>
-            
-            <!--
-            <a href="index.php?page=Mnt-Service&mode=UPD&quoteId={{idservice}}">
-                        <i class="fas fa-edit"></i>
-                    Editar
-            </a>
-            -->
-
             <a href="index.php?page=mnt-service&mode=DEL&idservice={{idservice}}">
                <ion-icon name="trash-sharp" size="large" style="color:red; padding-left:10px;" >
                 Eliminar
