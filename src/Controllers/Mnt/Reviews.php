@@ -11,7 +11,7 @@ class Reviews extends PublicController{
     {
         $viewData = array();
         $viewData["reviews"] = \Dao\Mnt\Reviews::getAllReviews();
-
+        
         Renderer::render("mnt/reviews", $viewData);
     }
 }

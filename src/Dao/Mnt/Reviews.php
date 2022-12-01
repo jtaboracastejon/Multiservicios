@@ -21,11 +21,11 @@ class Reviews extends Table{
         return self::obtenerRegistros($selectSql ,array());
     }
 
-    public static function getById($idservice){
+    public static function getById($idreviewpage){
         $selectStr = "SELECT * FROM reviews_pag WHERE idreviewpage=:idreviewpage; ";
         return self::obtenerUnRegistro(
             $selectStr,
-            array("idreviewpage"=>$idservice)
+            array("idreviewpage"=>$idreviewpage)
         );
     }
     public static function updateReview($iduserdetail,$title,$review, $idreviewpage){

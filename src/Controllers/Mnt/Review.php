@@ -3,7 +3,7 @@ namespace Controllers\Mnt;
 use Controllers\PublicController;
 use DateTime;
 use Views\Renderer;
-class Service extends PublicController{
+class Review extends PublicController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Reseña',
@@ -79,10 +79,11 @@ public function run(): void
     }
     private function on_update_clicked()
     {
-        $updateResult=\Dao\Mnt\Reviews::updateService(
+        $updateResult=\Dao\Mnt\Reviews::updateReview(
             $this->viewData["iduserdetail"],
             $this->viewData["title"],
-            $this->viewData["review"] ,
+            $this->viewData["review"],
+            $this->viewData["idreviewpage"]
 
         );
         if($updateResult){
@@ -94,7 +95,7 @@ public function run(): void
     }
     private function on_delete_clicked()
     {
-        $deleteResult=\Dao\Mnt\Reviews::deleteService(
+        $deleteResult=\Dao\Mnt\Reviews::deleteReview(
             $this->viewData["idreviewpage"]
         );
         if($deleteResult){
@@ -107,7 +108,7 @@ public function run(): void
     }
     private function on_insert_clicked()
     {
-        $insertResult=\Dao\Mnt\Reviews::addService(
+        $insertResult=\Dao\Mnt\Reviews::addReview(
             $this->viewData["iduserdetail"],
             $this->viewData["title"],
             $this->viewData["review"]
@@ -125,8 +126,10 @@ public function run(): void
 
     private function pre_render()
     {
+        /*
         $this->viewData["act_selected"] = $this->viewData["status"]=== "ACT";
         $this->viewData["ina_selected"] = $this->viewData["status"]=== "INA";
+        */
         if($this->viewData["mode"]!=='INS'){
             $this->viewData["mode_dsc"]=sprintf(
                 $this->arrModeDsc[$this->viewData["mode"]],
