@@ -768,20 +768,20 @@ html {
   margin-top: 1.25rem !important;
 }
 
-.\!ml-36 {
-  margin-left: 9rem !important;
-}
-
-.\!mt-3 {
-  margin-top: 0.75rem !important;
-}
-
 .\!mr-4 {
   margin-right: 1rem !important;
 }
 
 .\!ml-4 {
   margin-left: 1rem !important;
+}
+
+.\!ml-36 {
+  margin-left: 9rem !important;
+}
+
+.\!mt-3 {
+  margin-top: 0.75rem !important;
 }
 
 .\!ml-28 {
@@ -912,10 +912,6 @@ html {
   width: 50% !important;
 }
 
-.\!w-full {
-  width: 100% !important;
-}
-
 .max-w-sm {
   max-width: 24rem;
 }
@@ -930,10 +926,6 @@ html {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.grid-flow-row {
-  grid-auto-flow: row;
 }
 
 .grid-cols-1 {
@@ -1014,10 +1006,6 @@ html {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.place-self-end {
-  place-self: end;
 }
 
 .justify-self-end {
@@ -1218,8 +1206,40 @@ html {
   background-image: url('../public/svgs/multi-patternYellow.svg');
 }
 
-.bg-\[url\(\'\.\.\/public\/imgs\/joey-huang-XBh4DOGqMfc-unsplash\.jpg\'\)\] {
-  background-image: url('../public/imgs/joey-huang-XBh4DOGqMfc-unsplash.jpg');
+.bg-\[url\(\{\{imagepath\}\}\)\] {
+  background-image: url({{imagepath}});
+}
+
+.bg-\[url\(\'\{\{imgportada\}\}\'\)\] {
+  background-image: url('{{imgportada}}');
+}
+
+.bg-\[url\(\'\{\{imagepath\}\}\'\)\] {
+  background-image: url('{{imagepath}}');
+}
+
+.bg-\[url\(\'\/public\/imgs\/services\/Lea\.jpg\'\)\] {
+  background-image: url('/public/imgs/services/Lea.jpg');
+}
+
+.bg-\[url\(\'\.\.\/public\/imgs\/services\/Lea\.jpg\'\)\] {
+  background-image: url('../public/imgs/services/Lea.jpg');
+}
+
+.bg-\[url\(\'\.\.\/public\/imgs\/services\/limpieza\.png\'\)\] {
+  background-image: url('../public/imgs/services/limpieza.png');
+}
+
+.bg-\[url\(\'\'\)\] {
+  background-image: url('');
+}
+
+.bg-\[url\(\'https\:\/\/picsum\.photos\/1920\/1080\'\)\] {
+  background-image: url('https://picsum.photos/1920/1080');
+}
+
+.bg-\[url\(\'\.\.\/public\/imgs\/services\/plomeria\.png\'\)\] {
+  background-image: url('../public/imgs/services/plomeria.png');
 }
 
 .bg-cover {

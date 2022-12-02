@@ -1,8 +1,9 @@
 <div>
     <div class="py-44 bg-black bg-opacity-80 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
-        id="modal" style="opacity: -0.1; display: none;">
+        id="modal1" style="opacity: -0.1; display: none;">
         <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
+                <form action="">
                 <div>
                     <h1 class="multi-titleG2 !text-center">Únete a nosotros</h1>
                 </div>
@@ -23,7 +24,7 @@
                     <input type="email" name="inputField" id="inputField" class="form-input" placeholder="ejemplo@real.com">
                     <div class="flex justify-center mt-10">
                         <button type="button" class="form-primaryButton">Continuar</button>
-                        <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+                        <button class="form-secondaryButton" onclick="modalHandler1()">Cancelar</button>
                     </div>
                     <p class="form-helper !text-center">Al hacer clic en continuar usted acepta que su correo sera
                         almacenado y
@@ -31,17 +32,18 @@
                         de nuestra empresa dentro de los <a href="#" class="form-helperLink">Términos y condiciones</a>.
                     </p>
                 </fieldset>
+                </form>
             </div>
         </div>
     </div>
 
     <script>
-        let modal = document.getElementById("modal");
-        function modalHandler(val = false) {
+        let modal1 = document.getElementById("modal1");
+        function modalHandler1(val = false) {
             if (val) {
-                fadeIn(modal);
+                fadeIn(modal1);
             } else {
-                fadeOut(modal);
+                fadeOut(modal1);
             }
         }
         function fadeOut(el) {
@@ -65,6 +67,8 @@
                 }
             })();
         }
+
+        
     </script>
 
 </div>

@@ -46,8 +46,8 @@
                 </svg>
             </li>
         </ul>
-        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-4 border-solid border-2 border-white hover:bg-gray-300 hover:bg-opacity-40 text-sm text-white font-bold rounded-full transition duration-200" href="#" onclick="modalHandler(true)">Iniciar Sesión</a>
-        <a class="hidden lg:inline-block py-2 px-6 bg-multiDarkBlue border-solid border-2 border-multiDarkBlue hover:bg-blue-600 hover:border-blue-600 text-sm text-white font-bold rounded-full transition duration-200" href="#">Unirse</a>
+        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-4 border-solid border-2 border-white hover:bg-gray-300 hover:bg-opacity-40 text-sm text-white font-bold rounded-full transition duration-200" href="#" onclick="modalHandlerLogin(true)">Iniciar Sesión</a>
+        <a class="hidden lg:inline-block py-2 px-6 bg-multiDarkBlue border-solid border-2 border-multiDarkBlue hover:bg-blue-600 hover:border-blue-600 text-sm text-white font-bold rounded-full transition duration-200" href="#" onclick="modalHandler1(true)">Unirse</a>
     </nav>
     <div class="navbar-menu relative z-50 hidden">
         <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>

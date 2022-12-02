@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                {{endfor services}}
+                {{endfor services}} 
             </div>
         </div>
     </div>
