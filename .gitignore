@@ -3,8 +3,8 @@ parameters.env
 vendor
 .phpdoc
 data
-.vscode
+.vscode/
 .htaccess
 docs/manual_tecnico
 composer.lock
-/node_modules
+node_modules/
