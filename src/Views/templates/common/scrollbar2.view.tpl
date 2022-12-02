@@ -13,7 +13,7 @@
             <div class="flex flex-nowrap lg:ml-30 ml-10">
                 {{foreach services}}
                 <div class="inline-block inline-block px-3">
-                    <div class="multi-horizontalSlide js-show-on-scroll bg-[url('{{imagepath}}')]">
+                        <div class="multi-horizontalSlide js-show-on-scroll" style="background-image: url('{{imagepath}}');">
                         <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
                             <p class="font-bold text-white">{{servicename}}</p>
                         </div>
