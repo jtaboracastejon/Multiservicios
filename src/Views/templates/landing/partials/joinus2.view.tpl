@@ -10,7 +10,7 @@
                     </p>
                     <a href="#" class="form-helperLink !border-l-2 !px-2 !mr-4 !border-multiDarkBlue !ml-4">Proveedor</a>
                         
-                    <button class="justify-self-end" onclick="modal2Handler()"><i class="fa-regular fa-circle-xmark"></i></button>
+                    <button type="button" class="justify-self-end" onclick="modalHandler1(false, 'modal2')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
                 <fieldset>
                     <label for="inputField" class="form-label !font-medium !mt-5">Correo
@@ -55,42 +55,9 @@
                             </select>
                         </div>
                     </div>
-                    <button type="button" class="form-primaryButton !ml-36 !mt-3">Continuar</button>
+                    <button type="button" class="form-primaryButton !ml-36 !mt-3" onclick="modalHandler1(true, 'modal3', 'modal2')">Continuar</button>
                 </fieldset>
             </div>
         </div>
     </div>
-
-    <script>
-        let modal2 = document.getElementById("modal2");
-        function modalHandler2(val = false) {
-            if (val) {
-                fadeIn(modal2);
-            } else {
-                fadeOut(modal2);
-            }
-        }
-        function fadeOut(el) {
-            el.style.opacity = 1;
-            (function fade() {
-                if ((el.style.opacity -= 0.1) < 0) {
-                    el.style.display = "none";
-                } else {
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-        function fadeIn(el, display) {
-            el.style.opacity = 0;
-            el.style.display = display || "flex";
-            (function fade() {
-                let val = parseFloat(el.style.opacity);
-                if (!((val += 0.2) > 1)) {
-                    el.style.opacity = val;
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-    </script>
-
 </div>

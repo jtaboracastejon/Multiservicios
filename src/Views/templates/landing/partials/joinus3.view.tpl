@@ -6,7 +6,7 @@
                 
                 <div class="flex justify-between">
                     <h1 class="multi-titleG2 !text-xl !text-center">¡Estas un paso mas cerca!</h1>
-                    <button class="" onclick="modal3Handler()"><i class="fa-regular fa-circle-xmark"></i></button>
+                    <button type="button" onclick="modalHandler1(false, 'modal3')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
                 <fieldset>
                     <p class="text-justify">
@@ -26,37 +26,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        let modal3 = document.getElementById("modal3");
-        function modalHandler3(val = false) {
-            if (val) {
-                fadeIn(modal3);
-            } else {
-                fadeOut(modal3);
-            }
-        }
-        function fadeOut(el) {
-            el.style.opacity = 1;
-            (function fade() {
-                if ((el.style.opacity -= 0.1) < 0) {
-                    el.style.display = "none";
-                } else {
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-        function fadeIn(el, display) {
-            el.style.opacity = 0;
-            el.style.display = display || "flex";
-            (function fade() {
-                let val = parseFloat(el.style.opacity);
-                if (!((val += 0.2) > 1)) {
-                    el.style.opacity = val;
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-    </script>
-
 </div>

@@ -16,6 +16,8 @@ class Landing extends PublicController{
             $this->process_postBack();
         }
         $this->pre_render();
+        
+        \Utilities\Site::addEndScript("src/Views/templates/landing/scripts/modal.js");
         Renderer::render("landing/landing",$this->viewData);
     }
 

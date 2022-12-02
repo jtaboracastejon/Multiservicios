@@ -144,7 +144,7 @@
         </p>
     </div>
 </div>
-{{include joinus/joinus1}}
-{{include joinus/joinus2}}
-{{include joinus/joinus3}}
-{{include joinus/login}}
+{{include landing/partials/joinus1}}
+{{include landing/partials/joinus2}}
+{{include landing/partials/joinus3}}
+{{include landing/partials/login}}

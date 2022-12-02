@@ -23,8 +23,8 @@
                     <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electrónico</label>
                     <input type="email" name="inputField" id="inputField" class="form-input" placeholder="ejemplo@real.com">
                     <div class="flex justify-center mt-10">
-                        <button type="button" class="form-primaryButton">Continuar</button>
-                        <button class="form-secondaryButton" onclick="modalHandler1()">Cancelar</button>
+                        <button type="button" class="form-primaryButton" onclick="modalHandler1(true, 'modal2', 'modal1')">Continuar</button>
+                        <button type="button" class="form-secondaryButton" onclick="modalHandler1(false, 'modal1')">Cancelar</button>
                     </div>
                     <p class="form-helper !text-center">Al hacer clic en continuar usted acepta que su correo sera
                         almacenado y
@@ -36,39 +36,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        let modal1 = document.getElementById("modal1");
-        function modalHandler1(val = false) {
-            if (val) {
-                fadeIn(modal1);
-            } else {
-                fadeOut(modal1);
-            }
-        }
-        function fadeOut(el) {
-            el.style.opacity = 1;
-            (function fade() {
-                if ((el.style.opacity -= 0.1) < 0) {
-                    el.style.display = "none";
-                } else {
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-        function fadeIn(el, display) {
-            el.style.opacity = 0;
-            el.style.display = display || "flex";
-            (function fade() {
-                let val = parseFloat(el.style.opacity);
-                if (!((val += 0.2) > 1)) {
-                    el.style.opacity = val;
-                    requestAnimationFrame(fade);
-                }
-            })();
-        }
-
-        
-    </script>
 
 </div>
