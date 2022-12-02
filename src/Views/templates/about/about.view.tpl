@@ -85,101 +85,161 @@
         </div>
         </div>
     </div>
-</div>
-<div class="m-10">
-    <p class="font-bold">Insignias</p>
-    <div class="flex gap-6 mt-3">
-        <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
-            <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
-            <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">Verificado</h3>
-            <a href="">
-                <i class="fa-solid fa-circle-question text-zinc-400 "></i>
-            </a>
-        </div>
-        <!-- Botón Pro -->
-        <div class="rounded-full bg-multiDarkBlue py-1 px-3 flex flex-row items-center">
-            <i class="fa-solid fa-screwdriver-wrench text-xs text-multiDarkYellow"></i>
-            <span class="text-medium text-white font-medium mx-auto px-3">Pro</span>
-            <a href="">
-                <i class="fa-solid fa-circle-question text-zinc-400"></i>
-            </a>
-        </div>
-        <div class="rounded-full py-1 px-3 border flex items-center">
-            <div class="flex-col mr-3">
-                <p class="text-lg font-medium text-center">4</p>
-                <p class="text-xs font-medium text-center">Meses</p>
+    <div class="mt-10">
+        <p class="font-bold">Insignias</p>
+        <div class="flex gap-6 mt-3">
+            <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
+                <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
+                <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">Verificado</h3>
+                <a href="">
+                    <i class="fa-solid fa-circle-question text-zinc-400 "></i>
+                </a>
             </div>
-            <p class="text-xs font-medium text-gray-400">En la<br>Plataforma</p>
+            <!-- Botón Pro -->
+            <div class="rounded-full bg-multiDarkBlue py-1 px-3 flex flex-row items-center">
+                <i class="fa-solid fa-screwdriver-wrench text-xs text-multiDarkYellow"></i>
+                <span class="text-medium text-white font-medium mx-auto px-3">Pro</span>
+                <a href="">
+                    <i class="fa-solid fa-circle-question text-zinc-400"></i>
+                </a>
+            </div>
+            <div class="rounded-full py-1 px-3 border flex items-center">
+                <div class="flex-col mr-3">
+                    <p class="text-lg font-medium text-center">4</p>
+                    <p class="text-xs font-medium text-center">Meses</p>
+                </div>
+                <p class="text-xs font-medium text-gray-400">En la<br>Plataforma</p>
+            </div>
         </div>
     </div>
-</div>
-<div class="flex mt-10 ml-10">
-    <div class="basis-2/3">
-        <div class="flex items-center mb-5">
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">376 Calificaciones</p>
-        </div>
-        <div class="gap-8 sm:grid sm:grid-cols-2">
-            <div>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Tiempo</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Conocimiento</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Actitud</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
-                    </dd>
-                </dl>
+    <div class="flex mt-10 border-b-2 border-multiDarkBlue">
+        <div class="basis-2/3">
+            <div class="flex items-center mb-5">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">376 Calificaciones</p>
+            </div>
+            <div class="gap-8 sm:grid sm:grid-cols-2">
+                <div>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Tiempo</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Conocimiento</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Actitud</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 88%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.8</span>
+                        </dd>
+                    </dl>
 
-            </div>
-            <div>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Comunicación</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 59%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5.9</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Puntualidad</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Responsabilidad</dt>
-                    <dd class="flex items-center mb-3">
-                        <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
-                            <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 70%"></div>
-                        </div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">7.0</span>
-                    </dd>
-                </dl>
+                </div>
+                <div>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Comunicación</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 59%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">5.9</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Puntualidad</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 89%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">8.9</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Responsabilidad</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: 70%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">7.0</span>
+                        </dd>
+                    </dl>
+                </div>
             </div>
         </div>
     </div>
+
+    
+    <div class="mt-10">
+        <p class="font-bold">Reseñas</p>
+        <div class="grid grid-cols-3 gap-4">
+            <!-- Review Card-->
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+            <!-- End Review Card-->
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+            <div class="border-r border-multiDarkBlue m-10 pr-10">
+                <div class="flex items-center">
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
+                </div>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex bg">
+    
 </div>
 
 <script>

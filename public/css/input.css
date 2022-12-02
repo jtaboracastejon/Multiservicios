@@ -150,3 +150,10 @@
 .multi-horizontalSlide{
     @apply w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md hover:shadow-xl bg-no-repeat bg-cover bg-center;
 }
+
+.multi-maxChars {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
