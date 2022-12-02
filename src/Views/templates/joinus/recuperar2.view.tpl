@@ -6,21 +6,25 @@
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
                 <!-- Aquí podes meter código -->
                 <div>
-                    <h1 class="multi-titleG2 !text-center">Iniciar Sesión</h1>
+                    <h1 class="multi-titleG2 !text-xl !text-center">Restablecer Contraseña</h1>
                 </div>
                 <fieldset>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <p class="text-multiDanger" id="emailError">a</p>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Contraseña</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <p class="text-multiDanger" id="pswdError">a</p>
-                    <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
-                    <div class="flex justify-center items-center mt-5">
-                        <button type="button" class="form-primaryButton" onclick="">Continuar</button>
-                        <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
-                    </div>
+                    <p class="text-justify mt-2">
+                        Ingrese su nueva contraseña.
+                    </p>
                 </fieldset>
+
+                <div class="grid grid-rows-1">
+                    <label for="inputField" class="form-label !font-medium !mt-5">Nueva Contraseña</label>
+                    <input type="text" name="inputField" id="inputField" class="form-input " placeholder="Input Field">
+                    <label for="inputField" class="form-label !font-medium !mt-5">Confirmar Contraseña</label>
+                    <input type="text" name="inputField" id="inputField" class="form-input " placeholder="Input Field">
+                </div>
+                <div class="flex justify-center items-center mt-5">
+                    <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                    <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+                </div>
+
             </div>
         </div>
     </div>

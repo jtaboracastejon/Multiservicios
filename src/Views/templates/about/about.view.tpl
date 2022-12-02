@@ -13,4 +13,4 @@
     </div>
 </div>
 
-{{include joinus/joinus3}}
+{{include joinus/recuperar2}}
