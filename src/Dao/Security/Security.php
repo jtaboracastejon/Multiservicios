@@ -256,6 +256,16 @@ class Security extends \Dao\Table
     private function __clone()
     {
     }
+
+    static public function existWorkzone($iddepto,$idmunicipality)
+    {
+        $sqlstr = "SELECT * from work_zones wk
+        JOIN departments d ON d.iddepto =wk.iddepto 
+        JOIN municipalities m ON m.idmunicipality = wk.idmunicipality 
+        WHERE wk.iddepto=:iddepto AND wk.idmunicipality=:idmunicipality;";
+        $workzonesList = self::obtenerRegistros($sqlstr, array("iddepto"=>$iddepto,"idmunicipality"=>$idmunicipality));
+        return count($workzonesList) > 0 ? $workzonesList[0] : "0";
+    }
 }
 
 
