@@ -17,13 +17,15 @@
                             <input type="radio" id="btnBgRb2" name="btnBgRbUserType" class="peer hidden" />
                             <label for="btnBgRb2" class="form-checkboxRadioBG w-full">Proveedor</label>
                         </div>
+                        <p class="text-multiDanger" id="rbError"></p>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electrónico</label>
-                    <input type="email" name="inputField" id="inputField" class="form-input" placeholder="ejemplo@real.com">
+                    <label for="txtEmailUnite" class="form-label !font-semibold !mt-5">Correo Electrónico</label>
+                    <input type="email" name="txtEmailUnite" id="txtEmailUnite" class="form-input" placeholder="ejemplo@real.com">
+                    <p class="text-multiDanger" id="emailErrorUnite"></p>
                     <div class="flex justify-center mt-10">
-                        <button type="button" class="form-primaryButton" onclick="modalHandler1(true, 'modal2', 'modal1')">Continuar</button>
+                        <button type="button" class="form-primaryButton" onclick="clickRegister1()">Continuar</button>
                         <button type="button" class="form-secondaryButton" onclick="modalHandler1(false, 'modal1')">Cancelar</button>
                     </div>
                     <p class="form-helper !text-center">Al hacer clic en continuar usted acepta que su correo sera

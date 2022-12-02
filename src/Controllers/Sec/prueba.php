@@ -16,9 +16,11 @@ class prueba extends \Controllers\PublicController
             $this->txtEmail = $_POST["txtEmail"];
             $this->Cbusuarios = $_POST["Cbusuarios"];
 
-            if (!(Validators::IsValidEmail($this->txtEmail))) {
-                $this->errorEmail = "El correo no tiene el formato adecuado";
-                $this->hasErrors = true;
+            if(\Dao\Security\Security::getUsuarioByEmail($this->txtEmail)){
+                //$this->errorEmailE = "El correo ya existe";
+                $this->hasErrors = true; 
+                echo "exist";
+                exit();
             }
 
             if (!$this->hasErrors) {
@@ -30,13 +32,13 @@ class prueba extends \Controllers\PublicController
                     "Cbusuarios" => $this->Cbusuarios
                 );
                 $_SESSION["Datos"] = $arrayDatos;
-                \Utilities\Site::redirectTo("index.php?page=sec_register");
-
+                echo "success";
+                exit();
              }
     };
 
-        $viewData = get_object_vars($this);
-        \Views\Renderer::render("security/prueba", $viewData);
+        /* $viewData = get_object_vars($this);
+        \Views\Renderer::render("security/prueba", $viewData); */
     }
 }
 

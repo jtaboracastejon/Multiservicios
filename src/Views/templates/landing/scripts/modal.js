@@ -4,8 +4,7 @@ function modalHandler1(val = false,  toModal, fromModal = null) {
 
     if(fromModalTg != null){
         fadeOut(fromModalTg);
-    }
-    
+    }    
     if (val) {
         fadeIn(toModalTg);
     } else {
@@ -35,6 +34,7 @@ function fadeIn(el, display) {
     })();
 }
 
+//Login Modal
 let txtEmail = document.getElementById("txtEmail");
 let emailError = document.getElementById("emailError");
 let txtPswd = document.getElementById("txtPswd");
@@ -42,64 +42,28 @@ let pswdError = document.getElementById("pswdError");
 let error = false;
 
 
-
-
-
-
-txtEmail.addEventListener("blur", function () {
-    let email = txtEmail.value; 
-    let regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
-    if (regex.test(email)) {
-        emailError.innerHTML = "";
-        error = false;
-        return true;
-    } else {
-        emailError.innerHTML = "Correo invalido";
-        emailError.style.color = "red";
-        error = true;
-        return false;
-    }
-});
-
-txtPswd.addEventListener("blur", function () {
-    let pswd = txtPswd.value;
-    if (pswd.length >= 8) {
-        pswdError.innerHTML = "";
-        error = false;
-        return true;
-    } else {
-        pswdError.innerHTML = "La contraseña debe tener al menos 8 caracteres";
-        pswdError.style.color = "red";
-        error = true;
-        return false;
-    }
-});
+verificarEmail(txtEmail, emailError);
 
 function validationForm() {
     if (txtEmail.value == "") {
         emailError.innerHTML = "El campo no puede estar vacio";
-        emailError.style.color = "red";
-        error = true;
+        return error = true;
     }
     if (txtPswd.value == "") {
         pswdError.innerHTML = "El campo no puede estar vacio";
-        pswdError.style.color = "red";
-        error = true;
+        return error = true;
     }
-
-    if (error) {
-        return false;
-    } else {
-        return true;
-    }
+    
+    return false;
+    
 }
 
 function clickLogin(){
-        if(validationForm()){
+        if(!validationForm()){
             console.log("Sin Error");
             $.ajax({
                 type: "POST",
-                url: "index.php?page=landing_landing",
+                url: "index.php?page=sec_login",
                 data:{
                     txtEmail: txtEmail.value,
                     txtPswd: txtPswd.value,
@@ -128,3 +92,81 @@ function clickLogin(){
         }               
     
 }
+
+
+//Unete Modal
+
+let txtEmailUnete = document.getElementById("txtEmailUnite");
+let rbCliente = document.getElementById("btnBgRb1");
+let rbProveedor = document.getElementById("btnBgRb2");
+let Cbusuarios;
+
+verificarEmail(txtEmailUnete, emailErrorUnite);
+
+function validationFormUnete() {
+    if (txtEmailUnete.value == "") {
+        emailErrorUnete.innerHTML = "El campo no puede estar vacio";
+        return true;
+    }
+    if (rbCliente.checked == false && rbProveedor.checked == false) {
+        rbError.innerHTML = "Debe seleccionar una opcion";
+        return true;
+    }
+    if(rbProveedor.checked == true){
+        Cbusuarios = "PRV";
+    }else{
+        Cbusuarios = "CLI";
+    }
+
+    return false;
+}
+
+function clickRegister1(){
+    if(!validationFormUnete()){
+        console.log("Sin Error");
+        $.ajax({
+            type: "POST",
+            url: "index.php?page=sec_prueba",
+            data:{
+                txtEmail: txtEmailUnite.value,
+                btnRegister: true,
+                Cbusuarios : Cbusuarios,
+            },
+            success: function (response) {
+                if(response == "success"){
+                    modalHandler1(true, 'modal2', 'modal1');
+                }
+                else if(response == "exist"){
+                    emailErrorUnete.innerHTML = "Correo ya existe";
+                }
+                else if(response == "error"){
+                    emailErrorUnete.innerHTML = "Error al registrar";
+                }
+            }
+            
+            
+        });
+    }
+    else{
+        console.log("Con Error");
+        return false;
+    }               
+
+}
+
+function verificarEmail(email, errorMsj){
+    email.addEventListener("blur", function () {
+    let email = email.value; 
+    let regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+    if (regex.test(email)) {
+        errorMsj.innerHTML = "";
+        error = false;
+        return true;
+    } else {
+        errorMsj.innerHTML = "Correo invalido";
+        errorMsj.style.color = "red";
+        error = true;
+        return false;
+    }
+})
+};

@@ -3,13 +3,12 @@
         id="modal2" style="opacity: -0.1; display: none;">
         <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
-                
+                <form action="">
                 <div class="grid grid-cols-3 items-center">
                     <p class="form-helper !m-0">
                         Datos Personales.
                     </p>
-                    <a href="#" class="form-helperLink !border-l-2 !px-2 !mr-4 !border-multiDarkBlue !ml-4">Proveedor</a>
-                        
+                    <a href="#" class="form-helperLink !border-l-2 !px-2 !mr-4 !border-multiDarkBlue !ml-4">Proveedor</a>                        
                     <button type="button" class="justify-self-end" onclick="modalHandler1(false, 'modal2')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
                 <fieldset>
@@ -57,6 +56,7 @@
                     </div>
                     <button type="button" class="form-primaryButton !ml-36 !mt-3" onclick="modalHandler1(true, 'modal3', 'modal2')">Continuar</button>
                 </fieldset>
+                </form>
             </div>
         </div>
     </div>

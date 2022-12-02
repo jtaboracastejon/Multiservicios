@@ -12,10 +12,10 @@
                 <fieldset>
                     <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
                     <input type="text" name="txtEmail" id="txtEmail" class="form-input" placeholder="ejemplo@gmail.com">
-                    <p class="text-multiDanger" id="emailError">a</p>
+                    <p class="text-multiDanger" id="emailError"></p>
                     <label for="inputField" class="form-label !font-semibold !mt-5" >Contraseña</label>
                     <input type="password" name="txtPswd" id="txtPswd" class="form-input" placeholder="">
-                    <p class="text-multiDanger" id="pswdError">a</p>
+                    <p class="text-multiDanger" id="pswdError"></p>
                     <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
                     <div class="flex justify-center items-center mt-5">
                         <button type="button" class="form-primaryButton" name="btnLogin" id="btnLogin"  onclick="return clickLogin()">Continuar</button>
