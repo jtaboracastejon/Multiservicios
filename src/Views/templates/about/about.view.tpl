@@ -1,5 +1,5 @@
 <div class="bg-no-repeat bg-cover bg-center">
-    {{include common/navbar2}}
+    {{include common/navbar}}
 </div>
 <div class="pt-10 pl-10">
     
