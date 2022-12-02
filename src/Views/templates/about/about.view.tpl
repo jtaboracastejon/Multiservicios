@@ -4,7 +4,7 @@
         <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl">Multiservicios</p>
         <p class="pl-10 border-b-4 border-white font-normal text-black-400 text-xs">Sysadmin Panel</p>
 
-            <div class="ml-10 rounded-lg mb-2 bg-zinc-100 w-8/12 bg-gradient-to-r text-black-400 hover:text-white hover:from-green-400 hover:to-blue-500 ">
+            <div class="ml-10 rounded-lg mb-2 bg-zinc-100 cursor-pointer w-8/12 bg-gradient-to-r text-black-400 hover:text-white hover:from-green-400 hover:to-blue-500 ">
                 <div class="flex flex-row">
                     <img class="w-7 h-7 m-2 justify-start rounded-full overflow-visible" src="https://picsum.photos/500/500" alt=".">
                     <div class="flex flex-col mt-1.5">
@@ -16,31 +16,31 @@
 
         <p class="pl-10 pt-4 border-t-4 border-multiDarkBlue text-black-400 font-semibold text-sm"></p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Zonas de operacion
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Reseñas del Sitio
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Proveedores
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Oscar
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Raul
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Elvis
         </p>
         <p type="button"
-            class="ml-10 mr-10 mb-5 px-4 py-3 text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
+            class="ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black-400 hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500 ">
             Francis
         </p>
 
