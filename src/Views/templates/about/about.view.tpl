@@ -138,10 +138,4 @@
         </p>
     </div>
 
-    <div class="w2/12 flex items-end">
-        <p class="text-6xl font-bold m-10 ">
-            "
-        </p>
-    </div>
-</div>
-{{include joinus/login}}
+{{include joinus/recuperar2}}
