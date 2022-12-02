@@ -144,4 +144,4 @@
         </p>
     </div>
 </div>
-{{include joinus/joinus1}}
+{{include joinus/login}}

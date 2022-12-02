@@ -11,11 +11,15 @@
                 <fieldset>
                     <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
                     <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                    <p class="text-multiDanger" id="emailError">a</p>
                     <label for="inputField" class="form-label !font-semibold !mt-5">Contraseña</label>
                     <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                    <p class="text-multiDanger" id="pswdError">a</p>
                     <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
-                    <button type="button" class="form-primaryButton !align-middle !ml-28 !mt-3">Continuar</button>
-                    <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+                    <div class="flex justify-center items-center mt-5">
+                        <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                        <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+                    </div>
                 </fieldset>
             </div>
         </div>

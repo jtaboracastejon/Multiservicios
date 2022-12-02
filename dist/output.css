@@ -768,14 +768,6 @@ html {
   margin-top: 1.25rem !important;
 }
 
-.\!ml-36 {
-  margin-left: 9rem !important;
-}
-
-.\!mt-3 {
-  margin-top: 0.75rem !important;
-}
-
 .\!mr-4 {
   margin-right: 1rem !important;
 }
@@ -784,8 +776,12 @@ html {
   margin-left: 1rem !important;
 }
 
-.\!ml-28 {
-  margin-left: 7rem !important;
+.\!ml-36 {
+  margin-left: 9rem !important;
+}
+
+.\!mt-3 {
+  margin-top: 0.75rem !important;
 }
 
 .block {
@@ -912,10 +908,6 @@ html {
   width: 50% !important;
 }
 
-.\!w-full {
-  width: 100% !important;
-}
-
 .max-w-sm {
   max-width: 24rem;
 }
@@ -930,10 +922,6 @@ html {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.grid-flow-row {
-  grid-auto-flow: row;
 }
 
 .grid-cols-1 {
@@ -1014,10 +1002,6 @@ html {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.place-self-end {
-  place-self: end;
 }
 
 .justify-self-end {
@@ -1530,6 +1514,11 @@ html {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-multiDanger {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .opacity-25 {
