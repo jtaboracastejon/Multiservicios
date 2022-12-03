@@ -8,53 +8,53 @@
                     <p class="form-helper !m-0">
                         Datos Personales.
                     </p>
-                    <a href="#" class="form-helperLink !border-l-2 !px-2 !mr-4 !border-multiDarkBlue !ml-4">Proveedor</a>                        
+                    <a href="#" class="form-helperLink !border-l-2 !px-2 !mr-4 !border-multiDarkBlue !ml-4" id="userType"></a>                        
                     <button type="button" class="justify-self-end" onclick="modalHandler1(false, 'modal2')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
                 <fieldset>
-                    <label for="inputField" class="form-label !font-medium !mt-5">Correo
-                        Electronico/Usuario</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                    <label for="txtUserName" class="form-label !font-medium !mt-5">Nombre del Usuario</label>
+                    <input type="text" name="txtUserName" id="txtUserName" class="form-input" placeholder="Jonh123">
+                    <p class="text-multiDanger" id="userNameError"></p>
                 </fieldset>
                 <fieldset>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="grid grid-rows-1">
-                            <label for="inputField" class="form-label !font-medium !mt-5">Correo
-                                Electronico/Usuario</label>
-                            <input type="text" name="inputField" id="inputField" class="form-input "
-                                placeholder="Input Field">
+                            <label for="txtUserPass" class="form-label !font-medium !mt-5">Contraseña</label>
+                            <input type="password" name="txtUserPass" id="txtUserPass" class="form-input "
+                                placeholder="********">
                         </div>
                         <div>
-                            <label for="inputField" class="form-label !font-medium !mt-5">Correo
-                                Electronico/Usuario</label>
-                            <input type="text" name="inputField" id="inputField" class="form-input"
-                                placeholder="Input Field">
+                            <label for="txtConfirmPass" class="form-label !font-medium !mt-5">Confirmar Contraseña</label>
+                            <input type="password" name="txtConfirmPass" id="txtConfirmPass" class="form-input"
+                                placeholder="********">
+                            
                         </div>
                     </div>
+                            <p class="text-multiDanger" id="userPassError"></p>
                     <div>
-                        <p class="form-helper">Utiliza ocho caracteres como mínimo con una combinación de
-                            letras, números y símbolos
+                        <p class="form-helper">
+                            Utiliza ocho caracteres como mínimo con una combinación de letras, números y símbolos.
                         </p>
                     </div>
                     <div class="grid grid-cols-3 gap-4">
                         <div class="grid grid-rows-1">
-                            <label for="inputField" class="form-label !font-medium !mt-5">Departamento</label>
-                            <select name="select" id="select" class="form-select">
-                                <option value="">Copan</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
+                            <label for="cmbDepto" class="form-label !font-medium !mt-5">Departamento</label>
+                            <select name="cmbDepto" id="cmbDepto" class="form-select">
+                                <option value="1">Atlántida</option>
+                                <option value="2">Colón</option>
+                                <option value="3">Comayagua</option>
                             </select>
                         </div>
                         <div class="grid col-span-2">
-                            <label for="inputField" class="form-label !font-medium !mt-5">Municipio</label>
-                            <select name="select" id="select" class="form-select">
-                                <option value="">Santa Rosa de Copan</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
+                            <label for="cmbMuni" class="form-label !font-medium !mt-5">Municipio</label>
+                            <select name="cmbMuni" id="cmbMuni" class="form-select">
+                                <option value="1">La Ceiba</option>
+                                <option value="2">Tela</option>
+                                <option value="3">Jutiapa</option>
                             </select>
                         </div>
                     </div>
-                    <button type="button" class="form-primaryButton !ml-36 !mt-3" onclick="modalHandler1(true, 'modal3', 'modal2')">Continuar</button>
+                    <button type="button" class="form-primaryButton !ml-36 !mt-3" onclick="return clickRegister2()">Continuar</button>
                 </fieldset>
                 </form>
             </div>

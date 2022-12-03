@@ -167,6 +167,16 @@ class Security extends \Dao\Table
         return self::obtenerUnRegistro($sqlstr, $params);
     }
 
+    static public function getUsuarioByUserName($username)
+    {
+        $sqlstr = "SELECT * from `usuario` where `username` = :username ;";
+        $params = array("username"=>$username);
+
+        return self::obtenerUnRegistro($sqlstr, $params);
+    }
+
+     
+
 //get last iduserdetails
     static public function getLastIdUserDetails()
     {

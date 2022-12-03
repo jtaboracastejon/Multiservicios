@@ -17,8 +17,8 @@
                             <input type="radio" id="btnBgRb2" name="btnBgRbUserType" class="peer hidden" />
                             <label for="btnBgRb2" class="form-checkboxRadioBG w-full">Proveedor</label>
                         </div>
-                        <p class="text-multiDanger" id="rbError"></p>
                     </div>
+                    <p class="text-multiDanger" id="rbError"></p>
                 </fieldset>
                 <fieldset>
                     <label for="txtEmailUnite" class="form-label !font-semibold !mt-5">Correo Electrónico</label>

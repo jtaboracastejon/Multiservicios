@@ -8,21 +8,24 @@
                     <h1 class="multi-titleG2 !text-xl !text-center">¡Estas un paso mas cerca!</h1>
                     <button type="button" onclick="modalHandler1(false, 'modal3')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div>
+                
                 <fieldset>
                     <p class="text-justify">
                         jdoe, antes de que puedas empezar con nosotros, necesitamos verificar tu correo electronico por
                         motivos de seguridad.
                     </p>
-                    <p class="text-justify">
-                        Se ha enviado un correo con un código de verificación a: jhondoe@realmail.com
+                    <p class="text-justify" id="verificationText">
+                        Se ha enviado un correo con un código de verificación su correo electronico.
                     </p>
                 </fieldset>
+                <form action="">
                 <div class="grid grid-cols-1 justify-items-center">
-                    <input type="text" name="inputField" id="inputField" class="form-input !w-6/12"
+                    <input type="text" name="txtCode" id="txtCode" class="form-input !w-6/12"
                         placeholder="Código de Seguridad">
-                    <button type="button" class="form-primaryButton !align-middle !mt-3 !w-6/12">Continuar</button>
-                    
+                    <p class="text-multiDanger" id="codeError"></p>
+                    <button type="button" class="form-primaryButton !align-middle !mt-3 !w-6/12" onclick="return clickRegister3()">Continuar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

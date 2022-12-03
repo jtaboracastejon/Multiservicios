@@ -75,11 +75,10 @@ function clickLogin(){
                     }
                     else if(response == "error"){
                         pswdError.innerHTML = "Usuario o contraseña incorrectos";
-                        pswdError.style.color = "red";
                     }
                     else if(response == "sinVerificarCorreo"){
-                        window.location.href = "index.php?page=landing_landing";
                         alert("Debe verificar su correo electronico");
+                        window.location.href = "index.php?page=landing_landing";
                     }
                 }
                 
@@ -97,26 +96,33 @@ function clickLogin(){
 //Unete Modal
 
 let txtEmailUnete = document.getElementById("txtEmailUnite");
+let emailErrorUnete = document.getElementById("emailErrorUnite");
 let rbCliente = document.getElementById("btnBgRb1");
 let rbProveedor = document.getElementById("btnBgRb2");
-let Cbusuarios;
+let cbUsuarios;
+let userType = document.getElementById("userType");
 
-verificarEmail(txtEmailUnete, emailErrorUnite);
+verificarEmail(txtEmailUnete, emailErrorUnete);
 
 function validationFormUnete() {
-    if (txtEmailUnete.value == "") {
-        emailErrorUnete.innerHTML = "El campo no puede estar vacio";
-        return true;
-    }
     if (rbCliente.checked == false && rbProveedor.checked == false) {
         rbError.innerHTML = "Debe seleccionar una opcion";
         return true;
     }
-    if(rbProveedor.checked == true){
-        Cbusuarios = "PRV";
-    }else{
-        Cbusuarios = "CLI";
+    else{
+        rbError.innerHTML = "";
+        rbProveedor.checked == true ? cbUsuarios = "PRV" : cbUsuarios = "CLI";
+        rbProveedor.checked == true ? userType.innerHTML = "Proveedor" : userType.innerHTML = "Cliente";
+    };
+
+    if (txtEmailUnete.value == "") {
+        emailErrorUnete.innerHTML = "El campo no puede estar vacio";
+        return true;
     }
+    else{
+        emailErrorUnete.innerHTML = "";
+    }
+    
 
     return false;
 }
@@ -128,9 +134,9 @@ function clickRegister1(){
             type: "POST",
             url: "index.php?page=sec_prueba",
             data:{
-                txtEmail: txtEmailUnite.value,
+                txtEmail: txtEmailUnete.value,
                 btnRegister: true,
-                Cbusuarios : Cbusuarios,
+                Cbusuarios : cbUsuarios,
             },
             success: function (response) {
                 if(response == "success"){
@@ -154,11 +160,178 @@ function clickRegister1(){
 
 }
 
+//Unete model 2 Datos Usuario
+
+let txtUserName = document.getElementById("txtUserName");
+let txtUserPass = document.getElementById("txtUserPass");
+let txtConfirmPass = document.getElementById("txtConfirmPass");
+let cmbDepto = document.getElementById("cmbDepto");
+let cmbMuni = document.getElementById("cmbMuni");
+
+
+
+function validationRegister2(){
+    validatePassword(txtUserPass);
+    if (txtUserName.value == "") {
+        userNameError.innerHTML = "El campo no puede estar vacio";
+        return true;
+    }
+    else{
+        userNameError.innerHTML = "";
+    }
+
+    if (txtUserPass.value == "" || txtConfirmPass.value == "") {
+        userPassError.innerHTML = "Debe llenar todos los campos";
+        return true;
+    }
+    else if(txtUserPass.value.length < 8 || txtConfirmPass.value.length < 8){
+        userPassError.innerHTML = "La contraseña debe tener al menos 8 caracteres";
+        return true;
+    }
+    else if (txtUserPass.value != txtConfirmPass.value) {
+        userPassError.innerHTML = "Las contraseñas no coinciden";
+        return true;
+    }
+    else{
+        userPassError.innerHTML = "";
+    }
+
+    return false;
+}
+
+function clickRegister2(){
+    if(!validationRegister2()){
+        console.log("Sin Error");
+        $.ajax({
+            type: "POST",
+            url: "index.php?page=sec_register",
+            data:{
+                txtUser: txtUserName.value,
+                txtPswd: txtUserPass.value,
+                btnRegister2: true,
+                cbDepartamentos : cmbDepto.value,
+                cbMunicipios : cmbMuni.value,
+            },
+            success: function (response) {
+                if(response == "success"){
+                    sendCorreo();
+                    modalHandler1(true, 'modal3', 'modal2');
+                }
+                else if(response == "exist"){
+                    userNameError.innerHTML = "Credencial ya registrada en el sistema";
+                }
+                else if(response == "error"){
+                    alert("Error al registrar");
+                    window.location.href = "index.php?page=landing_landing";
+                }
+                else {
+                    alert(response);
+                }
+            }
+        });
+    }
+}
+
+//Unete model 3 Verificar Correo
+
+let txtCode = document.getElementById("txtCode");
+let codeError = document.getElementById("codeError");
+
+function validationRegister3(){
+    if (txtCode.value == "") {
+        codeError.innerHTML = "El campo no puede estar vacio";
+        return true;
+    }
+    else{
+        codeError.innerHTML = "";
+    }
+
+    return false;
+}
+
+function clickRegister3(){
+    if(!validationRegister3()){
+        console.log("Sin Error");
+        $.ajax({
+            type: "POST",
+            url: "index.php?page=sec_verificacion",
+            data:{
+                txtVerificacion: txtCode.value,
+                step: "verificar",
+            },
+            success: function (response) {
+                if(response == "success"){
+                    alert("Cuenta verificada correctamente");
+                    modalHandler1(true, 'modal4', 'modal3');
+                }
+                else if(response == "incorrecto"){
+                    codeError.innerHTML = "El código de verificación es incorrecto";
+                }
+                else if(response == "error"){
+                    codeError.innerHTML = "Ha ocurrido un error";
+                }
+                else {
+                    alert(response + "Error");
+                }
+            }
+        });
+    }
+}
+
+//Funciones
+
+function sendCorreo(){
+    $.ajax({
+        type: "POST",
+        url: "index.php?page=sec_verificacion",
+        data:{
+            step: "enviarCorreo",
+        },
+        success: function (response) {
+            if(response == "success"){
+                alert("¡Para verificar tu cuenta entra al link enviado a tu correo!");
+            }
+            else{
+                alert("Error al enviar correo");
+            }
+        }
+    });
+}
+
+function validatePassword(password){
+        if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.length >= 8){
+            userPassError.innerHTML = "";
+
+            var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+            var mediumRegex = new RegExp("/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/");
+
+            if(strongRegex.test(password)){
+                password.style.borderColor = "green";
+                return true;
+            }
+            else if(mediumRegex.test(password)){
+                password.style.borderColor = "orange";
+                return true;
+            }
+            else{
+                password.style.borderColor = "red";
+                return false;
+            }
+        }
+        else{
+            userPassError.innerHTML = "La contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un número";
+            password.style.borderColor = "red";
+            return false;
+        }
+    /* var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    return re.test(password) && re.test(confirmPassword); */
+}
+
 function verificarEmail(email, errorMsj){
     email.addEventListener("blur", function () {
-    let email = email.value; 
+    let emails = email.value; 
     let regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
-    if (regex.test(email)) {
+    if (regex.test(emails)) {
         errorMsj.innerHTML = "";
         error = false;
         return true;
