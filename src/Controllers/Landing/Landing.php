@@ -16,7 +16,7 @@ class Landing extends PublicController{
             $this->process_postBack();
         }
         $this->pre_render();
-        
+        $this->viewData["isLogged"] = \Utilities\Security::isLogged();
         \Utilities\Site::addEndScript("src/Views/templates/landing/scripts/modal.js");
         Renderer::render("landing/landing",$this->viewData);
     }
@@ -28,11 +28,10 @@ class Landing extends PublicController{
         $this->viewData["cards"] = $dbCards;
         foreach($this->viewData["cards"] as $key => $card){            
             $this->viewData["cards"][$key]["isVerified"] = \Dao\Landing\Card::isVerified($card["iduserdetail"]);
-            $this->viewData["cards"][$key]["name"] = \Dao\Landing\Landing::split_name($card["firstname"], $card["lastname"]);
+            $this->viewData["cards"][$key]["name"] = \Utilities\multiUtilities::split_name($card["firstname"], $card["lastname"]);
             $this->viewData["cards"][$key]["tiempoPlataforma"] = \Dao\Landing\Card::getTimeAgo($card["datecreate"]);
             //$this->viewData["cards"][$key]["isSuscripter"] = \Dao\Landing\Card::isSuscripter($card["iduserdetail"]);
         }
-
         //Obtener todos los servicios de la base de datos
         $dbServices = \Dao\Landing\Landing::getAllServices();
         $this->viewData["services"] = $dbServices;
@@ -42,7 +41,7 @@ class Landing extends PublicController{
         \Utilities\ArrUtils::mergeFullArrayTo($idRandomReview, $this->viewData);
 
         //Obtener el nombre de la persona que hizo la review
-        $this->viewData["name"] = \Dao\Landing\Landing::split_name($this->viewData["firstname"], $this->viewData["lastname"]);
+        $this->viewData["name"] = \Utilities\multiUtilities::split_name($this->viewData["firstname"], $this->viewData["lastname"]);
 
 
     }

@@ -18,11 +18,5 @@ class Landing extends Table{
         return self::obtenerUnRegistro($selectSql, array());
     }
 
-    //Funcion que retorna el primer nombre y el primer apellido de un usuario
-    public static function split_name($firstname, $lastname){
-        $split_firstname = explode(" ", $firstname);
-        $split_lastname = explode(" ", $lastname);
-        return ($split_firstname[0] . " " . $split_lastname[0]);
-    }
 }
 ?>
