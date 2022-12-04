@@ -42,16 +42,19 @@ let pswdError = document.getElementById("pswdError");
 let error = false;
 
 
-verificarEmail(txtEmail, emailError);
 
 function validationForm() {
+    if(verificarEmail(txtEmail, emailError)){
+        return true;
+    }
+
     if (txtEmail.value == "") {
         emailError.innerHTML = "El campo no puede estar vacio";
-        return error = true;
+        return true;
     }
     if (txtPswd.value == "") {
         pswdError.innerHTML = "El campo no puede estar vacio";
-        return error = true;
+        return  true;
     }
     
     return false;
@@ -102,9 +105,13 @@ let rbProveedor = document.getElementById("btnBgRb2");
 let cbUsuarios;
 let userType = document.getElementById("userType");
 
-verificarEmail(txtEmailUnete, emailErrorUnete);
 
 function validationFormUnete() {
+
+    if(verificarEmail(txtEmailUnete, emailErrorUnete)){
+        return true;
+    }
+    
     if (rbCliente.checked == false && rbProveedor.checked == false) {
         rbError.innerHTML = "Debe seleccionar una opcion";
         return true;
@@ -171,7 +178,7 @@ let cmbMuni = document.getElementById("cmbMuni");
 
 
 function validationRegister2(){
-    validatePassword(txtUserPass);
+    
     if (txtUserName.value == "") {
         userNameError.innerHTML = "El campo no puede estar vacio";
         return true;
@@ -179,7 +186,7 @@ function validationRegister2(){
     else{
         userNameError.innerHTML = "";
     }
-
+    
     if (txtUserPass.value == "" || txtConfirmPass.value == "") {
         userPassError.innerHTML = "Debe llenar todos los campos";
         return true;
@@ -188,7 +195,10 @@ function validationRegister2(){
         userPassError.innerHTML = "La contraseña debe tener al menos 8 caracteres";
         return true;
     }
-    else if (txtUserPass.value != txtConfirmPass.value) {
+    if(validatePassword(txtUserPass)){
+        return true;
+    }
+    else if (txtUserPass.value !== txtConfirmPass.value) {
         userPassError.innerHTML = "Las contraseñas no coinciden";
         return true;
     }
@@ -219,6 +229,7 @@ function clickRegister2(){
                 }
                 else if(response == "exist"){
                     userNameError.innerHTML = "Credencial ya registrada en el sistema";
+                    return;
                 }
                 else if(response == "error"){
                     alert("Error al registrar");
@@ -262,7 +273,7 @@ function clickRegister3(){
             success: function (response) {
                 if(response == "success"){
                     alert("Cuenta verificada correctamente");
-                    modalHandler1(true, 'modal4', 'modal3');
+                    modalHandler1(false, 'modal3');
                 }
                 else if(response == "incorrecto"){
                     codeError.innerHTML = "El código de verificación es incorrecto";
@@ -289,7 +300,7 @@ function sendCorreo(){
         },
         success: function (response) {
             if(response == "success"){
-                alert("¡Para verificar tu cuenta entra al link enviado a tu correo!");
+                console.log("Correo enviado");
             }
             else{
                 alert("Error al enviar correo");
@@ -299,47 +310,31 @@ function sendCorreo(){
 }
 
 function validatePassword(password){
-        if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.length >= 8){
+        if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.match(/[.!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g) && password.value.length >= 8){
             userPassError.innerHTML = "";
-
-            var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-            var mediumRegex = new RegExp("/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/");
-
-            if(strongRegex.test(password)){
-                password.style.borderColor = "green";
-                return true;
-            }
-            else if(mediumRegex.test(password)){
-                password.style.borderColor = "orange";
-                return true;
-            }
-            else{
-                password.style.borderColor = "red";
-                return false;
-            }
+            return false;
         }
         else{
             userPassError.innerHTML = "La contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un número";
             password.style.borderColor = "red";
-            return false;
+            return true;
         }
     /* var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     return re.test(password) && re.test(confirmPassword); */
 }
 
 function verificarEmail(email, errorMsj){
-    email.addEventListener("blur", function () {
     let emails = email.value; 
-    let regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+    //let regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+    let regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (regex.test(emails)) {
         errorMsj.innerHTML = "";
-        error = false;
-        return true;
+        return false;
     } else {
         errorMsj.innerHTML = "Correo invalido";
         errorMsj.style.color = "red";
-        error = true;
-        return false;
-    }
-})
+        return true;
+    };
+
 };
