@@ -11,17 +11,17 @@
                 
                 <fieldset>
                     <p class="text-justify">
-                        jdoe, antes de que puedas empezar con nosotros, necesitamos verificar tu correo electronico por
+                        jdoe, antes de que puedas empezar con nosotros, necesitamos verificar tu correo electrónico por
                         motivos de seguridad.
                     </p>
                     <p class="text-justify" id="verificationText">
-                        Se ha enviado un correo con un código de verificación su correo electronico.
+                        Se ha enviado un correo con un código de verificación su correo electrónico.
                     </p>
                 </fieldset>
                 <form action="">
                 <div class="grid grid-cols-1 justify-items-center">
-                    <input type="text" name="txtCode" id="txtCode" class="form-input !w-6/12"
-                        placeholder="Código de Seguridad">
+                    <input type="text" name="txtCode" id="txtCode" class="form-input !w-6/12 tracking-widest text-center"
+                        placeholder="Código de Seguridad" maxlength="4" minlength="4">
                     <p class="text-multiDanger" id="codeError"></p>
                     <button type="button" class="form-primaryButton !align-middle !mt-3 !w-6/12" onclick="return clickRegister3()">Continuar</button>
                 </div>

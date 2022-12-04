@@ -1,16 +1,16 @@
-function modalHandler1(val = false,  toModal, fromModal = null) {
+function modalHandler1(val = false, toModal, fromModal = null) {
     let toModalTg = document.getElementById(toModal);
     let fromModalTg = document.getElementById(fromModal);
 
-    if(fromModalTg != null){
+    if (fromModalTg != null) {
         fadeOut(fromModalTg);
-    }    
+    }
     if (val) {
         fadeIn(toModalTg);
     } else {
         fadeOut(toModalTg);
     }
-    
+
 }
 function fadeOut(el) {
     el.style.opacity = 1;
@@ -56,43 +56,43 @@ function validationForm() {
         pswdError.innerHTML = "El campo no puede estar vacio";
         return  true;
     }
-    
+
     return false;
-    
+
 }
 
-function clickLogin(){
-        if(!validationForm()){
-            console.log("Sin Error");
-            $.ajax({
-                type: "POST",
-                url: "index.php?page=sec_login",
-                data:{
-                    txtEmail: txtEmail.value,
-                    txtPswd: txtPswd.value,
-                    btnLogin: true
-                },
-                success: function (response) {
-                    if(response == "success"){
-                        window.location.href = "index.php?page=landing_landing";
-                    }
-                    else if(response == "error"){
-                        pswdError.innerHTML = "Usuario o contraseña incorrectos";
-                    }
-                    else if(response == "sinVerificarCorreo"){
-                        alert("Debe verificar su correo electronico");
-                        window.location.href = "index.php?page=landing_landing";
-                    }
+function clickLogin() {
+    if (!validationForm()) {
+        console.log("Sin Error");
+        $.ajax({
+            type: "POST",
+            url: "index.php?page=sec_login",
+            data: {
+                txtEmail: txtEmail.value,
+                txtPswd: txtPswd.value,
+                btnLogin: true
+            },
+            success: function (response) {
+                if (response == "success") {
+                    window.location.href = "index.php?page=landing_landing";
                 }
-                
-                
-            });
-        }
-        else{
-            console.log("Con Error");
-            return false;
-        }               
-    
+                else if (response == "error") {
+                    pswdError.innerHTML = "Usuario o contraseña incorrectos";
+                }
+                else if (response == "sinVerificarCorreo") {
+                    alert("Debe verificar su correo electronico");
+                    window.location.href = "index.php?page=landing_landing";
+                }
+            }
+
+
+        });
+    }
+    else {
+        console.log("Con Error");
+        return false;
+    }
+
 }
 
 
@@ -116,7 +116,7 @@ function validationFormUnete() {
         rbError.innerHTML = "Debe seleccionar una opcion";
         return true;
     }
-    else{
+    else {
         rbError.innerHTML = "";
         rbProveedor.checked == true ? cbUsuarios = "PRV" : cbUsuarios = "CLI";
         rbProveedor.checked == true ? userType.innerHTML = "Proveedor" : userType.innerHTML = "Cliente";
@@ -126,44 +126,44 @@ function validationFormUnete() {
         emailErrorUnete.innerHTML = "El campo no puede estar vacio";
         return true;
     }
-    else{
+    else {
         emailErrorUnete.innerHTML = "";
     }
-    
+
 
     return false;
 }
 
-function clickRegister1(){
-    if(!validationFormUnete()){
+function clickRegister1() {
+    if (!validationFormUnete()) {
         console.log("Sin Error");
         $.ajax({
             type: "POST",
             url: "index.php?page=sec_prueba",
-            data:{
+            data: {
                 txtEmail: txtEmailUnete.value,
                 btnRegister: true,
-                Cbusuarios : cbUsuarios,
+                Cbusuarios: cbUsuarios,
             },
             success: function (response) {
-                if(response == "success"){
+                if (response == "success") {
                     modalHandler1(true, 'modal2', 'modal1');
                 }
-                else if(response == "exist"){
+                else if (response == "exist") {
                     emailErrorUnete.innerHTML = "Correo ya existe";
                 }
-                else if(response == "error"){
+                else if (response == "error") {
                     emailErrorUnete.innerHTML = "Error al registrar";
                 }
             }
-            
-            
+
+
         });
     }
-    else{
+    else {
         console.log("Con Error");
         return false;
-    }               
+    }
 
 }
 
@@ -183,7 +183,7 @@ function validationRegister2(){
         userNameError.innerHTML = "El campo no puede estar vacio";
         return true;
     }
-    else{
+    else {
         userNameError.innerHTML = "";
     }
     
@@ -191,7 +191,7 @@ function validationRegister2(){
         userPassError.innerHTML = "Debe llenar todos los campos";
         return true;
     }
-    else if(txtUserPass.value.length < 8 || txtConfirmPass.value.length < 8){
+    else if (txtUserPass.value.length < 8 || txtConfirmPass.value.length < 8) {
         userPassError.innerHTML = "La contraseña debe tener al menos 8 caracteres";
         return true;
     }
@@ -202,36 +202,36 @@ function validationRegister2(){
         userPassError.innerHTML = "Las contraseñas no coinciden";
         return true;
     }
-    else{
+    else {
         userPassError.innerHTML = "";
     }
 
     return false;
 }
 
-function clickRegister2(){
-    if(!validationRegister2()){
+function clickRegister2() {
+    if (!validationRegister2()) {
         console.log("Sin Error");
         $.ajax({
             type: "POST",
             url: "index.php?page=sec_register",
-            data:{
+            data: {
                 txtUser: txtUserName.value,
                 txtPswd: txtUserPass.value,
                 btnRegister2: true,
-                cbDepartamentos : cmbDepto.value,
-                cbMunicipios : cmbMuni.value,
+                cbDepartamentos: cmbDepto.value,
+                cbMunicipios: cmbMuni.value,
             },
             success: function (response) {
-                if(response == "success"){
+                if (response == "success") {
                     sendCorreo();
                     modalHandler1(true, 'modal3', 'modal2');
                 }
-                else if(response == "exist"){
+                else if (response == "exist") {
                     userNameError.innerHTML = "Credencial ya registrada en el sistema";
                     return;
                 }
-                else if(response == "error"){
+                else if (response == "error") {
                     alert("Error al registrar");
                     window.location.href = "index.php?page=landing_landing";
                 }
@@ -248,37 +248,37 @@ function clickRegister2(){
 let txtCode = document.getElementById("txtCode");
 let codeError = document.getElementById("codeError");
 
-function validationRegister3(){
+function validationRegister3() {
     if (txtCode.value == "") {
         codeError.innerHTML = "El campo no puede estar vacio";
         return true;
     }
-    else{
+    else {
         codeError.innerHTML = "";
     }
 
     return false;
 }
 
-function clickRegister3(){
-    if(!validationRegister3()){
+function clickRegister3() {
+    if (!validationRegister3()) {
         console.log("Sin Error");
         $.ajax({
             type: "POST",
             url: "index.php?page=sec_verificacion",
-            data:{
+            data: {
                 txtVerificacion: txtCode.value,
                 step: "verificar",
             },
             success: function (response) {
-                if(response == "success"){
+                if (response == "success") {
                     alert("Cuenta verificada correctamente");
                     modalHandler1(false, 'modal3');
                 }
-                else if(response == "incorrecto"){
+                else if (response == "incorrecto") {
                     codeError.innerHTML = "El código de verificación es incorrecto";
                 }
-                else if(response == "error"){
+                else if (response == "error") {
                     codeError.innerHTML = "Ha ocurrido un error";
                 }
                 else {
@@ -291,19 +291,19 @@ function clickRegister3(){
 
 //Funciones
 
-function sendCorreo(){
+function sendCorreo() {
     $.ajax({
         type: "POST",
         url: "index.php?page=sec_verificacion",
-        data:{
+        data: {
             step: "enviarCorreo",
         },
         success: function (response) {
             if(response == "success"){
                 console.log("Correo enviado");
             }
-            else{
-                alert("Error al enviar correo");
+            else {
+                
             }
         }
     });
@@ -314,11 +314,20 @@ function validatePassword(password){
             userPassError.innerHTML = "";
             return false;
         }
-        else{
-            userPassError.innerHTML = "La contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un número";
+        else if (mediumRegex.test(password)) {
+            password.style.borderColor = "orange";
+            return true;
+        }
+        else {
             password.style.borderColor = "red";
             return true;
         }
+    }
+    else {
+        userPassError.innerHTML = "La contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un número";
+        password.style.borderColor = "red";
+        return false;
+    }
     /* var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     return re.test(password) && re.test(confirmPassword); */
 }
@@ -338,3 +347,10 @@ function verificarEmail(email, errorMsj){
     };
 
 };
+/* swal.fire({
+    title: 'Error!',
+    text: 'Ha ocurrido un error con el servidor de correos intente mas tarde',
+    icon: 'error',
+    confirmButtonColor: '#1C3879',
+    confirmButtonText: 'Cerrar'
+}) */

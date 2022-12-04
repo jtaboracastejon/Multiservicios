@@ -11,6 +11,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/{{BASE_DIR}}/dist/output.css" />
   <script src="https://kit.fontawesome.com/{{FONT_AWESOME_KIT}}.js" crossorigin="anonymous"></script>
+  
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   {{foreach SiteLinks}}
   <link rel="stylesheet" href="/{{~BASE_DIR}}/{{this}}" />
