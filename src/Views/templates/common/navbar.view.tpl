@@ -6,10 +6,10 @@
         <div class="rounded-full bg-white py-2 mx-auto px-5 invisible md:visible">
             <i class="fas fa-map-location-dot"></i>
             <select name="" id="" class="px-4 font-semibold text-sm text-center">
-                <option value="" class="text-left">Santa Rosa de Copán</option>
-                <option value="" class="text-left">Arizona, Tela</option>
+            {{foreach workZones}}
+                <option value="{{idworkzone}}" class="text-left">{{municipality}}, {{department}}</option>
+            {{endfor workZones}}
             </select>
-
         </div>
         
         <div class="lg:hidden">
@@ -132,5 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    
 });
 </script>

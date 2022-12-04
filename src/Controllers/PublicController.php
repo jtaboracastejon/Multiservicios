@@ -28,6 +28,10 @@ abstract class PublicController implements IController
      */
     public function __construct()
     {
+        if(isset($_SESSION["workZones"])) {
+            $_SESSION['workZones'] = \Dao\WorkZones\Workzone::getWorkZoneDis();
+        }
+        
         $this->name = get_class($this);
         if (\Utilities\Security::isLogged()){
             $layoutFile = \Utilities\Context::getContextByKey("PRIVATE_LAYOUT");
