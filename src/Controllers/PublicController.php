@@ -28,8 +28,16 @@ abstract class PublicController implements IController
      */
     public function __construct()
     {
-        if(isset($_SESSION["workZones"])) {
-            $_SESSION['workZones'] = \Dao\WorkZones\Workzone::getWorkZoneDis();
+        $_SESSION['workZones'] = \Dao\WorkZones\Workzone::getWorkZoneDis();
+        
+        if(isset($_SESSION["idworkzone"])) {
+            /* $_SESSION["idworkzone"] = array(
+                "idworkzone" => "1",
+                "iddepto" => "1",
+                "idmunicipality" => "1",
+                "department" => "Atlántida",
+                "municipality" => "La Ceiba",
+            ); */
         }
         
         $this->name = get_class($this);

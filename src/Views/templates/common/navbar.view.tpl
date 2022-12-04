@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <div class="bg-black bg-opacity-80" style="box-shadow:-5px 4px 5px 0 rgba(0,0,0,0.8);">
     <nav class="relative px-4 z-10 py-4 flex justify-between items-center ">
         <a class="text-3xl font-bold leading-none text-white" href="#">
@@ -5,7 +6,10 @@
         </a>
         <div class="rounded-full bg-white py-2 mx-auto px-5 invisible md:visible">
             <i class="fas fa-map-location-dot"></i>
-            <select name="" id="" class="px-4 font-semibold text-sm text-center">
+            <select name="" id="cmbChangeZone" class="px-4 font-semibold text-sm text-center">
+                {{with idworkzone}}
+                    <option value="{{idworkzone}}" selected class="text-left">{{municipality}}, {{department}}</option>
+                {{endwith idworkzone}}
             {{foreach workZones}}
                 <option value="{{idworkzone}}" class="text-left">{{municipality}}, {{department}}</option>
             {{endfor workZones}}
@@ -133,6 +137,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    
 });
 </script>

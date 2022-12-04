@@ -19,12 +19,10 @@ class Search extends PublicController{
     }
 
     private function onForm_loaded(){
-        if(isset($_SESSION["workzone"])){
-            $idworkzone = $_SESSION["workzone"]["idworkzone"];
-        }
-        else{
-            $idworkzone = 1;
-        }        
+        
+        $idworkzone = $_SESSION["idworkzone"]["idworkzone"];
+        
+
         !isset($_GET["result"]) ? $page = 1 : $page = intval($_GET["result"]);
         $this->viewData["pagenum"] = $page;
 
@@ -138,7 +136,7 @@ class Search extends PublicController{
     private function pre_render(){
         //&service=1&query=Hola%que%hace_s&Presupuesto=10000
         //&result=2
-        $this->viewData["workzone"] = $_SESSION["workzone"]["department"]. ", " . $_SESSION["workzone"]["municipality"];
+        //$this->viewData["workzone"] = $_SESSION["workzone"]["department"]. ", " . $_SESSION["workzone"]["municipality"];
         //Funciones de paginacion de resultados
         $this->viewData["pagenum"] == 1 ? $this->viewData["isFirst"] = true : $this->viewData["isFirst"] = false;
         $this->viewData["last"] == $this->viewData["pagenum"] ? $this->viewData["isLast"] = true : $this->viewData["isLast"] = false;
@@ -151,10 +149,10 @@ class Search extends PublicController{
     }
     
     private function process_postBack(){
-        if(isset($_POST["btnChangeZone"])){
+        if($_POST["step"] == "A"){
             $this->changeZone();
         }
-        if(isset($_POST["btnSearch"])){
+        if($_POST["step"] != "A"){
             $query = $_POST["txtSearch"];
             $service = $this->viewData["service"];
             //$budget = $_POST["budget"];
@@ -168,17 +166,16 @@ class Search extends PublicController{
     }
 
     private function changeZone(){
-        $iddepto = $_POST["cmbdepto"];
-        $idmunicipality = $_POST["cmbmunicipio"];
-        $idworkzone = \Dao\Security\Security::existWorkzone($iddepto,$idmunicipality);
-        if($idworkzone != 0){
+        $idworkzone = $_POST["idworkzone"];
+        $workzone = \Dao\WorkZones\Workzone::getWorkZonesById($idworkzone);
+        if($workzone != 0){
             //Cambiar variable de sesion con el idworkzone
-            $_SESSION["workzone"] = array(
-                "idworkzone" => $idworkzone["idworkzone"],
-                "iddepto" => $idworkzone["iddepto"],
-                "idmunicipality" => $idworkzone["idmunicipality"],
-                "department" => $idworkzone["department"],
-                "municipality" => $idworkzone["municipality"]
+            $_SESSION["idworkzone"] = array(
+                "idworkzone" => $workzone["idworkzone"],
+                "iddepto" => $workzone["iddepto"],
+                "idmunicipality" => $workzone["idmunicipality"],
+                "department" => $workzone["department"],
+                "municipality" => $workzone["municipality"]
             );
 
             \Utilities\Site::redirectTo("index.php?page=services_search&service=".$this->viewData["service"]."&query=".$this->viewData["query"]."&result=".$this->viewData["pagenum"]);

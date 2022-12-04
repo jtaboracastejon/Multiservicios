@@ -54,7 +54,10 @@ class Workzone extends Table
     }
 
     public static function getWorkZonesById($idworkzone){
-        $selectSql = "SELECT * FROM work_zones WHERE idworkzone = :idworkzone";
+        $selectSql = "SELECT * FROM work_zones wz 
+        JOIN departments d ON d.iddepto = wz.iddepto 
+        JOIN municipalities m ON m.idmunicipality = wz.idmunicipality 
+        WHERE idworkzone = :idworkzone";
         $selectParams = [
             "idworkzone" => $idworkzone
         ];
