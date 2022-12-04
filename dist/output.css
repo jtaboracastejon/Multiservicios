@@ -623,6 +623,14 @@ html {
   display: none;
 }
 
+.h-36 {
+  height: 9rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -635,12 +643,8 @@ html {
   height: 1.5rem;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
-.h-full {
-  height: 100%;
+.w-full {
+  width: 100%;
 }
 
 .w-4 {
@@ -653,10 +657,6 @@ html {
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .max-w-sm {
@@ -699,6 +699,10 @@ html {
   overflow-y: auto;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -709,10 +713,6 @@ html {
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .border-2 {
@@ -767,12 +767,12 @@ html {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
-.bg-opacity-80 {
-  --tw-bg-opacity: 0.8;
-}
-
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
+}
+
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
 }
 
 .bg-\[url\(\'\.\.\/public\/imgs\/joey-huang-XBh4DOGqMfc-unsplash\.jpg\'\)\] {
@@ -795,16 +795,16 @@ html {
   fill: currentColor;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .px-4 {
