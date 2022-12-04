@@ -1,4 +1,4 @@
-<p>{{workzone}}</p>
+{{include common/navbar}}
 <form action="index.php?page=services_search&service={{service}}&query={{query}}" method="post">
     <select name="cmbdepto" id="cmbdepto">
         <option value="1">Atlantidad</option>
@@ -64,28 +64,27 @@
     <p>No se encontraron resultados</p>
 {{endif noResults}}
     
-<script>
-    var municipalities = [
-        {id: 1, name: "La Ceiba", department: 1},
-        {id: 2, name: "Tela", department: 1},
-        {id: 3, name: "Jutiapa", department: 1},
-        {id: 4, name: "San Pedro Sula", department: 2},
-        {id: 5, name: "Tegucigalpa", department: 2},
-        {id: 6, name: "Comayagua", department: 2}
-    ];
-    document.getElementById('cmbdepto').addEventListener("change", function(){
-        var select = document.getElementById('cmbmunicipio');
-        var selected = this.value;
-        select.innerHTML = "";
-        municipalities.forEach(function(municipality){
-            if(municipality.department == selected){
-                var option = document.createElement("option");
-                option.value = municipality.id;
-                option.innerHTML = municipality.name;
-                select.appendChild(option);
-            }
+<script >
+     var cmbChangeZone = document.getElementById('cmbChangeZone');
+
+    if (cmbChangeZone) {
+        cmbChangeZone.addEventListener('change', function() {
+            console.log(this.value);
+            $.ajax({
+                url: 'index.php?page=services_search&service={{service}}',
+                type: 'POST',
+                data: {
+                    idworkzone: this.value,
+                    step: 'A'
+                },
+                success: function(data) {
+                    console.log(data);
+                    window.location.reload();
+                }
+            });
+            
         });
-    });
+    };
     //document.getElementById('btnChangeZone').addEventListener("click", function(){
     //    var depto = document.getElementById('cmbdepto').value;
     //    var municipio = document.getElementById('cmbmunicipio').value;
