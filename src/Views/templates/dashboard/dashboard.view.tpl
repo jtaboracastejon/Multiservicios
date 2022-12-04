@@ -25,35 +25,3 @@
         {{endfor NAVIGATION}}
     </div>
 
-    <div class="p-10 bg-multiLightGray col-span-4 ">
-        
-        <div>
-            <h1 class="multi-titleG2">Lorem ipsum dolor</h1>
-            <button type="button" class="mt-4 px-4 py-2 text-black-400 text-white hover:text-white bg-gradient-to-r bg-blue-500 border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500">Primario</button>
-        </div>
-
-        <div class="grid grid-cols-3 mt-6">
-            <div class="col-span-3 rounded-lg bg-white">
-                <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">        
-                    {{include about/tabla}}
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-4 mt-10">
-            <div class="h-[80rem] rounded-lg bg-white">
-                <div class="grid grid-rows-1 m-5 rounded-lg h-[20rem] bg-multiDarkGray">
-
-                </div>
-            </div>
-            <div class="h-[80rem] rounded-lg bg-white">
-
-            </div>
-            <div class="h-[80rem] rounded-lg bg-white">
-
-            </div>
-        </div>
-
-    </div>
-
-</div>
