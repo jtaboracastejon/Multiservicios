@@ -40,9 +40,9 @@ class Users extends Table{
         return self::executeNonQuery($updateSql, $params);
     }
 
-    public static function deleteUser($usercode){
-        $deleteStr= "DELETE FROM usuario WHERE usercode=:usercode;";
-        return self::executeNonQuery($deleteStr, array("usercode" => $usercode));
+    public static function deleteUser($usercod){
+        $deleteStr= "DELETE FROM usuario WHERE usercod=:usercod;";
+        return self::executeNonQuery($deleteStr, array("usercod" => $usercod));
     }
 
 
