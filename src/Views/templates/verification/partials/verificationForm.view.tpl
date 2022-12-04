@@ -13,27 +13,39 @@
     
     <fieldset>
         <label class="form-label" for="dniFrontal">Subir DNI Frontal</label>
-        <input class="form-inputFile" type="file" accept="image/png, image/jpeg, image/jpg" name="dniFrontal" id="dniFrontal" required>
+        <input class="form-inputFile" type="file" accept="image/png, image/jpeg, image/jpg" name="dniFrontal" id="dniFrontal">
         <p class="form-helper">PNG, JPG, JPEG</p>
     </fieldset>
     <br>
     <fieldset>
         <label class="form-label" for="dniFrontal">Subir DNI Posterior</label>
-        <input class="form-inputFile" type="file" accept="image/png, image/jpeg, image/jpg" name="dniPosterior" id="dniPosterior" required>
+        <input class="form-inputFile" type="file" accept="image/png, image/jpeg, image/jpg" name="dniPosterior" id="dniPosterior">
         <p class="form-helper">PNG, JPG, JPEG</p>
     </fieldset>
     <br>
     <p>El comprobante de domicilio puede ser cualquier recibo publico a tu nombre en el que aparezca tu residencia, no debe ser de mas de 3 meses de antigüedad.</p>
     <fieldset>
         <label class="form-label" for="dniFrontal">Subir comprobante de domicilio</label>
-        <input class="form-inputFile" type="file" accept="image/png, image/jpeg" name="comprobanteDomicilio" id="comprobanteDomicilio" required>
+        <input class="form-inputFile" type="file" accept="image/png, image/jpeg" name="comprobanteDomicilio" id="comprobanteDomicilio">
         <p class="form-helper">PNG, JPG, JPEG</p>
     </fieldset>
     <br>
     <p>Al enviar los documentos aceptas que, serán almacenados y que una persona destinada a otorgar verificaciones podrá verlos.</p>
     <br>
-    <fieldset>
-        <button type="button" class="form-primaryButton">Enviar documentos</button>
+    <div class="inline-flex gap-4">
+        <fieldset>
+            <label class="form-label" for="txtDNI">DNI</label>
+            <input class="form-input" name="txtDNI" id="txtDNI" maxlength="13" minlength="13">
+            <p class="form-helper">Sin espacios ni guiones</p>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="txtDNI">Dirección</label>
+            <textarea class="form-input" name="txtAddress" id="txtAddress" cols="60" rows="2"></textarea>
+            <p class="form-helper">Debe ser la misma dirección del comprobante de domicilio</p>
+        </fieldset>
+    </div>
+    <fieldset class="mt-4">
+        <button type="submit" class="form-primaryButton">Enviar documentos</button>
         <button type="button" class="form-secondaryButton">Cancelar</button>
     </fieldset>
 

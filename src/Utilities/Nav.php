@@ -19,6 +19,12 @@ class Nav {
                 "nav_label" => "MNT Servicios"
             );
         }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Verification\Verification")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=verification-verification",
+                "nav_label" => "Verificación"
+            );
+        }
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 
