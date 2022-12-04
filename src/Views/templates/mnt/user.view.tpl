@@ -11,21 +11,30 @@
     <input type="text" class="col-8" name="username" id="username" {{if readonly}} disable {{endif readonly}}
       value="{{username}}"/>
   </section>
+  <!--
   <section class="row my-2 align-center">
     <label for="userpswd" class="col-4">Contraseña del usuario</label>
     <input type="text" class="col-8" name="userpswd" id="userpswd" {{if readonly}} disable {{endif readonly}}
       value="{{userpswd}}" />
-  </section> 
+  </section>
+  --> 
 
-    <!--
   <section class="row my-2 align-center">
-    <label for="status" class="col-4">Estado</label>
-    <select name="status" class="col-8" id="status" {{if readonly}} disable {{endif readonly}}>
+    <label for="userest" class="col-4">Estado del Usuario</label>
+    <select name="userest" class="col-8" id="userest" {{if readonly}} disable {{endif readonly}}>
       <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>
       <option value="INA" {{if ina_selected}} selected {{endif ina_selected}}>Inactivo</option>
     </select>
   </section>
-  -->
+
+  <section class="row my-2 align-center">
+    <label for="usertipo" class="col-4">Tipo de Usuario</label>
+    <select name="usertipo" class="col-8" id="usertipo" {{if readonly}} disable {{endif readonly}}>
+      <option value="CLI" {{if act_selected}} selected {{endif act_selected}}>Cliente</option>
+      <option value="PRV" {{if ina_selected}} selected {{endif ina_selected}}>Proveedor</option>
+      <option value="ADM" {{if ina_selected}} selected {{endif ina_selected}}>Administrador</option>
+    </select>
+  </section>
 
   <br /><br />
   }

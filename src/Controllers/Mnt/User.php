@@ -18,7 +18,8 @@ class User extends PublicController{
         'usercod' => -1,
         'useremail' => '',
         'username' => '',
-        'userpswd' => '',
+        'userest' => '',
+        'usertipo' => '',
         'readOnly' => false,
         'showSaveBtn'=>true
     );
@@ -42,11 +43,11 @@ public function run(): void
             $this->errorHandler();
         }
         if($this->viewData["mode"]!=="INS"){
-            if(!isset($_GET["usercode"])){
+            if(!isset($_GET["usercod"])){
                 $this->errorHandler();
             }
-            $usercode = intval($_GET["usercode"]);
-            $dbUser = \Dao\Mnt\Users::getById($usercode);
+            $usercod = intval($_GET["usercod"]);
+            $dbUser = \Dao\Mnt\Users::getById($usercod);
             \Utilities\ArrUtils::mergeFullArrayTo($dbUser, $this->viewData);
 
         }
@@ -74,18 +75,19 @@ public function run(): void
         //validando entrada de datos
         $this->viewData["useremail"] = $_POST["useremail"];
         $this->viewData["username"] = $_POST["username"];
-        $this->viewData["userpswd"] = $_POST["userpswd"];
+        $this->viewData["userest"] = $_POST["userest"];
+        $this->viewData["usertipo"] = $_POST["usertipo"];
 
         return true;
     }
     private function on_update_clicked()
     {
         $updateResult=\Dao\Mnt\Users::updateUser(
-            $this->viewData["servicename"],
-            $this->viewData["description"],
-            $this->viewData["imagepath"] ,
-            $this->viewData["status"],
-            $this->viewData["idservice"]
+            $this->viewData["useremail"],
+            $this->viewData["username"],
+            $this->viewData["userest"] ,
+            $this->viewData["usertipo"],
+            $this->viewData["usercod"]
         );
         if($updateResult){
             \Utilities\Site::redirectToWithMsg(
@@ -102,7 +104,7 @@ public function run(): void
         if($deleteResult){
             \Utilities\Site::redirectToWithMsg(
                 "index.php?page=Mnt-Users",
-                "Servicio eliminado correctamente"
+                "Usuario eliminado correctamente"
             );
         }
 
@@ -114,7 +116,8 @@ public function run(): void
         $insertResult=\Dao\Mnt\Users::addUser(
             $this->viewData["useremail"] ,
             $this->viewData["username"] ,
-            $this->viewData["userpswd"]
+            $this->viewData["userest"],
+            $this->viewData["usertipo"]
         );
         if($insertResult){
             \Utilities\Site::redirectToWithMsg(
@@ -128,10 +131,9 @@ public function run(): void
 
     private function pre_render()
     {
-        /*
-        $this->viewData["act_selected"] = $this->viewData["status"]=== "ACT";
-        $this->viewData["ina_selected"] = $this->viewData["status"]=== "INA";
-        */
+        
+        $this->viewData["act_selected"] = $this->viewData["userest"]=== "ACT";
+        $this->viewData["ina_selected"] = $this->viewData["userest"]=== "INA";
         if($this->viewData["mode"]!=='INS'){
             $this->viewData["mode_dsc"]=sprintf(
                 $this->arrModeDsc[$this->viewData["mode"]],

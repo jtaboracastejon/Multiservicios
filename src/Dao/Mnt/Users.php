@@ -5,13 +5,14 @@ use Dao\Table;
 use DateTime;
 
 class Users extends Table{
-    public static function addUser($useremail,$username,$userpswd){
-        $insertSQL= "INSERT INTO usuario (useremail, username, userpswd)
-        values(:useremail, :username, :userpswd);";
+    public static function addUser($useremail,$username,$userest, $usertipo){
+        $insertSQL= "INSERT INTO usuario (useremail, username, userest, usertipo)
+        values(:useremail, :username, :userest, :usertipo);";
         $params=array(
             "useremail"=>$useremail,
             "username"=>$username,
-            "userpswd"=>$userpswd
+            "userest"=>$userest,
+            "usertipo"=>$usertipo
         );
         return self::executeNonQuery($insertSQL, $params);
     }
@@ -28,13 +29,14 @@ class Users extends Table{
             array("usercod"=>$usercod)
         );
     }
-    public static function updateUser($useremail,$username,$userpswd, $usercod){
-        $updateSql= "UPDATE usuario SET useremail=:useremail, username=:username, userpswd=:userpswd
-         WHERE usercod=:usercod;";
+    public static function updateUser($useremail,$username,$userest, $usertipo, $usercod){
+        $updateSql= "UPDATE usuario SET useremail=:useremail, username=:username, userest=:userest,
+         usertipo=:usertipo  WHERE usercod=:usercod;";
         $params=array(
             "useremail"=>$useremail,
             "username"=>$username,
-            "userpswd"=>$userpswd,
+            "userest"=>$userest,
+            "usertipo"=>$usertipo,
             "usercod"=>$usercod
         );
         return self::executeNonQuery($updateSql, $params);
