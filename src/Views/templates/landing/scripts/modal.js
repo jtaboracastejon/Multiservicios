@@ -44,9 +44,6 @@ let error = false;
 
 
 function validationForm() {
-    if(verificarEmail(txtEmail, emailError)){
-        return true;
-    }
 
     if (txtEmail.value == "") {
         emailError.innerHTML = "El campo no puede estar vacio";
@@ -68,7 +65,7 @@ function clickLogin() {
             type: "POST",
             url: "index.php?page=sec_login",
             data: {
-                txtEmail: txtEmail.value,
+                txtUser: txtEmail.value,
                 txtPswd: txtPswd.value,
                 btnLogin: true
             },
@@ -80,8 +77,8 @@ function clickLogin() {
                     pswdError.innerHTML = "Usuario o contraseña incorrectos";
                 }
                 else if (response == "sinVerificarCorreo") {
-                    alert("Debe verificar su correo electronico");
                     window.location.href = "index.php?page=landing_landing";
+                    sweetAlert('Correo sin verificar', 'Debe verificar su correo electronico', 'warning');
                 }
             }
 
@@ -174,6 +171,8 @@ let txtUserPass = document.getElementById("txtUserPass");
 let txtConfirmPass = document.getElementById("txtConfirmPass");
 let cmbDepto = document.getElementById("cmbDepto");
 let cmbMuni = document.getElementById("cmbMuni");
+let verificationText = document.getElementById("verificationText");
+let lblValidar = document.getElementById("lblValidar");
 
 
 
@@ -226,17 +225,20 @@ function clickRegister2() {
                 if (response == "success") {
                     sendCorreo();
                     modalHandler1(true, 'modal3', 'modal2');
+                    lblValidar.innerHTML = txtUserName.value + ", antes de que puedas empezar con nosotros, necesitamos verificar tu correo electrónico por motivos de seguridad.";
+                    verificationText.innerHTML = "Se ha enviado un correo a " + txtEmailUnete.value + " para validar su cuenta";
                 }
                 else if (response == "exist") {
                     userNameError.innerHTML = "Credencial ya registrada en el sistema";
                     return;
                 }
                 else if (response == "error") {
-                    alert("Error al registrar");
+                    sweetAlert('Error', 'Error al registrar', 'error');
                     window.location.href = "index.php?page=landing_landing";
                 }
                 else {
-                    alert(response);
+                    sweetAlert('Error', 'Error al registrar', 'error');
+                    window.location.href = "index.php?page=landing_landing";
                 }
             }
         });
@@ -272,7 +274,7 @@ function clickRegister3() {
             },
             success: function (response) {
                 if (response == "success") {
-                    alert("Cuenta verificada correctamente");
+                    sweetAlert('Exito', 'Registro exitoso', 'success');
                     modalHandler1(false, 'modal3');
                 }
                 else if (response == "incorrecto") {
@@ -282,7 +284,7 @@ function clickRegister3() {
                     codeError.innerHTML = "Ha ocurrido un error";
                 }
                 else {
-                    alert(response + "Error");
+                    sweetAlert('Error', 'Error al registrar', 'error');
                 }
             }
         });
@@ -310,24 +312,15 @@ function sendCorreo() {
 }
 
 function validatePassword(password){
-        if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.match(/[.!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g) && password.value.length >= 8){
+        if(password.value.match(/[a-z]/g) && password.value.match(/[A-Z]/g) && password.value.match(/[0-9]/g) && password.value.match(/[.!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g)){
             userPassError.innerHTML = "";
             return false;
         }
-        else if (mediumRegex.test(password)) {
-            password.style.borderColor = "orange";
-            return true;
-        }
         else {
+            userPassError.innerHTML = "La contraseña debe contener al menos una mayuscula, una minuscula, un número y un caracter especial";
             password.style.borderColor = "red";
             return true;
         }
-    }
-    else {
-        userPassError.innerHTML = "La contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un número";
-        password.style.borderColor = "red";
-        return false;
-    }
     /* var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     return re.test(password) && re.test(confirmPassword); */
 }
@@ -347,10 +340,13 @@ function verificarEmail(email, errorMsj){
     };
 
 };
-/* swal.fire({
-    title: 'Error!',
-    text: 'Ha ocurrido un error con el servidor de correos intente mas tarde',
-    icon: 'error',
-    confirmButtonColor: '#1C3879',
-    confirmButtonText: 'Cerrar'
-}) */
+
+function sweetAlert(title, message, icon) {
+    swal.fire({
+        title: title,
+        text: message,
+        icon: icon,
+        confirmButtonColor: '#1C3879',
+        confirmButtonText: 'Cerrar'
+    });
+}

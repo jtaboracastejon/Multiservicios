@@ -13,10 +13,10 @@ class Login extends \Controllers\PublicController
     {
         if ($this->isPostBack()) {
             if(isset($_POST["btnLogin"])){
-                $this->viewData["emailUser"] = $_POST["txtEmail"];
+                $this->viewData["nameUser"] = $_POST["txtUser"];
                 $this->viewData["pswdUser"] = $_POST["txtPswd"];
     
-                    if ($dbUser = \Dao\Security\Security::getUsuarioByEmail($this->viewData["emailUser"])) {
+                    if ($dbUser = \Dao\Security\Security::getUsuarioByUserName($this->viewData["nameUser"])) {
                         if ($dbUser["userest"] != \Dao\Security\Estados::ACTIVO) {
                             /* $this->generalError = "¡Credenciales son incorrectas!";
                             $this->hasError = true; */
@@ -82,7 +82,7 @@ class Login extends \Controllers\PublicController
                         error_log(
                             sprintf(
                                 "ERROR: %s trato de ingresar",
-                                $this->viewData["emailUser"]
+                                $this->viewData["nameUser"]
                             )
                         );
                         $this->generalError = "¡Credenciales son incorrectas!";

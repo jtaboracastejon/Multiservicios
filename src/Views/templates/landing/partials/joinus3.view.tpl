@@ -10,12 +10,11 @@
                 </div>
                 
                 <fieldset>
-                    <p class="text-justify">
-                        jdoe, antes de que puedas empezar con nosotros, necesitamos verificar tu correo electrónico por
-                        motivos de seguridad.
+                    <p class="text-justify" id="lblValidar">
+                        
                     </p>
                     <p class="text-justify" id="verificationText">
-                        Se ha enviado un correo con un código de verificación su correo electrónico.
+                        
                     </p>
                 </fieldset>
                 <form action="">

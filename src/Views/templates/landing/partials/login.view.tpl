@@ -10,8 +10,8 @@
                 </div>
                 <form action="">
                 <fieldset>
-                    <label for="inputField" class="form-label !font-semibold !mt-5">Correo Electronico/Usuario</label>
-                    <input type="text" name="txtEmail" id="txtEmail" class="form-input" placeholder="ejemplo@gmail.com">
+                    <label for="inputField" class="form-label !font-semibold !mt-5">Usuario</label>
+                    <input type="text" name="txtEmail" id="txtEmail" class="form-input" placeholder="johdoe12">
                     <p class="text-multiDanger" id="emailError"></p>
                     <label for="inputField" class="form-label !font-semibold !mt-5" >Contraseña</label>
                     <input type="password" name="txtPswd" id="txtPswd" class="form-input" placeholder="">
