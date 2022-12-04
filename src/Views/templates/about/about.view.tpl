@@ -80,3 +80,8 @@
     </div>
 
 </div>
+{{with login}}
+{{ifnot emailVerified}}
+ <a href='http://localhost/Multiservicios/index.php?page=sec_verificacion'>verificar cuenta<a/>
+{{endifnot emailVerified}}
+{{endwith login}}
