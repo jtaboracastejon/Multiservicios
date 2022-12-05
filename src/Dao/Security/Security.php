@@ -242,6 +242,12 @@ class Security extends \Dao\Table
             array("fncod" => $fncod, "rolescod" => $rolescod)
         );
     }
+
+    static public function getAllUsers()
+    {
+        $sqlstr = "SELECT username, usercod from usuario;";
+        return self::obtenerRegistros($sqlstr, array());
+    }
     static public function getUnAssignedFeatures($rolescod)
     {
         
