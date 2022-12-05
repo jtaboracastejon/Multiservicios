@@ -9,7 +9,7 @@
 </div>
 <div class="grid grid-cols-3 gap-4 p-10">
     {{foreach servicios}}
-    <a href="#" class="js-target shadow-lg bg-cover bg-center rounded-lg multi-horizontalSlide h-36" style="background-image: url('{{imagepath}}');">
+    <a href="index.php?page=Services-Search&service={{idservice}}" class="js-target shadow-lg bg-cover bg-center rounded-lg multi-horizontalSlide h-36" style="background-image: url('{{imagepath}}');">
         <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center rounded-lg">
             <p class="font-bold text-white">{{servicename}}</p>
         </div>

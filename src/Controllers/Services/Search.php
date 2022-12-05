@@ -5,7 +5,7 @@ use Views\Renderer;
 
 class Search extends PublicController{
     private $viewData = array();
-    private $page_rows = 1; //Cantidad de resultados por pagina
+    private $page_rows = 10; //Cantidad de resultados por pagina
 
     
     public function run(): void
@@ -61,6 +61,7 @@ class Search extends PublicController{
             $this->viewData["urlNext"] = "index.php?page=services_search&service=$service"."&result=" . ($page - 1);
 
             $countData = \Dao\Providers\Providers::getCountAllByServicesId($service, $idworkzone);
+            
             try {
                 $limit = $this->getLimit($countData,$page);
                 $data_l = \Dao\Landing\Card::getCardByService($limit[0],$limit[1],$service);
@@ -73,8 +74,12 @@ class Search extends PublicController{
 
                 $this->viewData["providers"] = $data_l;
                 $this->viewData["noResults"] = false;
+                //\Utilities\Site::redirectTo("index.php?page=services_search&service=".$service."&query=".$query);
 
             } catch (\Throwable $th) {
+                $this->viewData["noResults"] = true;
+            }
+            if($countData == 0){
                 $this->viewData["noResults"] = true;
             }
         }
@@ -84,7 +89,7 @@ class Search extends PublicController{
             $this->viewData["urlNext"] = "./index.php?page=services_search&service=".$service."&query=$query&result=" . ($page + 1);
             $this->viewData["urlPrev"] = "./index.php?page=services_search&service=".$service."&query=$query&result=" . ($page - 1);
 
-            $countData = \Dao\Providers\Providers::getCountDataByQueryAndService($service, $query);
+            $countData = \Dao\Providers\Providers::getCountDataByQueryAndService($service, $query, $idworkzone);
             try {
                 $limit = $this->getLimit($countData,$page);
                 $data_l = \Dao\Landing\Card::getCardByQueryAndService($limit[0],$limit[1],$query,$service);
@@ -97,6 +102,7 @@ class Search extends PublicController{
 
                 $this->viewData["providers"] = $data_l;
                 $this->viewData["noResults"] = false;
+                
 
             } catch (\Throwable $th) {
                 $this->viewData["noResults"] = true;
@@ -152,15 +158,17 @@ class Search extends PublicController{
         if($_POST["step"] == "A"){
             $this->changeZone();
         }
-        if($_POST["step"] != "A"){
-            $query = $_POST["txtSearch"];
+        if($_POST["step"] == "B"){
+            $query = $_POST["query"];
             $service = $this->viewData["service"];
             //$budget = $_POST["budget"];
             if($query !== ""){
-                \Utilities\Site::redirectTo("index.php?page=services_search&service=$service&query=$query");
+                echo "success";
+                exit;
             }
             else{
-                \Utilities\Site::redirectTo("index.php?page=services_search&service=$service");
+                echo "error";
+                exit;
             }
         }
     }
@@ -194,7 +202,7 @@ class Search extends PublicController{
         elseif($pagenum > $last){
             $pagenum = $last;
         }
-        $l1 = ($pagenum - 1) * $this->page_rows;
+        $l1 = ($pagenum - 1)   * $this->page_rows;
         $l2 = $this->page_rows;        
         return array($l1,$l2);
     }

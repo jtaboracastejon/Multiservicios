@@ -117,13 +117,13 @@ class Card extends Table{
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
-        WHERE p.status = 'ACT' AND  s.idservice LIKE :like ORDER BY p.iduserdetail DESC LIMIT :l1 , :l2 ;";
+        WHERE p.status = 'ACT' AND  s.idservice = :like ORDER BY p.iduserdetail DESC LIMIT :l1 , :l2 ;";
         return self::obtenerRegistros(
             $strSql, 
             array(
                 "l1" => intval($l1),
                 "l2" => intval($l2),
-                "like" => "%$query%"
+                "like" => "$query"
             ));
     }
 

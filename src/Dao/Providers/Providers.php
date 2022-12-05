@@ -26,12 +26,12 @@ class Providers extends Table{
     }
 
     //Query and Services
-    public static function getCountDataByQueryAndService($service, $query){
+    public static function getCountDataByQueryAndService($service, $query, $idworkzone){
         $strSql = "SELECT * FROM providers p 
         JOIN  user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN  services s ON s.idservice = p.idservice
-        WHERE p.status = 'ACT' AND s.idservice = :idservice AND ud.firstname  LIKE :like";
-        return count(self::obtenerRegistros($strSql, array( "idservice" => $service, "like" => "%$query%")));
+        WHERE p.status = 'ACT' AND s.idservice = :idservice AND ud.firstname  LIKE :like AND ud.idworkzone = :idworkzone";
+        return count(self::obtenerRegistros($strSql, array( "idservice" => $service, "like" => "%$query%", "idworkzone" => $idworkzone)));
     }
 
 }
