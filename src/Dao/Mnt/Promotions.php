@@ -3,26 +3,26 @@ namespace Dao\Mnt;
 
 use Dao\Table;
 
-class Suscriptions extends Table{
-    public static function getAllSuscriptions(){
-        $strSql = "SELECT  s.*, ud.usercod  , concat(ud.firstname, ' ', ud.lastname) fullname  FROM suscriptions s
-        JOIN providers p ON p.idsuscription = s.idsuscription 
+class Promotions extends Table{
+    public static function getAllPromotions(){
+        $strSql = "SELECT  s.*, ud.usercod  , concat(ud.firstname, ' ', ud.lastname) fullname  FROM promotions s
+        JOIN providers p ON p.idpromotion = s.idpromotion 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail ;";
         return self::obtenerRegistros($strSql, array());
     }
 
-    public static function getSuscriptionById($idsuscription){
-        $strSql = "SELECT  s.*, ud.usercod  , concat(ud.firstname, ' ', ud.lastname) fullname  FROM suscriptions s
-        JOIN providers p ON p.idsuscription = s.idsuscription 
+    public static function getPromotionById($idpromotion){
+        $strSql = "SELECT  s.*, ud.usercod  , concat(ud.firstname, ' ', ud.lastname) fullname  FROM promotions s
+        JOIN providers p ON p.idpromotion = s.idpromotion 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail 
-        WHERE p.idsuscription = :idsuscription;";
-        return self::obtenerUnRegistro($strSql, array("idsuscription" => $idsuscription));
+        WHERE p.idpromotion = :idpromotion;";
+        return self::obtenerUnRegistro($strSql, array("idpromotion" => $idpromotion));
     }
 
-    public static function insertSuscription($idprovider, $days){
+    public static function insertPromotion($idprovider, $days){
         $startdate = date("Y-m-d H:i:s");
         $enddate = date("Y-m-d H:i:s", strtotime("+".$days." days"));
-        $strSql = "INSERT INTO suscriptions (startdate, enddate) VALUES (:startdate, :enddate)";
+        $strSql = "INSERT INTO promotions (startdate, enddate) VALUES (:startdate, :enddate)";
         self::executeNonQuery(
             $strSql,
             array(
@@ -32,13 +32,13 @@ class Suscriptions extends Table{
         );
 
         
-        $idsuscription = self::getLastId();
+        $idpromotion = self::getLastId();
 
-        $strSql = "UPDATE providers SET idsuscription = :idsuscription WHERE idprovider = :idprovider";
+        $strSql = "UPDATE providers SET idpromotion = :idpromotion WHERE idprovider = :idprovider";
         self::executeNonQuery(
             $strSql,
             array(
-                "idsuscription" => $idsuscription["idsuscription"],
+                "idpromotion" => $idpromotion["idpromotion"],
                 "idprovider" => $idprovider
             )
         );
@@ -53,24 +53,24 @@ class Suscriptions extends Table{
             $strSql,
             array(
                 "bitacorafch" => date("Y-m-d H:i:s"),
-                "bitdescripcion" => "Compra de suscripcion de ".$days." dias",
+                "bitdescripcion" => "Compra de promocion de ".$days." dias",
                 "bitTipo" => "HIS",
                 "bitusuario" => $usercod["usercod"]
             )
         );
     }
 
-    public static function updateSuscription($idsuscription, $usercod, $days){
+    public static function updatePromotion($idpromotion, $usercod, $days){
         $startdate = date("Y-m-d H:i:s");
         $enddate = date("Y-m-d H:i:s", strtotime("+".$days." days"));
 
-        $strSql = "UPDATE suscriptions SET startdate = :startdate, enddate = :enddate WHERE idsuscription = :idsuscription";
+        $strSql = "UPDATE promotions SET startdate = :startdate, enddate = :enddate WHERE idpromotion = :idpromotion";
         self::executeNonQuery(
             $strSql,
             array(
                 "startdate" => $startdate,
                 "enddate" => $enddate,
-                "idsuscription" => $idsuscription
+                "idpromotion" => $idpromotion
             )
         );
 
@@ -79,7 +79,7 @@ class Suscriptions extends Table{
             $strSql,
             array(
                 "bitacorafch" => date("Y-m-d H:i:s"),
-                "bitdescripcion" => "Renovación de suscripcion de ".$days." dias",
+                "bitdescripcion" => "Renovación de promocion de ".$days." dias",
                 "bitTipo" => "HIS",
                 "bitusuario" => $usercod
             )
@@ -90,26 +90,26 @@ class Suscriptions extends Table{
         
     }
 
-    public static function deleteSuscription($idsuscription){
-        $strSql = "UPDATE suscriptions SET enddate = :enddate WHERE idsuscription = :idsuscription";
+    public static function deletePromotion($idpromotion){
+        $strSql = "UPDATE promotions SET enddate = :enddate WHERE idpromotion = :idpromotion";
         return self::executeNonQuery(
             $strSql,
             array(
                 "enddate" => date("Y-m-d H:i:s"),
-                "idsuscription" => $idsuscription
+                "idpromotion" => $idpromotion
             )
         );
 
     }
 
     public static function getLastId(){
-        $strSql = "SELECT MAX(idsuscription) AS idsuscription FROM suscriptions";
+        $strSql = "SELECT MAX(idpromotion) AS idpromotion FROM promotions";
         return self::obtenerUnRegistro($strSql, array());
     }
 
-    public static function getActiveSuscriptionByDate($idprovider){
-        $strSql = "SELECT * FROM suscriptions s
-        JOIN providers p on s.idsuscription = p.idsuscription 
+    public static function getActivePromotionByDate($idprovider){
+        $strSql = "SELECT * FROM promotions s
+        JOIN providers p on s.idpromotion = p.idpromotion 
         where p.idprovider  = :idprovider AND s.enddate >= NOW()";
         $return = self::obtenerUnRegistro($strSql, array("idprovider" => $idprovider));
 

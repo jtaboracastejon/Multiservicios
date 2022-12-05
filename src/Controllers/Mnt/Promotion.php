@@ -5,10 +5,10 @@ namespace Controllers\Mnt;
 use Controllers\PublicController;
 use Views\Renderer;
 
-class Suscription extends PublicController
+class Promotion extends PublicController
 {
     private $arrModeDsc = array(
-        "INS" => "Agregar nueva suscripcion",
+        "INS" => "Agregar nueva promocion",
         "UPD" => "Editar %s %s",
         "DEL" => "Eliminando %s %s",
         "DSP" => "Detalle de %s %s"
@@ -16,10 +16,7 @@ class Suscription extends PublicController
     private $viewData = array(
         "mode" => "",
         "mode_dsc" => "",
-        "suscriptionId" => "",
-        "quote" => "",
-        "author" => "",
-        "status" => "",
+        "promotionId" => "",
         "act_selected" => true,
         "ina_selected" => false,
         "readOnly" => false,
@@ -32,7 +29,7 @@ class Suscription extends PublicController
             $this->process_postBack();
         }
         $this->pre_render();
-        Renderer::render("mnt/suscription", $this->viewData);
+        Renderer::render("mnt/promotion", $this->viewData);
     }
 
     private function onForm_loaded()
@@ -46,12 +43,12 @@ class Suscription extends PublicController
         }
 
         if ($this->viewData["mode"] !== "INS") {
-            if (!isset($_GET["suscriptionId"])) {
+            if (!isset($_GET["promotionId"])) {
                 $this->errorRedir();
             }
 
-            $this->viewData["suscriptionId"] = intval($_GET["suscriptionId"]);
-            $dbQuote = \Dao\Mnt\Suscriptions::getSuscriptionById($this->viewData["suscriptionId"]);
+            $this->viewData["promotionId"] = intval($_GET["promotionId"]);
+            $dbQuote = \Dao\Mnt\Promotions::getPromotionById($this->viewData["promotionId"]);
             \Utilities\ArrUtils::mergeFullArrayTo($dbQuote, $this->viewData);
         }
     }
@@ -82,14 +79,14 @@ class Suscription extends PublicController
     private function on_insert_clicked()
     {
         
-        $insertResult = \Dao\Mnt\Suscriptions::insertSuscription(
+        $insertResult = \Dao\Mnt\Promotions::insertPromotion(
             $this->viewData["providercod"],
             30
 
         );
         if($insertResult){
             \Utilities\Site::redirectToWithMsg(
-                "index.php?page=Mnt-Suscriptions",
+                "index.php?page=Mnt-Promotions",
                 "Registro guardado Exitosamente!"
             );
         }
@@ -97,14 +94,14 @@ class Suscription extends PublicController
 
     private function on_update_clicked()
     {
-        $updateResult = \Dao\Mnt\Suscriptions::updateSuscription(
-            $this->viewData["suscriptionId"],
+        $updateResult = \Dao\Mnt\Promotions::updatePromotion(
+            $this->viewData["promotionId"],
             $this->viewData["usercod"],
             30
         );
         if($updateResult){
             \Utilities\Site::redirectToWithMsg(
-                "index.php?page=Mnt-Suscriptions",
+                "index.php?page=Mnt-Promotions",
                 "Registro actualizado Exitosamente!"
             );
         }
@@ -112,13 +109,12 @@ class Suscription extends PublicController
 
     private function on_delete_clicked()
     {
-        $deleteResult = \Dao\Mnt\Suscriptions::deleteSuscription(
-            $this->viewData["suscriptionId"],
-
+        $deleteResult = \Dao\Mnt\Promotions::deletePromotion(
+            $this->viewData["promotionId"],
         );
         if($deleteResult){
             \Utilities\Site::redirectToWithMsg(
-                "index.php?page=Mnt-Suscriptions",
+                "index.php?page=Mnt-Promotions",
                 "Registro eliminado Exitosamente!"
             );
         }
@@ -131,7 +127,7 @@ class Suscription extends PublicController
         if ($this->viewData["mode"] !== "INS") {
             $this->viewData["mode_dsc"] = sprintf(
                 $this->arrModeDsc[$this->viewData["mode"]],
-                $this->viewData["idsuscription"],
+                $this->viewData["idpromotion"],
                 $this->viewData["fullname"]
             );
         } else {
@@ -144,7 +140,7 @@ class Suscription extends PublicController
     private function errorRedir()
     {
         \Utilities\Site::redirectToWithMsg(
-            "index.php?page=Mnt-Suscriptions",
+            "index.php?page=Mnt-Promotions",
             "Algo Inesperado sucedió!"
         );
     }
