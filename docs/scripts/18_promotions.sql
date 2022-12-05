@@ -2,6 +2,7 @@ CREATE TABLE nw202203.promotions (
 	idpromotion int(11) auto_increment NOT NULL,
 	idplan int(11) NOT NULL,
 	idprovider int(11) NOT NULL,
+	namepromotion varchar(100) NOT NULL,
 	startdate datetime NOT NULL,
 	enddate datetime NOT NULL,
 	CONSTRAINT promotions_pk PRIMARY KEY (idpromotion),
