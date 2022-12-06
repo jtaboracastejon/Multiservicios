@@ -66,29 +66,31 @@
                 </div>
             </div>
             <div class="grid m-3">
-                {{foreach cards}}
                 <div class="flex flex-col my-auto">
-                    <p class="text-lg font-medium">{{name}}</p>
+                    <p class="text-lg font-medium">Javier Tabora</p>
                     <p class="text-sm text-multiDarkBlue">Santa Rosa de Copan</p>
                 </div>
-                <p class="text-xs text-justify">{{decription}}</p>
-                {{endfor cards}}
-                <a href="" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
+                <p class="text-xs text-justify">1 Joven emprendedor con su nuevo negocio, en el cual nos ofrece una
+                    gran variedad de trabajos en la madera, con bellos acabados y delineados únicos que solamente el
+                    ofrece.
+                    Llame al 9090-4040 para mas información.
+                </p>
+                
+                <button type="button" onclick="modalHandler(true, 'modalContactProvider')" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
                     <i class="fa-solid fa-paper-plane text-white mr-4"></i>
                     <span href="" class="text-white font-semibold ">Contactar</span>
-                </a>
+                </button>
             </div>
             
         </div>
         </div>
     </div>
     <div class="mt-10">
-        {{foreach cards}}
         <p class="font-bold">Insignias</p>
         <div class="flex gap-6 mt-3">
             <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
                 <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
-                <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">{{isVerified}}</h3>
+                <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">Verificado</h3>
                 <a href="">
                     <i class="fa-solid fa-circle-question text-zinc-400 "></i>
                 </a>
@@ -104,12 +106,11 @@
             <div class="rounded-full py-1 px-3 border flex items-center">
                 <div class="flex-col mr-3">
                     <p class="text-lg font-medium text-center">4</p>
-                    <p class="text-xs font-medium text-center">{{tiempoPlataforma}}</p>
+                    <p class="text-xs font-medium text-center">Meses</p>
                 </div>
                 <p class="text-xs font-medium text-gray-400">En la<br>Plataforma</p>
             </div>
         </div>
-        {{endfor cards}}
     </div>
     <div class="flex mt-10 border-b-2 border-multiDarkBlue">
         <div class="basis-2/3">
@@ -183,15 +184,14 @@
     <div class="mt-10">
         <p class="font-bold">Reseñas</p>
         <div class="grid grid-cols-3 gap-4">
-            {{foreach ReviewP}}
             <!-- Review Card-->
             <div class="border-r border-multiDarkBlue m-10 pr-10">
                 <div class="flex items-center">
-                    <p class="text-medium mr-4">{{firstname}} {{lastname}}</p>
-                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">{{rating}}</p>
+                    <p class="text-medium mr-4">Javier Tabora</p>
+                    <p class="bg-slate-200 text-multiDarkBlue text-sm font-semibold items-center p-1.5 rounded">8.7</p>
                 </div>
-                <i class="text-medium text-multiDarkGray">{{department}} , {{municipality}}</i>
-                <p class="text-base text-sm multi-maxChars">{{review}}</p>
+                <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
+                <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
             </div>
             <!-- End Review Card-->
             <div class="border-r border-multiDarkBlue m-10 pr-10">
@@ -234,14 +234,10 @@
                 <i class="text-medium text-multiDarkGray">Santa Rosa de Copán</i>
                 <p class="text-base text-sm multi-maxChars">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non suscipit qui eligendi provident a dolorem totam tempore iusto doloremque, at ullam voluptates assumenda ea. Rem quasi vero tempore cupiditate voluptate.</p>
             </div>
-              {{endfor ReviewP}}
         </div>
     </div>
 </div>
-<div class="flex bg">
-    
-</div>
-
+{{include provider/partials/modalContactProvider}}
 <script>
     const targets = document.querySelectorAll(".js-targetInput");    
     var styleControls = document.getElementById("js-targetStyleControls");
