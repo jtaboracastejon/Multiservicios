@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="grid container grid-cols-3 mt-20 m-60 gap-10 translate-x-5">
+    <div class="grid container grid-cols-3 mt-20 m-60 gap-10 translate-x-5 mb-3">
         <div class="grid col-span-1 place-content-center ml-10">
             <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
@@ -62,5 +62,4 @@
                     </p>
                 </div>
             </div>
-            
         </div>
