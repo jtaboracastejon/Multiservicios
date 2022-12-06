@@ -16,6 +16,7 @@ class Accept extends PublicController{
         } else {
             $dataview["orderjson"] = "No Order Available!!!";
         }
+        $_GET['hashTempCart'];
         \Views\Renderer::render("paypal/accept", $dataview);
     }
 

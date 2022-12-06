@@ -50,7 +50,7 @@ class Promotions extends PrivateController{
                 date("Y-m-d"),
                 date("Y-m-d"),);
             
-            \Dao\Promotions\Promotions::insertPromotion(
+            \Dao\Promotions\Promotions::insertPromotionQuery(
                 $this->viewData["provider"]["idprovider"],
                 $this->viewData["promotionname"],
                 $this->viewData["startdate"],

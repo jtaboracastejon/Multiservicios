@@ -25,8 +25,7 @@ class Cart extends PrivateController{
                         "quantity" =>$this->viewData["invoices"][$invoice]["crrcant"],
                     ]
                 ];
-                // die(var_dump($newInvoice));
-                \Controllers\Checkout\Checkout::checkout($newInvoice);
+                //\Controllers\Checkout\Checkout::checkout($newInvoice);
             }
         }else{
             Renderer::render('cart/cart', $this->viewData);

@@ -21,7 +21,7 @@ class Promotions extends Table
         return self::obtenerUnRegistro($sqlstr, array()); 
     }
 
-    public static function insertPromotion($idprovider, $promotionname, $startdate, $enddate, $billed){
+    public static function insertPromotionQuery($idprovider, $promotionname, $startdate, $enddate, $billed){
         $sqlstr = "INSERT INTO promotions (idprovider, promotionname, startdate, enddate, billed, idprice) VALUES (:idprovider, :promotionname, :startdate, :enddate, :billed, '2');";
         return self::executeNonQuery($sqlstr, ["idprovider" => $idprovider, "promotionname" => $promotionname, "startdate" => $startdate, "enddate" => $enddate, "billed" => $billed]);
     }
