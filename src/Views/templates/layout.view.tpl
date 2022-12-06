@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{SITE_TITLE}}</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/appstyle.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="/{{BASE_DIR}}/dist/output.css" />
   <script src="https://kit.fontawesome.com/{{FONT_AWESOME_KIT}}.js" crossorigin="anonymous"></script>
   {{foreach SiteLinks}}
@@ -17,27 +16,11 @@
   {{endfor BeginScripts}}
 </head>
 <body>
-  <header>
-    <input type="checkbox" class="menu_toggle" id="menu_toggle" />
-    <label for="menu_toggle" class="menu_toggle_icon" >
-      <div class="hmb dgn pt-1"></div>
-      <div class="hmb hrz"></div>
-      <div class="hmb dgn pt-2"></div>
-    </label>
-    <h1>{{SITE_TITLE}}</h1>
-    <nav id="menu">
-      <ul>
-        <li><a href="index.php?page=index"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
-        <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a></li>
-        <li><a href="index.php?page=sec_register"><i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta</a></li>
-      </ul>
-    </nav>
-  </header>
   <main>
   {{{page_content}}}
   </main>
   <footer>
-    <div>Todo los Derechos Reservados 2021 &copy;</div>
+    <div>Todo los Derechos Reservados 2022 &copy;</div>
   </footer>
   {{foreach EndScripts}}
     <script src="/{{~BASE_DIR}}/{{this}}"></script>

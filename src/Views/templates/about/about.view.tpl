@@ -181,7 +181,6 @@
         </div>
     </div>
 
-    
     <div class="mt-10">
         <p class="font-bold">Reseñas</p>
         <div class="grid grid-cols-3 gap-4">
