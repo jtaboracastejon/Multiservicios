@@ -7,7 +7,7 @@
   <title>{{SITE_TITLE}}</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/appstyle.css" />  
   <link rel="stylesheet" href="/{{BASE_DIR}}/dist/output.css" />
   <script src="https://kit.fontawesome.com/{{FONT_AWESOME_KIT}}.js" crossorigin="anonymous"></script>
   {{foreach SiteLinks}}

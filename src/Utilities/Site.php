@@ -34,6 +34,11 @@ class Site
         
         die();
     }
+    //solo mostrar mensaje
+    public static function sentMsj($msg)
+    {
+        echo '<script>alert("'.$msg. '");';
+    }
     public static function redirectToWithMsg($url, $msg)
     {
         echo '<script>alert("'.$msg. '");';
@@ -69,6 +74,11 @@ class Site
             $tmpSrcs[] = $src;
         }
         \Utilities\Context::setContext("EndScripts", $tmpSrcs);
+    }
+    //Retorna la direccion del servidor establecida en el archivo de parameters
+    public static function getPublicPath()
+    {
+        return \Utilities\Context::getContextByKey("PUBLIC_PATH");
     }
 }
 ?>
