@@ -21,10 +21,10 @@
                 <td>{{created}}</td>
                 <td>
                     <a href="index.php?page=Mnt-Quote&mode=UPD&quoteId={{quoteId}}">
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit">edit</i>
                     </a>
                     <a href="index.php?page=Mnt-Quote&mode=DEL&quoteId={{quoteId}}">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash">del</i>
                     </a>
                 </td>
             </tr>
