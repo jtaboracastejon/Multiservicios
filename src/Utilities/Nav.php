@@ -19,6 +19,18 @@ class Nav {
                 "nav_label" => "MNT Servicios"
             );
         }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Promotions\Promotions")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=promotions_promotions",
+                "nav_label" => "Promociones"
+            );
+        }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Payments\Payments")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=mnt_usuarios",
+                "nav_label" => "Historial de pagos"
+            );
+        }
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 
