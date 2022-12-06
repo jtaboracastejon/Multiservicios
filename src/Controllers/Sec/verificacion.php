@@ -51,13 +51,14 @@ class Verificacion extends \Controllers\PublicController
             if (\Utilities\Security::isLogged()) {
                 $this->txtEmail = $_SESSION["login"]["userEmail"];
                 $dVerificacion = \Dao\Security\Security::getUsuarioByEmail($this->txtEmail);
- 
-                if($dVerificacion["useractcod"] === $this->txtVerificacion){
+                die(var_dump($dVerificacion));
+                if(\Dao\Security\Security::verifyPassword($this->txtVerificacion, $dVerificacion["useractcod"])){
                     \Dao\Security\Security::updateEmailVerified($this->txtEmail, "ITSV");
-                    //\Utilities\Site::redirectToWithMsg("index.php?page=about_about", "Cuenta verificada correctamente");
                     echo "success";
                     exit();
                     return;
+                /* if($dVerificacion["useractcod"] === $this->txtVerificacion){
+                    //\Utilities\Site::redirectToWithMsg("index.php?page=about_about", "Cuenta verificada correctamente"); */
     
                 }else{
                     //\Utilities\Site::redirectToWithMsg("index.php?page=about_about", "El código de verificación es incorrecto");
@@ -70,13 +71,14 @@ class Verificacion extends \Controllers\PublicController
             else{ 
                 $this->txtEmail = $_SESSION["Datos"]["txtEmail"];
                 $dbVerificar = \Dao\Security\Security::getUsuarioByEmail($this->txtEmail);
-                if($dbVerificar["useractcod"]===$this->txtVerificacion){
+                if(\Dao\Security\Security::verifyPassword($this->txtVerificacion, $dbVerificar["useractcod"])){
                     \Dao\Security\Security::updateEmailVerified($this->txtEmail, "ITSV");
-                    //\Utilities\Site::redirectToWithMsg("index.php?page=sec_userdetails", "Cuenta verificada");
                     echo "success";
                     exit();
                     return;
-                    //actualizar el emailverificado a ITSV
+                /* if($dVerificacion["useractcod"] === $this->txtVerificacion){
+                    //\Utilities\Site::redirectToWithMsg("index.php?page=about_about", "Cuenta verificada correctamente"); */
+    
                 }else{
                     //\Utilities\Site::redirectToWithMsg("index.php?page=sec_verificacion", "El código de verificación es incorrecto");
                     $this->hasErrors = true;
@@ -106,6 +108,7 @@ class Verificacion extends \Controllers\PublicController
 
          $pin = \Utilities\Security::generateRandomString(4);
          $this->pin = $pin;
+         $hashedPin = \Dao\Security\Security::_hashPassword($pin);
          $body = "
          <html>
             <body>
@@ -117,7 +120,7 @@ class Verificacion extends \Controllers\PublicController
             </body>
         </html>";
         \Utilities\Email::sendEmail($this->viewData["txtEmail"], "Pin de verificación", $body, "multiservicios@gmail.com", "Multiservicios");
-        \Dao\Security\Security::updatePin($this->viewData["txtEmail"], $pin);
+        \Dao\Security\Security::updatePin($this->viewData["txtEmail"], $hashedPin);
         echo "success";
         exit();
         return;

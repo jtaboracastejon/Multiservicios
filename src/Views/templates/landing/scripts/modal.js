@@ -284,6 +284,7 @@ function clickRegister3() {
                     codeError.innerHTML = "Ha ocurrido un error";
                 }
                 else {
+                    alert(response);
                     sweetAlert('Error', 'Error al registrar', 'error');
                 }
             }
