@@ -1,119 +1,66 @@
-<div class="bg-no-repeat bg-cover bg-center bg-[url('../public/imgs/landing/plumber.jpg')]">
+<div class="bg-slate-100 content-center">
     {{include common/navbar}}
-    <div class="h-[45rem] grid md:grid-cols-2 md:gap-2 content-center p-10">
-        <div class="drop-shadow-2xl">
-            <h1 class="font-black text-white text-5xl">Encuentra la persona para resolver tus problemas</h1>
-            <div class="mt-4 w-full">
-                <input type="text" placeholder="Hora de arreglarlo..." class="text-xl rounded-l-full px-5 py-2 w-9/12">
-                <a href="" class="bg-multiDarkBlue px-5 py-3 text-white rounded-r-full text-xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
-            </div>
+    <div class="h-[20rem] grid md:grid-cols-1 md:gap-2 content-center mt-5">
+        <h1 class="text-6xl text-black font-extrabold text-center">Sobre Nosotros</h1>
+        <h1 class="text-4xl text-black font-semibold text-center">¨Soluciones a tu alcance.¨</h1>
+    </div>
+    <div class="grid container m-10 grid-cols-2 bg-slate-100 -mt-9 content-center">
+        <div class="col-span-1 text-white ml-20">
+            <img class="ml-10 z-20 transform translate-x-60 translate-y-5 content-end h-70 rounded-lg"
+                src="public/imgs/multiservicios-ofrece.jpg" alt="">
+        </div>
+        <div class=" h-64 shadow-2xl bg-slate-50 m-15 place-content-center border-white rounded-lg col-span-1 borderbg-slate-50 translate-x-20 translate-y-20 p-9">
+            <p class="font-semibold text-center text-4xl">¿Quienes somos?</p>
+            <p class="font-medium mt-5">Multiservicios surge de la idea de "conectar a las personas para una solucion de
+                problemas generales."
+                asi resultando en una plataforma interactiva, con el objetivo de lograr que las personas puedan
+                solucionar sus problemas de la manera mas sencilla
+                conectando asi con personas expertas que lograran asesorar a cualquier usuario y asi brindar un servicio
+                de calidad para cualquier reparacion.
+            </p>
         </div>
     </div>
-</div>
-<div class="grid gap-6 mb-6 md:grid-cols-2 p-10">
-    <!-- Input texto o números -->
-    <fieldset>
-        <label for="inputField" class="form-label">Input Label</label>
-        <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-        <p class="form-helper">Al hacer clic en continuar usted acepta que su correo sera almacenado y compartido dentro
-            de nuestra empresa dentro de los <a href="#" class="form-helperLink">Términos y condiciones</a>.</p>
-    </fieldset>
 
-    <!-- Input para archivos -->
-    <fieldset>
-
-        <label class="form-label" for="inputFile">Subir DNI</label>
-        <input class="form-inputFile" id="inputFile" name="inputFile" type="file">
-        <p class="form-helper">PNG, JPG, JPEG</p>
-
-    </fieldset>
-
-    <fieldset>
-        <label class="form-label" for="select">Seleccione un numero</label>
-        <select name="select" id="select" class="form-select">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-        </select>
-    </fieldset>
-    <fieldset>
-        <label for="txtDateX" class="form-label">Fecha X</label>
-        <input type="date" name="txtDateX" class="form-input">
-    </fieldset>
-    <fieldset>
-        <label class="form-label" for="select">Checkboxes & Radio Buttons</label>
-        <div class="flex gap-10">
-            <div>
-                <div class="flex items-center mb-4">
-                    <input id="default-checkbox" type="checkbox" value="" class="form-checkbox">
-                    <label for="default-checkbox" class="form-checkboxRadioLabel">Casilla 1</label>
+    <div class="grid container grid-cols-3 mt-20 m-60 gap-10 translate-x-5">
+        <div class="grid col-span-1 place-content-center ml-10">
+            <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-1 border-white bg-white"
+                        src="public/imgs/vision.png">
                 </div>
-                <div class="flex items-center">
-                    <input checked id="checked-checkbox" type="checkbox" value="" class="form-checkbox">
-                    <label for="checked-checkbox" class="form-checkboxRadioLabel">Casilla 2</label>
-                </div>
-            </div>
-            <!-- Inicio radio buttons -->
-            <div>
-                <div class="flex items-center mb-4">
-                    <input id="btnRadio1" type="radio" value="" name="default-radio" class="form-radioButton">
-                    <label for="btnRadio1" class="form-checkboxRadioLabel">Radio 1</label>
-                </div>
-                <div class="flex items-center">
-                    <input checked id="btnRadio2" type="radio" value="" name="default-radio" class="form-radioButton">
-                    <label for="btnRadio2" class="form-checkboxRadioLabel">Radio 2</label>
-                </div>
-            </div>
-            <!-- Fin radio buttons -->
-            <div>
-                <div class="flex">
-                    <input type="checkbox" id="btnBgChk" class="peer hidden" />
-                    <label for="btnBgChk" class="form-checkboxRadioBG">
-                        Coloreame</label>
-                </div>
-            </div>
-            <div>
-                <div class="flex">
-                    <input type="radio" id="btnBgRb1" name="btnBgRbUSO" class="peer hidden" />
-                    <label for="btnBgRb1" class="form-checkboxRadioBG">Radio con Bg 1</label>
-                </div>
-                <div class="flex">
-                    <input type="radio" id="btnBgRb2" name="btnBgRbUSO" class="peer hidden" />
-                    <label for="btnBgRb2" class="form-checkboxRadioBG">Radio con Bg 2</label>
+                <div>
+                    <h2 class="text-multiDarkBlue text-3xl font-semibold">Nuestra Vision</h2>
+                    <p class="mt-2 text-black"> ser fundamental en servir mejor a nuestros clientes convertirnos  en empresas relevantes en sus vidas y formar relaciones duraderas entre clientes 
+                        y proveedores para que la experiencia de obtencion de servicios sea lo mas natural posible para cada usuario, formando amistades, a base de un buen trabajo. </p>
                 </div>
             </div>
         </div>
-    </fieldset>
-    <fieldset>
-        <label for="" class="form-label">Botones</label>
-        <button type="button" class="form-primaryButton">Primario</button>
-        <button type="button" class="form-secondaryButton">Secundario</button>
-        <button type="button" class="form-dangerButton">Peligro</button>
-        <button type="button" class="form-warningButton">Precaución</button>
-        <button type="button" class="form-successButton">Éxito</button>
-    </fieldset>
-    <fieldset>
-
-
-        <label class="inline-flex relative items-center cursor-pointer">
-            <input type="checkbox" value="" class="sr-only peer">
-            <div class="peer multi-switch">
+        <div class="grid col-span-1 place-content-cente ml-10">
+            <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-white bg-white"
+                        src="public/imgs/mision.png">
+                </div>
+                <div>
+                    <h2 class="text-multiDarkBlue text-3xl font-semibold">Nuestra Mision</h2>
+                    <p class="mt-2 text-black"> ofrecer a nuestros usuarios, tanto clientes como proveedores, el mejor servicio posible, priorizando al calidad de atencion, el mejor servicio
+                        y el mayor valor, teniendo como prioridad la atencion al usuario para hacer de la experiencia en Multiservicios inolvidable, y asi expandirnos cada vez mas.
+                    </p>
+                </div>
             </div>
-            <span class="ml-3 text-sm font-medium text-gray-900">Cámbiame</span>
-        </label>
-
-
-    </fieldset>
-</div>
-<div class="p-10">
-    <div>
-        <label for="" class="form-label">Titulo 1</label>
-        <h1 class="multi-titleG1">Lorem ipsum dolor</h1>
-    </div>
-    <div>
-        <label for="" class="form-label">Titulo 2</label>
-        <h1 class="multi-titleG2">Lorem ipsum dolor</h1>
-    </div>
-</div>
+        </div>
+        <div class="grid col-span-1 place-content-center ml-10">
+            <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-white bg-white"
+                        src="public/imgs/valores.png">
+                </div>
+                <div>
+                    <h2 class="text-multiDarkBlue text-3xl font-semibold">Nuestros Valores</h2>
+                    <p class="mt-2 text-black"> la simplicidad de experiencia, el servicio, la seguridad, la atencion y la integridad son valores que apoyaran y estaran de la mano de 
+                        multiservicios en cada paso de nuestro desarrollo y crecimiento, permitiendonos asi transformarnos en la plataforma de servicios favorita de las personas
+                    </p>
+                </div>
+            </div>
+            
+        </div>
