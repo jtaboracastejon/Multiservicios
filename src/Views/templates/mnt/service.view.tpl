@@ -13,7 +13,7 @@
         <label for="imagepath" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Imagen</label>
         <input type="file" accept="image/png, image/jpeg" name="imagepath" id="imagepath" class="form-input !ml-10 !w-[40rem] !text-sm"
             placeholder="Input Field" value="{{imagepath}}">
-            <p>{{imagepath}}</p>
+            
 
         <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="status">Estado del servicio</label>
         <select name="status" id="status" class="form-select !ml-10 !w-[25rem] !text-sm">
