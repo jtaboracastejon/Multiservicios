@@ -116,13 +116,11 @@ function savePromo(){
                 price : parseFloat(pricePromotionPerDayTg),
             },
             success: function (response) {
-                if(response == "success"){
-                    alert("Promocion creada con exito");
-                    modalHandler(false, "modalPromo");
-                    window.location.reload();
+                if(response == "error"){
+                    alert(response);                
                 }
                 else{
-                    alert(response);                
+                    window.location.href = response;
                 }
             }
         });

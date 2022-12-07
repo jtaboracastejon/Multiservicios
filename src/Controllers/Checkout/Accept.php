@@ -12,24 +12,30 @@ class Accept extends PublicController{
         if ($token !== "" && $token == $session_token) {
             $result = \Utilities\Paypal\PayPalCapture::captureOrder($session_token);
             $dataview["orderjson"] = json_encode($result, JSON_PRETTY_PRINT);
+            $this->Accepted($result);
             // $this->migrateCardToTransaction($result);
         } else {
             $dataview["orderjson"] = "No Order Available!!!";
         }
-        $_GET['hashTempCart'];
         \Views\Renderer::render("paypal/accept", $dataview);
     }
 
-   /*  private function migrateCardToTransaction($idcart){
-        try {
-            $cart = \Dao\Cart\Carts::getCardById($idcart);
-            \Dao\Transactions\Transactions::migrateCartToTransaction($cart);
-            \Dao\Cart\Carts::deleteCartById($idcart);
-            \Dao\Promotions\Promotions::checkPromotion($_SESSION["orderid"]]);
-        } catch (\Throwable $th) {
-            //throw $th;
+    private function Accepted($result){
+        $cart = $_SESSION["cart"];
+        // die(var_dump($cart));
+        foreach ($cart as $item) {
+            if($item["triggerableTable"]=="promotions"){
+                \Dao\Promotions\Promotions::updatePromotionStatus($item["triggerId"], 'ACT');
+            }
+            /* if($item["triggerableTable"]=="subscriptions"){
+                \Dao\Subscriptions\Subscriptions::updateSubscriptionStatus($item["triggerableId"], 'ACT');
+            } */
+            \Dao\Cart\Transaction::insertCartToTransaction($item);
+            \Dao\Cart\Carts::deleteCartById($item["idcart"]);
         }
-    } */
+        // die(var_dump($cart));
+    }
+
 
 }
 

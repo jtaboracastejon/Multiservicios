@@ -3,7 +3,10 @@
     {{include dashboard/dashboard}}
     <div class="p-10 bg-multiLightGray col-span-4" id="barrelContainer">
         <div class="bg-white rounded-lg p-10">
-            <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Facturas pendientes ({{currentInvoices}})</p>
+            <div class="flex justify-between items-center">
+                <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Facturas pendientes ({{currentInvoices}})</p>
+                <a href="index.php?transactions_transactions" class="form-secondaryButton cursor-pointer">Ver historial de transacciones</a>
+            </div>
             <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
                 <div class="overflow-x-auto relative rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 rounded-lg">
@@ -23,6 +26,9 @@
                                 </th>
                                 <th scope="col" class="py-3 px-6 text-center">
                                     Estado
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-center">
+                                    Fecha creada
                                 </th>
                                 <th scope="col" class="py-3 px-6 text-center">
                                     Acciones
@@ -46,6 +52,9 @@
                                 </td>
                                 <td class="py-4 px-6 text-center">
                                     <p class="text-multiWarning p-2 rounded-lg text-center">Pendiente</p>
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{created}}
                                 </td>
                                 <td class="py-4 px-6 text-center">
                                     <a href="index.php?page=cart_cart&idCart={{idcart}}" class="hover:bg-multiSuccess hover:text-white text-black p-2 rounded-lg w-full border-2 border-multiSuccess"><i class="fa-brands fa-paypal"></i> Pagar con Paypal</a>

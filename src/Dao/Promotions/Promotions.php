@@ -27,11 +27,16 @@ class Promotions extends Table
     }
 
 
-    public static function checkPromotion($idpromotion){
-        $sqlstr = "UPDATE promotions SET status = 'ACT' WHERE idpromotion = :idpromotion";
-        return self::executeNonQuery($sqlstr, ["idpromotion" => $idpromotion]);
+    public static function updatePromotionStatus($idPromotion, $status){
+        $sqlstr = "UPDATE promotions SET status = :status WHERE idpromotion = :idpromotion";
+        return self::executeNonQuery($sqlstr, ["idpromotion" => $idPromotion, "status" => $status]);
     }
     
+    public static function getPromotionLastId(){
+        $sqlstr = "SELECT MAX(idpromotion) 'idpromotion' FROM promotions";
+        return self::obtenerUnRegistro($sqlstr, array())["idpromotion"];
+    }
+
 }
 
 ?>

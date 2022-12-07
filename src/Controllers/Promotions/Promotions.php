@@ -42,14 +42,6 @@ class Promotions extends PrivateController{
         $this->viewData["price"] = $_POST["price"];
 
         try {
-            \Dao\Cart\Carts::addCart(
-                $this->userId,
-                $this->viewData["PromotionPerDay"]["idprice"],
-                $this->viewData["days"], 
-                $this->viewData["price"], 
-                date("Y-m-d"),
-                date("Y-m-d"),);
-            
             \Dao\Promotions\Promotions::insertPromotionQuery(
                 $this->viewData["provider"]["idprovider"],
                 $this->viewData["promotionname"],
@@ -57,11 +49,26 @@ class Promotions extends PrivateController{
                 $this->viewData["enddate"],
                 $this->viewData["costototal"],
             );
-            echo "success";
+
+            $nextPromoId = \Dao\Promotions\Promotions::getPromotionLastId();
+            $nextCartId = \Dao\Cart\Carts::getCartNextId();
+            \Dao\Cart\Carts::addCart(
+                $this->userId,
+                $this->viewData["PromotionPerDay"]["idprice"],
+                $this->viewData["days"], 
+                $this->viewData["price"], 
+                date("Y-m-d H:i:s"),
+                date("Y-m-d H:i:s"),
+                $nextPromoId,
+                "promotions"
+            );
+            // \Utilities\Site::redirectTo("index.php?page=cart-cart&idCart=$nextCartId");
+            echo "index.php?page=cart-cart&idCart=$nextCartId";
+            
             exit();                
 
         } catch (\Throwable $th) {
-            echo $th;
+            echo "error";
             exit();
         }
     }
