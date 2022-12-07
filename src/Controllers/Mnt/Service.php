@@ -1,10 +1,10 @@
 <?php
 namespace Controllers\Mnt;
 
-use Controllers\PrivateController;
+use Controllers\PublicController;
 use DateTime;
 use Views\Renderer;
-class Service extends PrivateController{
+class Service extends PublicController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Servicio',
