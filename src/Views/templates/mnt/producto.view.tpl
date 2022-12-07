@@ -69,7 +69,7 @@
     document.getElementById('btnCancelar').addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
-      window.location.href = 'index.php?page=mnt_productos';
+      window.location.href = 'index.php?page=mnt_products';
     });
   });
 </script>
