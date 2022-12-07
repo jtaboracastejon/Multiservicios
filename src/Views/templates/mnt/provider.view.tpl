@@ -1,38 +1,51 @@
-<h1>{{mode_dsc}}</h1>
-<form action="index.php?page=mnt-provider&mode={{mode}}&idprovider={{idprovider}}" method="post" class="row">
-    <label for="iduserdetail">User </label>
-        <select name="iduserdetail" id="iduserdetail" {{if readOnly}} disabled {{endif readOnly}}  class="form-control">
-            {{foreach getAllUser}}
-            <option value="{{iduserdetail}}"  {{selected}}>{{firstname}}</option>
-            {{endfor getAllUser}}>
-        </select>
-    <fieldset class="form-group col-md-8">
-      <label for="idservice">Id servivio</label>
-        <select name="idservice" id="idservice" {{if readOnly}} disabled {{endif readOnly}}  class="form-control">
-            {{foreach getALL}}
-            <option value="{{idservice}}"  {{selected}}>{{servicename}}</option>
-            {{endfor getALL}}>
-        </select>
-    </fieldset>
-     <fieldset class="form-group col-md-8">
-        <label for="decription">decription</label>
-        <input type="text" class="form-control" name="decription" id="decription" {{if readOnly}}disabled{{endif readOnly}} value="{{decription}}">
-    </fieldset>
-     <fieldset class="form-group col-md-8">
-          <label for="status">Status</label>
-        <select name="status" id="status" {{if readOnly}} disabled {{endif readOnly}}  class="form-control">
-            <option value="ACT" {{if act_selected}}selected{{endif act_selected}}>Activo</option>
-            <option value="INA" {{if ina_selected}}selected{{endif ina_selected}}>Inactivo</option>
-        </select>
-    </fieldset>
-    <fieldset class="row">
-        {{if showSaveBtn}}
-            <button type="submit" name="btnGuardar">
-                Guardar
-            </button>
-        {{endif showSaveBtn}}
-        <button id="btnCancelar" class="btn btn-secondary">
-            Cancelar
-        </button>
-    </fieldset>
-</form>
+<div class="p-10 bg-multiLightGray col-span-4 ">
+    <div class="grid grid-cols-3 mt-6">
+        <div class="col-span-3 rounded-lg bg-white">
+            <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
+
+                <form action="index.php?page=mnt-provider&mode={{mode}}&idprovider={{idprovider}}" method="post"
+                    class="text-justify">
+                    <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">{{mode_dsc}}
+                    </p>
+                    <fieldset>
+                        <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="select">Seleccionar usuario</label>
+                        <select name="iduserdetail" id="iduserdetail" {{if readOnly}} disabled {{endif readOnly}}
+                            class="form-select !ml-10 !w-[25rem] !text-sm">
+                            {{foreach getallU}}
+                            <option value="{{iduserdetail}}" {{selected}}>{{firstname}} {{lastname}}</option>
+                            {{endfor getallU}}
+                        </select>
+
+                         <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="select">Seleccionar servicio</label>
+                        <select name="idservice" id="idservice" {{if readOnly}} disabled {{endif readOnly}}
+                            class="form-select !ml-10 !w-[25rem] !text-sm">
+                            {{foreach getallS}}
+                            <option value="{{idservice}}" {{selected}}>{{servicename}}</option>
+                            {{endfor getallS}}
+                        </select>
+
+                         <label for="decription" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Descripcion</label>
+                        <textarea cols="30" rows="10" type="text" name="decription" id="decription" {{if readOnly}}disabled{{endif readOnly}}
+                          class="form-input !ml-10 !w-[40rem] !text-sm"
+                            placeholder="Ingresar descripcion">{{decription}}</textarea>
+
+                         <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="select">Seleccionar estado</label>
+                        <select name="status" id="status" {{if readOnly}} disabled {{endif readOnly}}
+                            class="form-select !ml-10 !w-[25rem] !text-sm">
+                           <option value="ACT" {{if dis_selected}}selected{{endif dis_selected}}>Activo</option>
+                            <option value="INA" {{if nodis_selected}}selected{{endif nodis_selected}}>Inactivo</option>
+                        </select>
+                    </fieldset>
+                    {{if showSaveBtn}}
+                    <button type="submit" name="btnGuardar" class="form-primaryButton !ml-10">Guardar</button>
+                    {{endif showSaveBtn}}
+                    <button id="btnCancelar" class="form-secondaryButton !mb-4">Cancelar</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>

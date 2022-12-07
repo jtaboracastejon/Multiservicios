@@ -85,6 +85,7 @@
     public static function objectArrToOptionsArray(
         $baseArray,
         $codeName,
+
         $textName,
         $selectedName,
         $selectedValue,
@@ -104,6 +105,98 @@
         }
         return $tmpArray;
     }
+
+    public static function objectArrToD(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "iddepto",
+        $textKey = "department",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+
+    public static function objectArrToAllUser(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "iduserdetail",
+        $textKey = "firstname",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+    public static function objectArrToM(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "idmunicipality",
+        $textKey = "municipality",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+
+    public static function objectArrToAllServices(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "idservice",
+        $textKey = "servicename",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+
 
     private function __construct()
     {

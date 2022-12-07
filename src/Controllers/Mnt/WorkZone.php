@@ -7,9 +7,9 @@ use Views\Renderer;
 class Workzone extends PublicController{
     private $arrModeDsc = array(
         "INS" => "Agregar nueva zona laboral",
-        "UPD" => "Editar %s %s %s",
-        "DEL" => "Eliminando %s %s %s",
-        "DSP" => "Detalle de %s %s %s"
+        "UPD" => "Editando zona laboral",
+        "DEL" => "Eliminando zona laboral",
+        "DSP" => "Detalle"
     );
     private $viewData = array(
         "mode" => "",
@@ -115,21 +115,36 @@ class Workzone extends PublicController{
         $deleteResult = \Dao\WorkZones\Workzone::deleteWorkZone(
             $this->viewData["idworkzone"]
         );
-        if($deleteResult){
+       if($deleteResult){
             \Utilities\Site::redirectToWithMsg(
                 "index.php?page=Mnt-Workzones",
                 "Registro eliminado Exitosamente!"
             );
-        }
+        } 
     }
+
 
     private function pre_render()
     {
         $getAllD = \Dao\WorkZones\Workzone::getAllDeptos();
         $this->viewData["getAllD"] = $getAllD;
-
+        $this->viewData["getAllD"] = \Utilities\ArrUtils::objectArrToD(
+            $this->viewData["getAllD"],
+            'iddepto',
+            'department',
+            'iddepto',
+            $this->viewData["iddepto"]
+        );
+       
         $getAllM = \Dao\WorkZones\Workzone::getAllMunicipies();
         $this->viewData["getAllM"] = $getAllM;
+        $this->viewData["getAllM"] = \Utilities\ArrUtils::objectArrToM(
+            $this->viewData["getAllM"],
+            'idmunicipality',
+            'municipality',
+            'idmunicipality',
+            $this->viewData["idmunicipality"]
+        );
 
         $this->viewData["DIS_selected"] = $this->viewData["status"] === "DIS";
         $this->viewData["NODIS_selected"] = $this->viewData["status"] === "NODIS";
@@ -137,8 +152,8 @@ class Workzone extends PublicController{
             $this->viewData["mode_dsc"] = sprintf(
                 $this->arrModeDsc[$this->viewData["mode"]],
                 $this->viewData["idworkzone"],
-                $this->viewData["iddepto"],
                 $this->viewData["idmunicipality"],
+                $this->viewData["iddepto"],
 
             );
         } else {
