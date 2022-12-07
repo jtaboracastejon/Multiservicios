@@ -7,9 +7,9 @@ class Provider extends PublicController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Proveedor',
-        'UPD' => 'Actualizando Proveedor %s - %s',
-        'DSP' => 'Detalle de Proveedor %s - %s',
-        'DEL' => 'Eliminando Proveedor %s - %s'
+        'UPD' => 'Actualizando Proveedor',
+        'DSP' => 'Detalle de Proveedor',
+        'DEL' => 'Eliminando Proveedor'
     );
 
     private $viewData= array(
@@ -79,7 +79,7 @@ public function run(): void
         $this->viewData["idservice"] = $_POST["idservice"];
         $this->viewData["decription"] = $_POST["decription"];
         $this->viewData["status"] = $_POST["status"];
-        $this->viewData["datecreate"] = $_POST["datecreate"];
+       //$this->viewData["datecreate"] = $_POST["datecreate"];
 
         return true;
     }
@@ -120,7 +120,7 @@ public function run(): void
             $this->viewData["idservice"],
             $this->viewData["decription"],
             $this->viewData["status"], 
-            $this->viewData["datecreate"],
+            //$this->viewData["datecreate"],
             $this->viewData["idprovider"]
         );
         if($insertResult){
@@ -137,10 +137,23 @@ public function run(): void
     {
         $getallU = \Dao\Mnt\Providers::getAllUserdetail();
         $this->viewData["getallU"] = $getallU;
+        $this->viewData["getallU"] = \Utilities\ArrUtils::objectArrToAllUser(
+            $this->viewData["getallU"],
+            'iduserdetail',
+            'firstname',
+            'iduserdetail',
+            $this->viewData["iduserdetail"]
+        );
 
         $getallS = \Dao\Mnt\Providers::getAllServices();
         $this->viewData["getallS"] = $getallS;
-
+        $this->viewData["getallS"] = \Utilities\ArrUtils::objectArrToAllServices(
+            $this->viewData["getallS"],
+            'idservice',
+            'servicename',
+            'idservice',
+            $this->viewData["idservice"]
+        );
 
         $this->viewData["act_selected"] = $this->viewData["status"]=== "ACT";
         $this->viewData["ina_selected"] = $this->viewData["status"]=== "INA";

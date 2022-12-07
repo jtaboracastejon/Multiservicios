@@ -5,15 +5,14 @@ use Dao\Table;
 use DateTime;
 
 class Providers extends Table{
-    public static function addProvider($iduserdetail,$idservice,$decription,$status, $datecreate){
+    public static function addProvider($iduserdetail,$idservice,$decription,$status){
         $insertSQL= "INSERT INTO providers (iduserdetail, idservice, decription, status, datecreate)
-        values(:iduserdetail, :idservice, :decription, :status, :datecreate);";
+        values(:iduserdetail, :idservice, :decription, :status, now());";
         $params=array(
             "iduserdetail"=>$iduserdetail,
             "idservice"=>$idservice,
             "decription"=>$decription,
-            "status"=>$status,
-            "datecreate"=>$datecreate
+            "status"=>$status
         );
         return self::executeNonQuery($insertSQL, $params);
     }
