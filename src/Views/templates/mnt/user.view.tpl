@@ -1,13 +1,13 @@
 <form class="text-justify" action="index.php?page=Mnt-User&mode={{mode}}&usercod={{usercod}}" method="post">
     <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario que se pidio</p>
     <fieldset>
-
+ 
         <label for="username" class="form-label !ml-10 !font-semibold !text-sm">Nombre del Usuario</label>
         <input type="text" name="username" id="username" class="form-input !ml-10 !w-[40rem] !text-sm"
-            placeholder="Input Fields" value="{{username}}">
+            placeholder="Nombre" value="{{username}}">
         <label for="useremail" class="form-label !ml-10 !font-semibold !text-sm">Email del Usuario</label>
         <input type="text" name="useremail" id="useremail" class="form-input !ml-10 !w-[40rem] !text-sm"
-            placeholder="Input Field" value="{{useremail}}">
+            placeholder="correo@gmail.com" value="{{useremail}}">
         <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="userest">Estado del usuario</label>
         <select name="userest" id="userest" class="form-select !ml-10 !w-[25rem] !text-sm">
             <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>

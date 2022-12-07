@@ -1,43 +1,42 @@
-<h2>{{mode_dsc}}</h2>
-<form action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post" enctype="multipart/form-data" class="row col-6 offset-3">
-  <section class="row my-2 align-center">
-    <label for="servicename" class="col-4">Nombre del Servicio</label>
-    <input type="text" class="col-8" name="servicename" id="servicename" {{if readonly}} disable {{endif readonly}}
-      value="{{servicename}}" />
-  </section>
-  <section class="row my-2 align-center">
-    <label for="description" class="col-4">Descripcion</label>
-    <input type="text" class="col-8" name="description" id="description" {{if readonly}} disable {{endif readonly}}
-      value="{{description}}" />
-  </section>
-  <section class="row my-2 align-center">
-    <label for="imagepath" class="col-4">Imagen</label>
-    <input type="file" class="col-8" accept="image/png, image/jpeg" name="imagepath" id="imagepath" {{if readonly}} disable {{endif readonly}}
-      value="{{imagepath}}" />
-    <p>{{imagepath}}</p>
-  </section>
-  <section class="row my-2 align-center">
-    <label for="status" class="col-4">Estado</label>
-    <select name="status" class="col-8" id="status" {{if readonly}} disable {{endif readonly}}>
-      <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>
-      <option value="INA" {{if ina_selected}} selected {{endif ina_selected}}>Inactivo</option>
-    </select>
-  </section>
+<form class="text-justify" action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post" enctype='multipart/form-data'>
+    <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario Servicios</p>
+    <fieldset>
+        <label for="servicename" class="form-label !ml-10 !font-semibold !text-sm">Nombre del Servicio</label>
+        <input type="text" name="servicename" id="servicename" class="form-input !ml-10 !w-[40rem] !text-sm"
+            placeholder="Nombre" value="{{servicename}}">
 
-  <br /><br />
-  <section class="row flex-end my-2">
+        
+        <label for="description" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Descripcion</label>
+        <input type="text" name="description" id="description" class="form-input !ml-10 !w-[40rem] !text-sm"
+            placeholder="Descripcion" value="{{description}}">
+
+        <label for="imagepath" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Imagen</label>
+        <input type="file" accept="image/png, image/jpeg" name="imagepath" id="imagepath" class="form-input !ml-10 !w-[40rem] !text-sm"
+            placeholder="Input Field" value="{{imagepath}}">
+            
+
+        <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="status">Estado del servicio</label>
+        <select name="status" id="status" class="form-select !ml-10 !w-[25rem] !text-sm">
+            <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>
+            <option value="INA" {{if act_selected}} selected {{endif act_selected}}>Inactivo</option>
+        </select>
+
+    </fieldset>
+
     {{if showSaveBtn}}
-    <button class="mx-2 primary" type="submit" name="btnGuardar">Guardar</button>
+    <button type="submit" class="form-primaryButton !ml-10"  name="btnGuardar">Confirmar</button>
     {{endif showSaveBtn}}
-    <button id="btnCancelar">Cancelar</button>
-  </section>
+    <button type="submit" class="form-secondaryButton !mb-4" id="btnCancelar">Cancelar</button>
 
-  <script>
+    <script>
     document.getElementById("btnCancelar").addEventListener("click", function
       (event) {
         event.preventDefault();
          window.location.href ="index.php?page=Mnt-Services";
     });
 
-  </script>
+    </script>
+
 </form>
+
+

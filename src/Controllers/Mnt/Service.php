@@ -1,10 +1,10 @@
 <?php
 namespace Controllers\Mnt;
 
-use Controllers\PrivateController;
+use Controllers\PublicController;
 use DateTime;
 use Views\Renderer;
-class Service extends PrivateController{
+class Service extends PublicController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Servicio',
@@ -59,7 +59,6 @@ public function run(): void
     private function process_postback()
     {
         if (($_FILES['imagepath']['name']!="")){
-
                 //get path server                
                 $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/services/";
                 $file = $_FILES['imagepath']['name'];
@@ -68,7 +67,7 @@ public function run(): void
                 $ext = $path['extension'];
                 $temp_name = $_FILES['imagepath']['tmp_name'];
                 $path_filename_ext = $target_dir.$this->viewData["servicename"].".".$ext;
-             
+
             
                 if (file_exists($path_filename_ext)) {
                     //echo "Sorry, file already exists.";
@@ -100,7 +99,7 @@ public function run(): void
         //validando entrada de datos
         $this->viewData["servicename"] = $_POST["servicename"];
         $this->viewData["description"] = $_POST["description"];
-        // $this->viewData["imagepath"] = $_FILES["imagepath"]["name"];
+       // $this->viewData["imagepath"] = $_FILES["imagepath"]["name"];
         $this->viewData["status"] = $_POST["status"];
 
         return true;
