@@ -12,7 +12,7 @@ class Accept extends PublicController{
         if ($token !== "" && $token == $session_token) {
             $result = \Utilities\Paypal\PayPalCapture::captureOrder($session_token);
             $dataview["orderjson"] = json_encode($result, JSON_PRETTY_PRINT);
-            $this->Accepted($result);
+            $this->Accepted($_SESSION["orderid"]);
             // $this->migrateCardToTransaction($result);
         } else {
             $dataview["orderjson"] = "No Order Available!!!";
@@ -20,7 +20,7 @@ class Accept extends PublicController{
         \Views\Renderer::render("paypal/accept", $dataview);
     }
 
-    private function Accepted($result){
+    private function Accepted($orderId){
         $cart = $_SESSION["cart"];
         // die(var_dump($cart));
         foreach ($cart as $item) {
@@ -30,7 +30,7 @@ class Accept extends PublicController{
             /* if($item["triggerableTable"]=="subscriptions"){
                 \Dao\Subscriptions\Subscriptions::updateSubscriptionStatus($item["triggerableId"], 'ACT');
             } */
-            \Dao\Cart\Transaction::insertCartToTransaction($item);
+            \Dao\Cart\Transaction::insertCartToTransaction($orderId, $item);
             \Dao\Cart\Carts::deleteCartById($item["idcart"]);
         }
         // die(var_dump($cart));

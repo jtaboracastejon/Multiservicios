@@ -10,6 +10,9 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 rounded-lg scrollbar-hide">
                             <tr>
                                 <th scope="col" class="py-3 px-6 gap-4">
+                                    No Orden
+                                </th>
+                                <th scope="col" class="py-3 px-6 gap-4">
                                     Campaña de cobro
                                 </th>
                                 <th scope="col" class="py-3 px-6 gap-4">
@@ -32,6 +35,9 @@
                         <tbody>                            
                             {{foreach transactions}}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <a href="index.php?page=transactions_transactions&orderId={{paypalOrderId}}" class="hover:underline hover:text-blue-800">{{paypalOrderId}}</a>
+                                </th>
                                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{aplication}}
                                 </th>
