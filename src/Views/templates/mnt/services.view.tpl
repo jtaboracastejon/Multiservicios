@@ -55,13 +55,8 @@
                                         {{status}}
                                     </td>
                                     <td class="py-4 px-6">
-                                        <i class="fa-solid fa-pen-to-square p-4"></i>
-                                        <i class="fa-solid fa-trash"></i>
-                                    </td>
-
-                                    <td class="py-4 px-6">
-                                        <a href="index.php?page=mnt-service&mode=UPD&idservice={{idservice}}"><i class="fa-solid fa-pen-to-square p-4"> Editar</i></a>
-                                        <a href="index.php?page=mnt-service&mode=DEL&idservice={{idservice}}"><i class="fa-solid fa-trash">Eliminar</i></a>
+                                        <a href="index.php?page=mnt-service&mode=UPD&idservice={{idservice}}"><i class="fa-solid fa-pen-to-square p-4"></i></a>
+                                        <a href="index.php?page=mnt-service&mode=DEL&idservice={{idservice}}"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                               {{endfor services}}

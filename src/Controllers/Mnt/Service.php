@@ -59,9 +59,6 @@ public function run(): void
     private function process_postback()
     {
         if (($_FILES['imagepath']['name']!="")){
-
-
-                die("hola");
                 //get path server                
                 $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/services/";
                 $file = $_FILES['imagepath']['name'];
@@ -102,7 +99,7 @@ public function run(): void
         //validando entrada de datos
         $this->viewData["servicename"] = $_POST["servicename"];
         $this->viewData["description"] = $_POST["description"];
-        $this->viewData["imagepath"] = $_FILES["imagepath"]["name"];
+       // $this->viewData["imagepath"] = $_FILES["imagepath"]["name"];
         $this->viewData["status"] = $_POST["status"];
 
         return true;

@@ -1,4 +1,4 @@
-<form class="text-justify" action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post">
+<form class="text-justify" action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post" enctype='multipart/form-data'>
     <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario Servicios</p>
     <fieldset>
         <label for="servicename" class="form-label !ml-10 !font-semibold !text-sm">Nombre del Servicio</label>
