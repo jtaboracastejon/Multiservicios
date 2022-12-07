@@ -1,56 +1,42 @@
-<h2>{{mode_dsc}}</h2>
-<form action="index.php?page=Mnt-User&mode={{mode}}&usercod={{usercod}}" method="post"
-  class="row col-6 offset-3">
-  <section class="row my-2 align-center">
-    <label for="useremail" class="col-4">Email del Usuario</label>
-    <input type="text" class="col-8" name="useremail" id="useremail" {{if readonly}} disable {{endif readonly}}
-      value="{{useremail}}" />
-  </section>
-  <section class="row my-2 align-center">
-    <label for="username" class="col-4">Nombre del Usuario</label>
-    <input type="text" class="col-8" name="username" id="username" {{if readonly}} disable {{endif readonly}}
-      value="{{username}}"/>
-  </section>
-  <!--
-  <section class="row my-2 align-center">
-    <label for="userpswd" class="col-4">Contraseña del usuario</label>
-    <input type="text" class="col-8" name="userpswd" id="userpswd" {{if readonly}} disable {{endif readonly}}
-      value="{{userpswd}}" />
-  </section>
-  --> 
+<form class="text-justify" action="index.php?page=Mnt-User&mode={{mode}}&usercod={{usercod}}" method="post">
+    <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario que se pidio</p>
+    <fieldset>
 
-  <section class="row my-2 align-center">
-    <label for="userest" class="col-4">Estado del Usuario</label>
-    <select name="userest" class="col-8" id="userest" {{if readonly}} disable {{endif readonly}}>
-      <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>
-      <option value="INA" {{if ina_selected}} selected {{endif ina_selected}}>Inactivo</option>
-    </select>
-  </section>
+        <label for="username" class="form-label !ml-10 !font-semibold !text-sm">Nombre del Usuario</label>
+        <input type="text" name="username" id="username" class="form-input !ml-10 !w-[40rem] !text-sm"
+            placeholder="Input Fields" value="{{username}}">
+        <label for="useremail" class="form-label !ml-10 !font-semibold !text-sm">Email del Usuario</label>
+        <input type="text" name="useremail" id="useremail" class="form-input !ml-10 !w-[40rem] !text-sm"
+            placeholder="Input Field" value="{{useremail}}">
+        <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="userest">Estado del usuario</label>
+        <select name="userest" id="userest" class="form-select !ml-10 !w-[25rem] !text-sm">
+            <option value="ACT" {{if act_selected}} selected {{endif act_selected}}>Activo</option>
+            <option value="INA" {{if act_selected}} selected {{endif act_selected}}>Inactivo</option>
+        </select>
 
-  <section class="row my-2 align-center">
-    <label for="usertipo" class="col-4">Tipo de Usuario</label>
-    <select name="usertipo" class="col-8" id="usertipo" {{if readonly}} disable {{endif readonly}}>
-      <option value="CLI" {{if act_selected}} selected {{endif act_selected}}>Cliente</option>
-      <option value="PRV" {{if ina_selected}} selected {{endif ina_selected}}>Proveedor</option>
-      <option value="ADM" {{if ina_selected}} selected {{endif ina_selected}}>Administrador</option>
-    </select>
-  </section>
+        <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="usertipo">Tipo de Usuario</label>
+        <select name="usertipo" id="usertipo" class="form-select !ml-10 !w-[25rem] !text-sm" {{if readonly}} disable {{endif readonly}}>
+            <option value="CLI" {{if act_selected}} selected {{endif act_selected}}>Cliente</option>
+            <option value="PRV" {{if act_selected}} selected {{endif act_selected}}>Proveedor</option>
+            <option value="ADM" {{if act_selected}} selected {{endif act_selected}}>Administrador</option>
+        </select>
 
-  <br /><br />
-  }
-  <section class="row flex-end my-2">
+        
+    </fieldset>
+
     {{if showSaveBtn}}
-    <button class="mx-2 primary" type="submit" name="btnGuardar">Guardar</button>
+    <button type="submit" class="form-primaryButton !ml-10"  name="btnGuardar">Confirmar</button>
     {{endif showSaveBtn}}
-    <button id="btnCancelar">Cancelar</button>
-  </section>
+    <button type="submit" class="form-secondaryButton !mb-4" id="btnCancelar">Cancelar</button>
 
-  <script>
+    <script>
     document.getElementById("btnCancelar").addEventListener("click", function
       (event) {
         event.preventDefault();
          window.location.href ="index.php?page=Mnt-Users";
     });
 
-  </script>
+    </script>
+
 </form>
+
