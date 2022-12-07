@@ -7,9 +7,9 @@ use Views\Renderer;
 class UserDetail extends PublicController{
     private $arrModeDsc = array(
         "INS" => "Agregando nuevo registro",
-        "UPD" => "Editar registro existente %s",
-        "DEL" => "Eliminando registro %s",
-        "DSP" => "Detalle de registro %s"
+        "UPD" => "Editar registro existente",
+        "DEL" => "Eliminando registro",
+        "DSP" => "Detalle de registro"
     );
     private $viewData = array(
         "mode" => "",
@@ -28,8 +28,6 @@ class UserDetail extends PublicController{
         
     );
 
-    private $brands=array();
-    private $categories=array();
 	public function run() :void{
         $this->onForm_loaded();
         if($this->isPostBack()){
@@ -63,6 +61,7 @@ class UserDetail extends PublicController{
 
     private function process_postBack()
     {
+        
         if($this->validate_inputs()){
             switch($this->viewData["mode"]){
                 case "INS":
@@ -113,6 +112,30 @@ class UserDetail extends PublicController{
 
     private function on_update_clicked()
     {
+      /*   if (($_FILES['imgprofile']['name']!="")){
+
+            //get path server                
+            $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/userprofile/";
+            $file = $_FILES['imgprofile']['name'];
+            $path = pathinfo($file);
+            $filename = $path['filename'];
+            $ext = $path['extension'];
+            $temp_name = $_FILES['imgprofile']['tmp_name'];
+            $path_filename_ext = $target_dir.$this->viewData["firstname"].".".$ext;
+         
+        die($path_filename_ext);
+            if (file_exists($path_filename_ext)) {
+                //echo "Sorry, file already exists.";
+                die("Sorry, file already exists.");
+            }else{
+                move_uploaded_file($temp_name,$path_filename_ext);
+                //echo "Congratulations! File Uploaded Successfully.";
+                die("Sorry, file already exists.");
+            }
+
+        $this->viewData["imgprofile"] = "../public/imgs/userprofile/".$this->viewData["firstname"].".".$ext;
+        }
+ */
         $updateResult = \Dao\Mnt\UserDetails::UpdateUserDetails(
             $this->viewData["usercod"],
             $this->viewData["firstname"], 
