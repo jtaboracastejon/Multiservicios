@@ -11,9 +11,6 @@ class Dashboard extends PublicController{
             "variable" => "Version 1.0.0"
         );
 
-        $_SESSION["login"]["currentInvoices"] = \Dao\Cart\Carts::getQtyInvoices($_SESSION["login"]["userId"]);
-        $_SESSION["login"]["servicename"] = \Dao\Security\Security::getProviderByUserID($_SESSION["login"]["userId"])["servicename"];
-        
         
         Renderer::render("dashboard/dashboard", $viewData);
     }
