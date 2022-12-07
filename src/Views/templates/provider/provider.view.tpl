@@ -1,8 +1,3 @@
-<div class="bg-no-repeat bg-cover bg-center">
-    {{include common/navbarS}}
-</div>
-
-
 <div class="mx-10 mt-16">
     <div class="w-full flex flex-col lg:flex-row">
         <div class="basis-2/3">
