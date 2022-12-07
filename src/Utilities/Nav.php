@@ -13,7 +13,12 @@ class Nav {
                 "nav_label" => "Usuarios"
             );
         }
-       
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Mnt\Service")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=mnt_usuarios",
+                "nav_label" => "MNT Servicios"
+            );
+        }
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 

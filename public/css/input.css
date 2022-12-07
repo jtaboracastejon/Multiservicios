@@ -157,3 +157,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.multi-dashboardBtn{
+    @apply ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500;
+}
