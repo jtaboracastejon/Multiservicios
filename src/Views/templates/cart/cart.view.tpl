@@ -25,6 +25,9 @@
                                     Precio
                                 </th>
                                 <th scope="col" class="py-3 px-6 text-center">
+                                    Total
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-center">
                                     Estado
                                 </th>
                                 <th scope="col" class="py-3 px-6 text-center">
@@ -49,6 +52,9 @@
                                 </td>
                                 <td class="py-4 px-6">
                                     L. {{crrprice}}
+                                </td>
+                                <td class="py-4 px-6">
+                                    L. {{total}}
                                 </td>
                                 <td class="py-4 px-6 text-center">
                                     <p class="text-multiWarning p-2 rounded-lg text-center">Pendiente</p>

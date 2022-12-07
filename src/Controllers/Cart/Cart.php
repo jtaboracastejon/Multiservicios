@@ -46,18 +46,8 @@ class Cart extends PrivateController{
         $this->userId = $_SESSION["login"]["userId"];
         $this->viewData["currentInvoices"] = \Dao\Cart\Carts::getQtyInvoices($this->userId);
         $invoices = \Dao\Cart\Carts::getInvoicesByUserId($this->userId);
-        $invoices = array_map(function($invoice){
-            if($invoice["type"] == "PRO"){
-                $invoice["type"] = "Promoción";
-            }
-            if($invoice["type"] == "SUS"){
-                $invoice["type"] = "Suscripción";
-            }
-            if($invoice["type"] == "REC"){
-                $invoice["type"] = "Recargo";
-            }
-            return $invoice;
-        }, $invoices);
+        $invoices = \Utilities\multiUtilities::typeEnumToTitle($invoices);
+        $invoices = \Utilities\multiUtilities::calculateTotalFromArray($invoices);
         $this->viewData["invoices"] = $invoices;
     }
 
