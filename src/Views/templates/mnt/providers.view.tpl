@@ -1,36 +1,49 @@
-<h1>Provider</h1>
-<section class="WwWList">
-    <table>
-        <thead>
-            <tr>
-                <th>ProviderId</th>
-                <th>Id user</th>
-                <th>Service Id</th>
-                <th>Decription</th>
-                <th>Status</th>
-                <th>Create</th>
-                <th><a href="index.php?page=mnt-provider&mode=INS" class="btn w32 depth-1">+</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{foreach providers}}
-            <tr>
-                <td>{{idprovider}}</td>
-                <td>{{iduserdetail}}</td>
-                <td>{{idservice}}</td>
-               <td><a href="index.php?page=mnt-provider&mode=DSP&idprovider={{idprovider}}">{{decription}}</a></td>
-                <td>{{status}}</td>
-                <td>{{datecreate}}</td>
-                <td>
-                    <a href="index.php?page=mnt-provider&mode=UPD&idprovider={{idprovider}}">
-                        <i class="fas fa-edit">EDITAR</i>
-                    </a>
-                    <a href="index.php?page=mnt-provider&mode=DEL&idprovider={{idprovider}}">
-                        <i class="fas fa-trash">DELETE</i>
-                    </a>
-                </td>
-            </tr>
-            {{endfor providers}}
-        </tbody>
-    </table>
+<h2>Listado de Servicios</h2>
+<section class="WWList">
+<table style="">
+    <thead>
+        <tr>
+        <th>Usuario</th>
+        <th>Servicio ID </th>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Date</th>
+        <th><a href="index.php?page=mnt-provider&mode=INS">
+        <ion-icon name="add-circle-sharp" size="large" style="color:green">Agregar</ion-icon>
+        </a></th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        {{foreach providers}}
+        <tr>
+        <td><a href="index.php?page=mnt-provider&mode=DSP&idprovider={{idprovider}}" >{{firstname}}</a></td>
+        <td>{{servicename}}</td>
+        <td>{{decription}}</td>
+        <td>{{status}}</td>
+        <td>{{datecreate}}</td>
+        <td>
+            
+            <a href="index.php?page=mnt-provider&mode=UPD&idprovider={{idprovider}}">
+              <ion-icon name="create-sharp" size="large" style="color:rgb(201, 201, 34);padding-right:10px;" >
+                Editar
+              </ion-icon>
+            </a>
+            
+            <!--
+            <a href="index.php?page=Mnt-Service&mode=UPD&quoteId={{idservice}}">
+                        <i class="fas fa-edit"></i>
+                    Editar
+            </a>
+            -->
+
+            <a href="index.php?page=mnt-provider&mode=DEL&idprovider={{idprovider}}">
+               <ion-icon name="trash-sharp" size="large" style="color:red; padding-left:10px;" >
+                Eliminar
+               </ion-icon>
+            </a>
+        </td>
+        </tr>
+        {{endfor providers}}
+    </tbody>
+</table>
 </section>
