@@ -7,11 +7,14 @@
                     <fieldset>
                         <label for="txtNombrePromo" class="form-label !font-semibold !mt-5">Descríbenos tu problema</label>
                         <textarea name="txtUserProblema" id="txtUserProblema" class="form-input" cols="30" rows="10" placeholder="Necesito reparar las puertas de mi casa"></textarea>
-                        <p class="text-multiDanger" id="nombrePromoError"></p>
+                        <p class="text-multiDanger" id="userProblemaError"></p>
+                    </fieldset>
+                    <fieldset>
+                        <label for="txtDescription" class="form-label !font-light !mt-5">Al enviar esta orden aceptas que el proveedor pueda ver tus datos de contacto</label>
                     </fieldset>
                     <fieldset>
                         <div class="flex justify-center mt-10">
-                            <button type="button" class="form-primaryButton" onclick="savePromo()">Continuar</button>
+                            <button type="button" class="form-primaryButton" onclick="saveProblem()">Continuar</button>
                             <button type="button" class="form-secondaryButton" onclick="modalHandler(false, 'modalContactProvider')">Cancelar</button>
                         </div>
                     </fieldset>

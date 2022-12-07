@@ -36,14 +36,14 @@
                 <div class="carousel relative shadow-2xl bg-white">
                     <div class="carousel-inner relative overflow-hidden w-full">
                         <!--Slide 1-->
-                        {{foreach imagenes}}
+                        {{foreach imgsWork}}
                         <input class="carousel-open js-targetInput" type="radio" id="" name="carousel" aria-hidden="true" hidden="" checked="">
                         <div class="carousel-item absolute opacity-0 rounded-t-lg">
-                            <img src="{{img}}" class="object-cover object-center h-full w-full rounded-t-2xl" alt="">
+                            <img src="{{imgpath}}" class="object-cover object-center h-full w-full rounded-t-2xl" alt="">
                         </div>
                         <label for="" class="prev multi-slidePrev js-targetPrevLabel"><i class="fa-solid fa-circle-arrow-left"></i></label>
                         <label for="" class="next multi-slideNext js-targetNextLabel"><i class="fa-solid fa-circle-arrow-right"></i></label>
-                        {{endfor imagenes}}
+                        {{endfor imgsWork}}
                         <!-- Add additional indicators for each slide-->
                         <ol class="carousel-indicators" id="js-targetCarouselIndicators">
                         </ol>
@@ -67,13 +67,10 @@
             </div>
             <div class="grid m-3">
                 <div class="flex flex-col my-auto">
-                    <p class="text-lg font-medium">Javier Tabora</p>
-                    <p class="text-sm text-multiDarkBlue">Santa Rosa de Copan</p>
+                    <p class="text-lg font-medium">{{name}}</p>
+                    <p class="text-sm text-multiDarkBlue">{{municipality}}, {{department}}</p>
                 </div>
-                <p class="text-xs text-justify">1 Joven emprendedor con su nuevo negocio, en el cual nos ofrece una
-                    gran variedad de trabajos en la madera, con bellos acabados y delineados únicos que solamente el
-                    ofrece.
-                    Llame al 9090-4040 para mas información.
+                <p class="text-xs text-justify">{{decription}}
                 </p>
                 
                 <button type="button" onclick="modalHandler(true, 'modalContactProvider')" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
@@ -88,6 +85,7 @@
     <div class="mt-10">
         <p class="font-bold">Insignias</p>
         <div class="flex gap-6 mt-3">
+            {{if isVerified}}
             <div class="rounded-full py-1 px-3 border border-gray-400 flex flex-row items-center">
                 <i class="fa-solid fa-circle-check text-multiDarkYellow"></i>
                 <h3 class="text-xs text-multiDarkBlue font-medium mx-auto px-3">Verificado</h3>
@@ -95,6 +93,7 @@
                     <i class="fa-solid fa-circle-question text-zinc-400 "></i>
                 </a>
             </div>
+            {{endif isVerified}}
             <!-- Botón Pro -->
             <div class="rounded-full bg-multiDarkBlue py-1 px-3 flex flex-row items-center">
                 <i class="fa-solid fa-screwdriver-wrench text-xs text-multiDarkYellow"></i>
@@ -105,8 +104,8 @@
             </div>
             <div class="rounded-full py-1 px-3 border flex items-center">
                 <div class="flex-col mr-3">
-                    <p class="text-lg font-medium text-center">4</p>
-                    <p class="text-xs font-medium text-center">Meses</p>
+                    <p class="text-lg font-medium text-center">{{dateCant}}</p>
+                    <p class="text-xs font-medium text-center">{{dateDesc}}</p>
                 </div>
                 <p class="text-xs font-medium text-gray-400">En la<br>Plataforma</p>
             </div>
@@ -243,7 +242,7 @@
     var styleControls = document.getElementById("js-targetStyleControls");
     var styleIndicators = document.getElementById("js-targetStyleIndicators");
     var carouselIndicators = document.getElementById("js-targetCarouselIndicators");
-    var i = 1;
+    var i = 0;
     targets.forEach(target => {
         target.id = "carousel-" + i;
         i++;       
@@ -278,7 +277,7 @@
     });
     const encoded = ({{encoded}});
     Object.keys(encoded).forEach(function(key) {
-        carouselIndicators.innerHTML += '<li class="inline-block mr-3"> <label for="carousel-' + key + '" class="carousel-bullet cursor-pointer block text-white"><img src="'+ encoded[key]['img'] +'" class="h-10 hover:shadow-md"/></li>';
+        carouselIndicators.innerHTML += '<li class="inline-block mr-3"> <label for="carousel-' + key + '" class="carousel-bullet cursor-pointer block text-white"><img src="'+ encoded[key]['imgpath'] +'" class="h-10 hover:shadow-md"/></li>';
     });
 
 </script>

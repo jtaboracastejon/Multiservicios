@@ -20,12 +20,12 @@ class Providers extends Table
         return self::executeNonQuery($insertStr, $insertParams);
     }
 
-
-    //obtener toda la tabla userdetails
-    public static function getAllUserDetails()
-    {
-        $selectStr = "SELECT * FROM user_details;";
-        return self::obtenerRegistros($selectStr, array());
+    public static function getImages($idprovider){
+        $selectSql = "SELECT * FROM imgwork WHERE idprovider = :idprovider";
+        $selectParams = [
+            "idprovider" => $idprovider
+        ];
+        return self::obtenerRegistros($selectSql, $selectParams);
     }
 
 
@@ -76,7 +76,8 @@ class Providers extends Table
     }
 
 
-    /////////////////////////////Para la seccion de providers reviews/////////////////////////////
+    /////////////////////////////Para la seccion x de providers reviews/////////////////////////////
+
     public static function reviews_prov(){
         $selectSql = "SELECT * FROM reviews_prov";
         return self::obtenerRegistros($selectSql, array());
@@ -105,7 +106,12 @@ class Providers extends Table
 
    
     public static function getProviderById($id){
-        $selectSql = "SELECT * FROM providers WHERE idprovider=:idprovider;";
+        $selectSql = "SELECT p.*, ud.*, d.department, m.municipality FROM providers p
+        JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
+        JOIN work_zones wz ON wz.idworkzone = ud.idworkzone
+        JOIN departments d ON d.iddepto = wz.iddepto
+        JOIN municipalities m ON m.idmunicipality = wz.idmunicipality
+        WHERE p.idprovider=:idprovider;";
         return self::obtenerUnRegistro($selectSql, array(
             "idprovider"=>$id
         ));

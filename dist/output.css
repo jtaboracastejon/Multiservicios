@@ -1160,6 +1160,10 @@ html {
   font-weight: 600 !important;
 }
 
+.\!font-light {
+  font-weight: 300 !important;
+}
+
 .leading-normal {
   line-height: 1.5;
 }

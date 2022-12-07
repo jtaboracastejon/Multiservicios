@@ -13,6 +13,34 @@ class Provider extends PublicController
             $this->process_postBack();
         }
         $this->pre_render();
+        
+
+        \Utilities\Site::addEndScript("src/Views/templates/provider/scripts/modal.js");
+        Renderer::render("provider/provider",$this->viewData);
+    }
+    private $viewData = array(
+        "idprovider" => "",
+    );
+    
+
+    private function on_form_loaded()
+    {   
+        $idprovider = intval($_GET["idprovider"]);
+        $dbProvider =  \Dao\Providers\Providers::getProviderById($idprovider);
+                  
+        $dbProvider["isVerified"] = \Dao\Landing\Card::isVerified($dbProvider["iduserdetail"]);
+        $dbProvider["name"] = \Utilities\multiUtilities::split_name($dbProvider["firstname"], $dbProvider["lastname"]);
+        $dbProvider["tiempoPlataforma"] = \Dao\Landing\Card::getTimeAgo($dbProvider["datecreate"]);
+        $Date = explode(" ", $dbProvider["tiempoPlataforma"]);
+        $dbProvider["dateCant"] = $Date[0];
+        $dbProvider["dateDesc"] = $Date[1];
+        //$this->viewData["cards"][$key]["isSuscripter"] = \Dao\Landing\Card::isSuscripter($card["iduserdetail"]);
+        
+        \Utilities\ArrUtils::mergeFullArrayTo($dbProvider, $this->viewData);
+        
+        $dbReviews = \Dao\Providers\Providers::InnerReview($idprovider);
+        $this->viewData["ReviewP"] = $dbReviews;
+
         $this->viewData["imagenes"] = array(
             "1" => array(
                 "img" => "https://picsum.photos/1920/1080?random=1",
@@ -71,36 +99,12 @@ class Provider extends PublicController
             "19" => array(
                 "img" => "https://picsum.photos/1920/1080?random=19",
             ),
-        );
-        $this->viewData["encoded"] = json_encode($this->viewData["imagenes"]);
-
-        \Utilities\Site::addEndScript("src/Views/templates/provider/scripts/modal.js");
-        Renderer::render("provider/provider",$this->viewData);
-    }
-    private $viewData = array(
-        "idprovider" => "",
-    );
-    
-
-    private function on_form_loaded()
-    {   
-        $this->viewData["idprovider"] = $_GET["idprovider"];
-        $idprovider = intval($_GET["idprovider"]);
-        $dbProvider =  \Dao\Providers\Providers::getProviderById($idprovider);
-        \Utilities\ArrUtils::mergeFullArrayTo($dbProvider, $this->viewData);
+        ); 
         
-        $dbCards = \Dao\Providers\Providers::getCard($idprovider);
-        $this->viewData["cards"] = $dbCards;
-        foreach($this->viewData["cards"] as $key => $card){            
-            $this->viewData["cards"][$key]["isVerified"] = \Dao\Landing\Card::isVerified($card["iduserdetail"]);
-            $this->viewData["cards"][$key]["name"] = \Dao\Landing\Landing::split_name($card["firstname"], $card["lastname"]);
-            $this->viewData["cards"][$key]["tiempoPlataforma"] = \Dao\Landing\Card::getTimeAgo($card["datecreate"]);
-            //$this->viewData["cards"][$key]["isSuscripter"] = \Dao\Landing\Card::isSuscripter($card["iduserdetail"]);
-        }
-
-        
-        $dbReviews = \Dao\Providers\Providers::InnerReview($idprovider);
-        $this->viewData["ReviewP"] = $dbReviews;
+        $dbImgs = \Dao\Providers\Providers::getImages($idprovider);
+        $this->viewData["imgsWork"] = $dbImgs;
+        $this->viewData["encoded"] = json_encode($this->viewData["imgsWork"]);
+       
 
         //Obtener todos los servicios de la base de datos
         $dbServices = \Dao\Landing\Landing::getAllServices();
@@ -114,6 +118,27 @@ class Provider extends PublicController
 
     private function process_postBack()
     {
+        $usercod_cli = $_SESSION["login"]["userId"];
+        $usercod_pro = $this->viewData["idprovider"];
+        $idservice = $this->viewData["idservice"]; 
+        $description = $_POST["description"];
+        $enddate = date ("Y-m-d H:i:s", strtotime("+48 hours"));
+
+        try {
+            \Dao\Orders\Orders::addOrder(
+                $usercod_cli,
+                $usercod_pro,
+                $idservice,
+                $description,
+                $enddate
+            );
+
+            echo "success";
+            exit;       
+        } catch (\Throwable $th) {
+            echo "error";
+            exit;
+        }
         
     }
 }

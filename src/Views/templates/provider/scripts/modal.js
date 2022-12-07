@@ -33,72 +33,50 @@ function fadeIn(el, display) {
     })();
 }
 
-let NombrePromo = document.getElementById("txtNombrePromo");
-let FechaInicio = document.getElementById("txtFechaInicio");
-let FechaFinal = document.getElementById("txtFechaFinal");
-let CostoTotal = document.getElementById("txtCostoTotal");
+let userProblema = document.getElementById("txtUserProblema");
+let userProblemaModal = document.getElementById("userProblemaError");
 
-let nombrePromoError = document.getElementById("nombrePromoError");
-let fechaInicioError = document.getElementById("fechaInicioError");
-let fechaFinalError = document.getElementById("fechaFinalError");
-
-function validateForm() {
-    if(NombrePromo.value == ""){
-        nombrePromoError.innerHTML = "El nombre de la promocion no puede estar vacio";
+function validation(){
+    if(userProblema.value == ""){
+        userProblemaModal.innerHTML = "El campo no puede estar vacio";
         return false;
+    }else{
+        userProblemaModal.innerHTML = "";
+        return true;
     }
-    else{
-        nombrePromoError.innerHTML = "";
-    }
-
-    if(FechaInicio.value == ""){
-        fechaInicioError.innerHTML = "La fecha de inicio no puede estar vacia";
-        return false;
-    }
-    else{
-        fechaInicioError.innerHTML = "";
-    }
-
-    if(FechaFinal.value == ""){
-        fechaFinalError.innerHTML = "La fecha final no puede estar vacia";
-        return false;
-    }
-    else{
-        fechaFinalError.innerHTML = "";
-    }
-    
-    if(diasDiferencia < 0){
-        fechaFinalError.innerHTML = "La fecha final no puede ser menor a la fecha de inicio";
-        return false;
-    }
-    else{
-        fechaFinalError.innerHTML = "";
-    }
-
-    return true;
 }
 
-function savePromo(){
-    if(validateForm()){
+function saveProblem(){
+    if(validation()){
         $.ajax({
+            url: window.location.href,
             type: "POST",
-            url: "index.php?page=promotions_promotions",
             data: {
-                promotionname: NombrePromo.value,
-                startdate: FechaInicio.value,
-                enddate: FechaFinal.value,
-                costototal: parseFloat(diasDiferencia) * parseFloat(pricePromotionPerDayTg),
+                description: userProblema.value
             },
-            success: function (data) {
-                if(data == "success"){
-                    alert("Promocion creada con exito");
-                    modalHandler(false, "modalPromo");
-                    location.reload();
+            success: function (response) {
+                if(response == "success"){
+                    
+                    sweetAlert("¡Gracias!", "Tu problema ha sido enviado", "success");
+                    modalHandler(false, 'modalContactProvider');
                 }
                 else{
-                    alert(data);                
+                    modalHandler(false, 'modalContactProvider');
+                    sweetAlert("¡Error!", "Ha ocurrido un error, intenta de nuevo más tarde", "error");
                 }
             }
         });
     }
 }
+
+function sweetAlert(title, message, icon) {
+    swal.fire({
+        title: title,
+        text: message,
+        icon: icon,
+        confirmButtonColor: '#1C3879',
+        confirmButtonText: 'Cerrar'
+    });
+}
+
+
