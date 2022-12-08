@@ -9,14 +9,14 @@
                     <button type="button" class="justify-self-end" onclick="modalHandler(false, 'modalRejectOrder')"><i class="fa-regular fa-circle-xmark"></i></button>
                 </div> 
                     <fieldset>
-                        <textarea name="txtProblem" id="txtProblem" class="form-input" cols="30" rows="10" placeholder="" readonly></textarea>
+                        <textarea name="txtUserProblema" id="txtUserProblema" class="form-input" cols="30" rows="10" placeholder="" readonly></textarea>
                     </fieldset>
                     <fieldset>
                         <label for="" class="form-label !font-light !mt-5">Esta solicitud será rechazada automaticamente despues de 42 horas</label>
                     </fieldset>
                     <fieldset>
                         <div class="flex justify-center mt-10">
-                            <button type="button" class="form-dangerButton" onclick="aceptOrder()">Aceptar</button>
+                            <button type="button" class="form-dangerButton" onclick="cancelarOrder()">Cancelar Orden</button>
                         </div>
                     </fieldset>
                 </form>

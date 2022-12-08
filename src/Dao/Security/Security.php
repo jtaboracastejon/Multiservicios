@@ -177,6 +177,17 @@ class Security extends \Dao\Table
         return self::obtenerUnRegistro($sqlstr, $params);
     }
 
+    static public function getProviderByUserCod($usercod)
+    {
+        $sqlstr = "SELECT * from usuario u 
+        join user_details ud on u.usercod = ud.usercod 
+        join providers p on u.usercod = p.usercod 
+        where u.usercod = :usercod ;";
+        $params = array("usercod"=>$usercod);
+
+        return self::obtenerUnRegistro($sqlstr, $params);
+    }
+
 //get last iduserdetails
     static public function getLastIdUserDetails()
     {

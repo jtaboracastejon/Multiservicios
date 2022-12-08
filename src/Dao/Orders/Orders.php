@@ -30,7 +30,7 @@ class Orders extends Table
     }
 
     public static function getOrderById($idorder){
-        $selectStr = "SELECT * FROM orders o
+        $selectStr = "SELECT *, o.status orderstatus FROM orders o
         JOIN services s ON o.idservice = s.idservice
         WHERE o.idorder = :idorder;";
         $selectParams = [

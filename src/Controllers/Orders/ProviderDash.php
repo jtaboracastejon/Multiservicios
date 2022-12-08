@@ -39,11 +39,15 @@ class ProviderDash extends PrivateController{
                 $item["orderstatus"] = "Pendiente";
                 $item["isPendiente"] = true;
             }
-            if($item["orderstatus"] == "EPR"){
-                $item["orderstatus"] = "En proceso";
+            if($item["orderstatus"] == "ACE"){
+                $item["orderstatus"] = "Aceptada";
                 $item["isEnProceso"] = true;
             }
-            if($item["orderstatus"] == "FIN"){
+            if($item["orderstatus"] == "FIC"){
+                $item["orderstatus"] = "Esperando Finalizar";
+                $item["isFinalizado"] = true;
+            }
+            if($item["orderstatus"] == "FIP"){
                 $item["orderstatus"] = "Finalizado";
                 $item["isFinalizado"] = true;
             }
@@ -63,6 +67,7 @@ class ProviderDash extends PrivateController{
         if(isset($_GET["idorder"])){
             $this->viewData["order"] = \Dao\Orders\Orders::getOrderById($_GET["idorder"]);
             $this->viewData["listorder"] = false;
+            $this->viewData["order"]["orderstatus"] = "FIC" ? $this->viewData["readyToFinish"] = true : $this->viewData["readyToFinish"] = false;
 
             $this->viewData["client"] = \Dao\Security\Security::getUsuarioByUserCod($this->viewData["order"]["iduser_cli"]);
             $this->viewData["clientName"] = $this->viewData["client"]["firstname"] . " " . $this->viewData["client"]["lastname"];
@@ -89,7 +94,7 @@ class ProviderDash extends PrivateController{
 
         if($step == 'acept'){
             $idorder = $_POST["idorder"];
-            $this->updateOrder($idorder, "EPR");
+            $this->updateOrder($idorder, "ACE");
         }
         if($step == 'reject'){
             $idorder = $_POST["idorder"];
@@ -97,7 +102,7 @@ class ProviderDash extends PrivateController{
         }
         if($step == 'finish'){
             $idorder = $_GET["idorder"];
-            $this->updateOrder($idorder, "FIN");
+            $this->updateOrder($idorder, "FIP");
         }
         if($step == 'cancel'){
             $idorder = $_GET["idorder"];

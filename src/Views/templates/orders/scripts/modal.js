@@ -14,6 +14,7 @@ function modalHandler(val = false, toModal, fromModal = null, text = null, idV =
     if (val) {
         fadeIn(toModalTg);
         textProblema2.innerHTML =  text;
+        textProblema.innerHTML =  text;
     } else {
         fadeOut(toModalTg);
     }
