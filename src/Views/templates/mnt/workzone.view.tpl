@@ -1,7 +1,10 @@
-<div class="p-10 bg-multiLightGray col-span-4 ">
-    <div class="grid grid-cols-3 mt-6">
-        <div class="col-span-3 rounded-lg bg-white">
+<!--
+<div> Esto es para cerrar el dashboard-->
+    {{include dashboard/dashboard}}
+    <div class="p-10 bg-multiLightGray col-span-4" id="barrelContainer">
+        <div class="bg-white rounded-lg p-10">
             <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
+                <div class="overflow-x-auto relative rounded-lg">
 
                 <form action="index.php?page=mnt-workzone&mode={{mode}}&idworkzone={{idworkzone}}" method="post"
                     class="text-justify">
@@ -40,7 +43,5 @@
             </div>
         </div>
     </div>
-
 </div>
 
-</div>
