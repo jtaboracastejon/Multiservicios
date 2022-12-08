@@ -1,11 +1,11 @@
 <?php
 namespace Controllers\Mnt;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Dao\Dao;
 use Views\Renderer;
 
-class Providers extends PublicController{
+class Providers extends PrivateController{
 
     public function run() : void
     {
