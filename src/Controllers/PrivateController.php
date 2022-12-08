@@ -31,6 +31,9 @@ abstract class PrivateController extends PublicController
         if (!$isAuthorized){
             throw new PrivateNoAuthException();
         }
+        $_SESSION["login"]["currentInvoices"] = \Dao\Cart\Carts::getQtyInvoices($_SESSION["login"]["userId"]);
+        $_SESSION["login"]["servicename"] = \Dao\Security\Security::getProviderByUserID($_SESSION["login"]["userId"])["servicename"];
+        
     }
     private function _isAuthenticated()
     {
@@ -50,6 +53,7 @@ abstract class PrivateController extends PublicController
         parent::__construct();
         $this->_isAuthenticated();
         $this->_isAuthorized();
+        
 
     }
 }
