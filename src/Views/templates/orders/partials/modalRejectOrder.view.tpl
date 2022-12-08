@@ -16,7 +16,7 @@
                     </fieldset>
                     <fieldset>
                         <div class="flex justify-center mt-10">
-                            <button type="button" class="form-dangerButton" onclick="cancelarOrder()">Cancelar Orden</button>
+                            <button type="button" class="form-dangerButton" onclick="cancelarOrder('clientdash')">Cancelar Orden</button>
                         </div>
                     </fieldset>
                 </form>

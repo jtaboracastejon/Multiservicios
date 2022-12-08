@@ -105,7 +105,7 @@ function rejectOrder(){
     });
 }
 
-function cancelarOrder(){
+function cancelarOrder(dash){
     $.ajax({
         url: window.location.href,
         type: 'POST',
@@ -117,7 +117,10 @@ function cancelarOrder(){
             if (response == 'success') {
                 sweetAlert('Orden cancelada', 'La orden ha sido cancelada', 'error');
                 setTimeout(function () {
-                    window.location.href = "index.php?page=orders_providerdash";
+                    if(dash.toString() == 'clientdash')
+                        window.location.reload();
+                    else    
+                        window.location.href = "index.php?page=orders_". dash.toString();
                 }, 2000);
             } else {
                 alert(response);
@@ -130,7 +133,7 @@ function cancelarOrder(){
     });
 }
 
-function finalizarOrder(){
+function finalizarOrder(dash){
     $.ajax({
         url: window.location.href,
         type: 'POST',
@@ -142,7 +145,10 @@ function finalizarOrder(){
             if (response == 'success') {
                 sweetAlert('Orden finalizada', 'La orden ha sido finalizada', 'success');
                 setTimeout(function () {
-                    window.location.href = "index.php?page=orders_providerdash";
+                    if(dash.toString() == 'clientdash')
+                        window.location.href = "index.php?page=orders_clientdash";
+                    else
+                        window.location.href = "index.php?page=orders_providerdash";
                 }, 2000);
             } else {
                 alert(response);

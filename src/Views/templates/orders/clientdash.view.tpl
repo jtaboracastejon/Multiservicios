@@ -93,8 +93,8 @@
                                 </textarea>
                             </fieldset>
 
-                            <button type="button" class="form-successButton !ml-10" onclick="finalizarOrder()">Finalizar Orden</button>
-                            <button type="button" class="form-dangerButton !mb-4" onclick="anularOrder()">Anular Orden</button>
+                            <button type="button" class="form-successButton !ml-10" onclick="finalizarOrder('clientdash')">Finalizar Orden</button>
+                            <button type="button" class="form-dangerButton !mb-4" onclick="anularOrder('clientdash')">Anular Orden</button>
 
                         </form>
                     {{endifnot listorder}}

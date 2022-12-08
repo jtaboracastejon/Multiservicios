@@ -97,7 +97,7 @@ class ClientDash extends PublicController{
             $this->updateOrder($idorder, "FIC");
         }
         if($step == 'cancel'){
-            $idorder = $_GET["idorder"];
+            $idorder = $_POST["idorder"];
             $this->updateOrder($idorder, "CAN");
         }
     }

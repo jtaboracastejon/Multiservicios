@@ -93,16 +93,16 @@
                                     {{orderDetail}}
                                 </textarea>
                             </fieldset>
-                            {{if readyToFinish}}
-                            <button type="button" class="form-successButton !ml-10" onclick="finalizarOrder()">Finalizar Orden</button>
 
+                            {{if readyToFinish}}
+                            <button type="button" class="form-successButton !ml-10" onclick="finalizarOrder('providerdash')">Finalizar Orden</button>
                             {{endif readyToFinish}}
+
                             {{ifnot readyToFinish}}
                             <p>El cliente debe de aceptar la orden para poder finalizarla</p>
-                             <button type="button" class="form-successButton !ml-10" onclick="finalizarOrder()">Finalizar Orden</button>
-
+                             <button type="button" class="form-secondaryButton !ml-10" disabled>Finalizar Orden</button>
                             {{endifnot readyToFinish}}
-                            <button type="button" class="form-dangerButton !mb-4" onclick="anularOrder()">Anular Orden</button>
+                            <button type="button" class="form-dangerButton !mb-4" onclick="anularOrder('providerdash')">Anular Orden</button>
 
                         </form>
                     {{endifnot listorder}}

@@ -45,7 +45,7 @@ class ProviderDash extends PrivateController{
             }
             if($item["orderstatus"] == "FIC"){
                 $item["orderstatus"] = "Esperando Finalizar";
-                $item["isFinalizado"] = true;
+                $item["isEnProceso"] = true;
             }
             if($item["orderstatus"] == "FIP"){
                 $item["orderstatus"] = "Finalizado";
@@ -67,7 +67,8 @@ class ProviderDash extends PrivateController{
         if(isset($_GET["idorder"])){
             $this->viewData["order"] = \Dao\Orders\Orders::getOrderById($_GET["idorder"]);
             $this->viewData["listorder"] = false;
-            $this->viewData["order"]["orderstatus"] = "FIC" ? $this->viewData["readyToFinish"] = true : $this->viewData["readyToFinish"] = false;
+
+            $this->viewData["order"]["orderstatus"] == "FIC" ? $this->viewData["readyToFinish"] = true : $this->viewData["readyToFinish"] = false;
 
             $this->viewData["client"] = \Dao\Security\Security::getUsuarioByUserCod($this->viewData["order"]["iduser_cli"]);
             $this->viewData["clientName"] = $this->viewData["client"]["firstname"] . " " . $this->viewData["client"]["lastname"];
