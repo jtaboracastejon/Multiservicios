@@ -1,9 +1,9 @@
 <?php
 namespace Controllers\Mnt;
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use DateTime;
 use Views\Renderer;
-class User extends PublicController{
+class User extends PrivateController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Usuario',
