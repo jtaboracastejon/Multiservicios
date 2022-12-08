@@ -19,6 +19,13 @@ class Nav {
                 "nav_label" => "MNT Servicios"
             );
         }
+
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Mnt\Providers")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=mnt_providers",
+                "nav_label" => "MNT Proveedores"
+            );
+        }
         //Vista de mnt-providers
         //vista mnt-userdetails
         //vista mnt-workzones
