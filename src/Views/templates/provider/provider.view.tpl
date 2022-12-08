@@ -237,7 +237,7 @@
     var styleControls = document.getElementById("js-targetStyleControls");
     var styleIndicators = document.getElementById("js-targetStyleIndicators");
     var carouselIndicators = document.getElementById("js-targetCarouselIndicators");
-    var i = 0;
+    var i = 1;
     targets.forEach(target => {
         target.id = "carousel-" + i;
         i++;       

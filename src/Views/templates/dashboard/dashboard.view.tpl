@@ -1,4 +1,3 @@
-
 <div class="grid grid-cols-5">
     <div class="h-[80rem] bg-white">
         <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl">{{SITE_TITLE}}</p>
@@ -24,7 +23,6 @@
                 </a>
                 {{endwith login}}
             </div>
-
         <p class="pl-10 pt-4 border-t-4 border-multiDarkBlue text-black-400 font-semibold text-sm"></p>
         {{foreach NAVIGATION}}
         <a type="button" href="{{nav_url}}" class="multi-dashboardBtn">

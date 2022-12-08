@@ -240,7 +240,6 @@
 <div class="flex bg">
     
 </div>
-
 <script>
     const targets = document.querySelectorAll(".js-targetInput");    
     var styleControls = document.getElementById("js-targetStyleControls");
