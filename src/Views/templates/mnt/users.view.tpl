@@ -1,5 +1,5 @@
 <div>
-    <h1 class="multi-titleG2">Lorem ipsum dolor</h1>
+    <h1 class="multi-titleG2">Listado Usuarios</h1>
     <button type="button"
         class="mt-4 px-4 py-2 text-black-400 text-white hover:text-white bg-gradient-to-r bg-blue-500 border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500">Primario</button>
 </div>

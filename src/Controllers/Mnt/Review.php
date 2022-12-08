@@ -126,6 +126,18 @@ public function run(): void
 
     private function pre_render()
     {
+        $getallU = \Dao\Mnt\Reviews::getUserdetail();
+        $this->viewData["getallU"] = $getallU;
+        $this->viewData["getallU"] = \Utilities\ArrUtils::objectArrToAllUser(
+            $this->viewData["getallU"],
+            'iduserdetail',
+            'firstname',
+            'iduserdetail',
+            $this->viewData["iduserdetail"]
+
+
+        );
+
         /*
         $this->viewData["act_selected"] = $this->viewData["status"]=== "ACT";
         $this->viewData["ina_selected"] = $this->viewData["status"]=== "INA";

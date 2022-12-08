@@ -16,6 +16,21 @@ class Reviews extends Table{
         return self::executeNonQuery($insertSQL, $params);
     }
 
+    public static function allUser(){
+        $joinI= "select rev.idreviewpage, u.firstname, rev.title, rev.review
+        from reviews_pag rev
+        inner join  user_details u on u.iduserdetail = rev.iduserdetail";
+        $rev=self::obtenerRegistros($joinI, array());
+
+        return $rev;
+    }
+
+    public static function getUserdetail(){
+        $selectStr = "Select * from user_details";
+        return self::obtenerRegistros($selectStr, array());
+    }
+
+
     public static function getAllReviews(){
         $selectSql  = "SELECT * FROM reviews_pag;";
         return self::obtenerRegistros($selectSql ,array());
