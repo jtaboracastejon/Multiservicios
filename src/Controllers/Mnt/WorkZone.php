@@ -1,10 +1,10 @@
 <?php 
 namespace Controllers\Mnt;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Views\Renderer;
 
-class Workzone extends PublicController{
+class Workzone extends PrivateController{
     private $arrModeDsc = array(
         "INS" => "Agregar nueva zona laboral",
         "UPD" => "Editando zona laboral",
