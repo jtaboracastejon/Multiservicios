@@ -10,7 +10,7 @@ class Reviews extends PublicController{
     public function run() : void
     {
         $viewData = array();
-        $viewData["reviews"] = \Dao\Mnt\Reviews::getAllReviews();
+        $viewData["reviews"] = \Dao\Mnt\Reviews::allUser();
         
         Renderer::render("mnt/reviews", $viewData);
     }

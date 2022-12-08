@@ -7,7 +7,9 @@
             <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
                 <div class="overflow-x-auto relative rounded-lg">
 
+                    <!--Copiar de aqui para arriba-->
 
+                    
                     <form class="text-justify" action="index.php?page=Mnt-Service&mode={{mode}}&idservice={{idservice}}" method="post" enctype='multipart/form-data'>
                         
                         <fieldset>
@@ -49,11 +51,12 @@
 
                     </form>
 
-                    
+                    <!--Copiar de aqui para abajo-->
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 

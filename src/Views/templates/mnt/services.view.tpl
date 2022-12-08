@@ -9,6 +9,8 @@
                     <table class="w-full text-sm text-left text-gray-500 rounded-lg">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 rounded-lg scrollbar-hide">
                            <tr>
+                            <!--Copiar de aqui para arriba-->
+
                             
                                     <th scope="col" class="py-3 px-6 gap-4">
                                         ID
@@ -57,7 +59,7 @@
                                 </tr>
                               {{endfor services}}
 
-
+                            <!--Copiar de aqui para abajo-->
                             </tbody>
                         </table>
                     </div>
