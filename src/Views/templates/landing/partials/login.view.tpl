@@ -16,7 +16,7 @@
                     <label for="inputField" class="form-label !font-semibold !mt-5" >Contraseña</label>
                     <input type="password" name="txtPswd" id="txtPswd" class="form-input" placeholder="">
                     <p class="text-multiDanger" id="pswdError"></p>
-                    <a href="#" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
+                    <a href="index.php?page=sec_resetpassword" class="form-helperLink !text-right">¿Olvido su contraseña?</a>
                     <div class="flex justify-center items-center mt-5">
                         <button type="button" class="form-primaryButton" name="btnLogin" id="btnLogin"  onclick="return clickLogin()">Continuar</button>
                         <button type="button" class="form-secondaryButton" onclick="modalHandler1(false, 'modalLogin')">Cancelar</button>

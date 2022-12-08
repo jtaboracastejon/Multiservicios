@@ -19,7 +19,7 @@ function processPayment(){
                 alert(response);                
             }
             else{
-                //alert(response);                
+                // alert(response);                
                 window.location.href = response;
             }
         }

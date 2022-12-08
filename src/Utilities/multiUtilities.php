@@ -35,7 +35,7 @@ class multiUtilities {
                 if($response->success === true) {
                     return($response);
                 }
-            } catch(Exception $e) {
+            } catch(\Exception $e) {
                 return($e);
             }
         }

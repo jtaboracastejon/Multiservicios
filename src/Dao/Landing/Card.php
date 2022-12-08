@@ -60,6 +60,7 @@ class Card extends Table{
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
+        WHERE p.status = 'ACT'
         ORDER BY RAND() LIMIT :cantidad";
         return self::obtenerRegistros($selectSql, array("cantidad"=>$cantidad));
     }
@@ -94,7 +95,53 @@ class Card extends Table{
         return (self::obtenerUnRegistro($selectSql, array("iduserdetail"=>$iduserdetail))) ? true : false;
     } */
 
+    //Search Section
 
+    public static function getCardByProvider($l1,$l2,$query){
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        FROM providers p 
+        JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
+        JOIN services s ON s.idservice = p.idservice
+        WHERE p.status = 'ACT' AND  ud.firstname LIKE :like ORDER BY p.iduserdetail DESC LIMIT :l1 , :l2 ;";
+        return self::obtenerRegistros(
+            $strSql, 
+            array(
+                "l1" => intval($l1),
+                "l2" => intval($l2),
+                "like" => "%$query%"
+            ));
+    }
+
+    public static function getCardByService($l1,$l2,$query){
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        FROM providers p 
+        JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
+        JOIN services s ON s.idservice = p.idservice
+        WHERE p.status = 'ACT' AND  s.idservice = :like ORDER BY p.iduserdetail DESC LIMIT :l1 , :l2 ;";
+        return self::obtenerRegistros(
+            $strSql, 
+            array(
+                "l1" => intval($l1),
+                "l2" => intval($l2),
+                "like" => "$query"
+            ));
+    }
+
+    public static function getCardByQueryAndService($l1,$l2,$query,$service){
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        FROM providers p 
+        JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
+        JOIN services s ON s.idservice = p.idservice
+        WHERE p.status = 'ACT' AND  s.idservice LIKE :idservice AND ud.firstname LIKE :like ORDER BY p.iduserdetail DESC LIMIT :l1 , :l2 ;";
+        return self::obtenerRegistros(
+            $strSql, 
+            array(
+                "l1" => intval($l1),
+                "l2" => intval($l2),
+                "idservice" => $service,
+                "like" => "%$query%"
+            ));
+    }
 
 }
 ?>
