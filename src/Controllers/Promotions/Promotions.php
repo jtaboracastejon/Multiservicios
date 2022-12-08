@@ -52,7 +52,6 @@ class Promotions extends PrivateController{
             );
 
             $nextPromoId = \Dao\Promotions\Promotions::getPromotionLastId();
-            $nextCartId = \Dao\Cart\Carts::getCartNextId();
             \Dao\Cart\Carts::addCart(
                 $this->userId,
                 $this->viewData["PromotionPerDay"]["idprice"],
@@ -63,6 +62,7 @@ class Promotions extends PrivateController{
                 $nextPromoId,
                 "promotions"
             );
+            $nextCartId = \Dao\Cart\Carts::getCartLastId();
             // \Utilities\Site::redirectTo("index.php?page=cart-cart&idCart=$nextCartId");
             echo "index.php?page=cart-cart&idCart=$nextCartId";
             

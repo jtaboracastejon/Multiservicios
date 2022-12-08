@@ -39,7 +39,7 @@ class Carts extends Table
         return self::executeNonQuery($sqlstr, array("idcart" => $idcart));
     }
 
-    public static function getCartNextId(){
+    public static function getCartLastId(){
         $sqlstr = "SELECT MAX(idcart) 'idcart' FROM cart";
         return self::obtenerUnRegistro($sqlstr, array())["idcart"];
     }
