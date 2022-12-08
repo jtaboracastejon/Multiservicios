@@ -16,8 +16,8 @@ use Utilities\Site;
 require_once "autoloader.php";
 require __DIR__ . '/vendor/autoload.php';
 session_start();
-
 \Utilities\Site::configure();
+$_SESSION['workZones'] = \Dao\WorkZones\Workzone::getWorkZoneDis();
 
 
 $pageRequest = \Utilities\Site::getPageRequest();
