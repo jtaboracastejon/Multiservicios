@@ -564,6 +564,10 @@ html {
   grid-column: span 3 / span 3;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
 .m-5 {
   margin: 1.25rem;
 }
@@ -631,6 +635,46 @@ html {
   margin-bottom: 0.5rem;
 }
 
+.-mt-1 {
+  margin-top: -0.25rem;
+}
+
+.-mt-10 {
+  margin-top: -2.5rem;
+}
+
+.-mt-20 {
+  margin-top: -5rem;
+}
+
+.-mt-40 {
+  margin-top: -10rem;
+}
+
+.-mt-60 {
+  margin-top: -15rem;
+}
+
+.-mt-80 {
+  margin-top: -20rem;
+}
+
+.-mt-96 {
+  margin-top: -24rem;
+}
+
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
+.-mt-9 {
+  margin-top: -2.25rem;
+}
+
+.-mt-16 {
+  margin-top: -4rem;
+}
+
 .block {
   display: block;
 }
@@ -671,6 +715,22 @@ html {
   height: 1.5rem;
 }
 
+.h-\[6rem\] {
+  height: 6rem;
+}
+
+.h-\[60rem\] {
+  height: 60rem;
+}
+
+.h-\[rem\] {
+  height: rem;
+}
+
+.h-\[20rem\] {
+  height: 20rem;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -687,6 +747,31 @@ html {
   max-width: 24rem;
 }
 
+.translate-y-10 {
+  --tw-translate-y: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-10 {
+  --tw-translate-y: -2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-20 {
+  --tw-translate-y: -5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-40 {
+  --tw-translate-y: -10rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-60 {
+  --tw-translate-y: -15rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -697,6 +782,14 @@ html {
 
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-rows-1 {
@@ -725,6 +818,10 @@ html {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .rounded-full {
