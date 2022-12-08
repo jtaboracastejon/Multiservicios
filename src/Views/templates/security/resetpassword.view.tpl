@@ -1,53 +1,74 @@
-<section class="fullCenter">
-  {{if showFomrEmail}}
-  <form class="grid" method="post" action="index.php?page=sec_resetpassword">
-    <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
-      <h1 class="col-12">Olvidé mi Contraseña</h1>
-    </section>
-    <section class="depth-1 py-5 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
-      <div class="row">
-        <label for="">Ingrese su dirección de correo electrónico para que podamos enviarle un correo electrónico para restablecer su contraseña.</label>
-        <label class="col-12 col-m-4 flex align-center" for="txtEmail">Correo Electrónico</label>
-        <div class="col-12 col-m-8">
-          <input class="width-full" type="email" id="txtEmail" name="txtEmail" value="{{txtEmail}}" />
-        </div>
-        {{if errorEmail}}
-        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorEmail}}</div>
-        {{endif errorEmail}}
-      </div>
-      <div class="row right flex-end px-4">
-        <button class="primary" id="btnForgot" type="submit">Enviar</button>
-      </div>
-    </section>
-  </form>
-  {{endif showFomrEmail}}
+
   {{if showFormPassword}}
-  <form class="grid" method="post" action="index.php?page=sec_resetpassword&token={{token}}">
-    <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
-      <h1 class="col-12">Restablecer Contraseña</h1>
-    </section>
-    <section class="depth-1 py-5 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
-      <div class="row">
-        <label for="">Ingrese su nueva contraseña.</label>
-        <label class="col-12 col-m-4 flex align-center" for="txtPassword">Contraseña</label>
-        <div class="col-12 col-m-8">
-          <input class="width-full" type="password" id="txtPassword" name="txtPassword" value="{{txtPassword}}" />
+  <form class="grid" method="post" action="index.php?page=sec_resetpassword">
+    <div class="bg-slate-200">
+    <div class="text-slate-200"></div>
+    <div class="container mx-auto w-11/12 md:w-2/3 max-w-lg mt-32">
+        <!-- contenedor, parte white -->
+        <div class="relative py-8 px-5 md:px-10 bg-white rounded-xl border ">
+            <!-- Aquí podes meter código -->
+            <div>
+                <h1 class="multi-titleG2 !text-xl !text-center">Recuperar Contraseña</h1>
+            </div>
+            <fieldset>
+                <p class="text-justify mt-2 ">
+                    ¿Has perdido tu contraseña?
+                    No te preocupes, nosotros te ayudaremos a recuperarla de manera sencilla.
+                </p>
+
+            </fieldset>
+
+            <div class="grid grid-rows-1 ">
+                <label for="inputField" class="form-label !font-medium !mt-5">Correo
+                    Electronico</label>
+                <input type="text" name="inputField" id="inputField" class="form-input " placeholder="Input Field">
+            </div>
+            <p class="text-justify mt-6">
+                Asegurate de proporcionarnos la direccion con la que fue creada tu cuenta.
+            </p>
+
+            <div class="flex justify-center items-center mt-5">
+                <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+            </div>
         </div>
-        {{if errorPassword}}
-        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorPassword}}</div>
-        {{endif errorPassword}}
-        <label class="col-12 col-m-4 flex align-center" for="txtPassword2">Confirmar Contraseña</label>
-        <div class="col-12 col-m-8">
-          <input class="width-full" type="password" id="txtPassword2" name="txtPassword2" value="{{txtPassword2}}" />
-        </div>
-        {{if errorPassword2}}
-        <div class="error col-12 py-2 col-m-8 offset-m-4">{{errorPassword2}}</div>
-        {{endif errorPassword2}}
-      </div>
-      <div class="row right flex-end px-4">
-        <button class="primary" id="btnForgot" type="submit">Enviar</button>
-      </div>
-    </section>
+    </div>
+    <div class="mt-80 text-slate-200"></div>
+</div>
   </form>
   {{endif showFormPassword}}
-</section>
+
+
+  {{if showFomrEmail}}
+  <form class="grid" method="post" action="index.php?page=sec_resetpassword&token={{token}}">
+    <div class="bg-slate-200">
+    <div class="text-slate-200"></div>
+    <div class="container mx-auto w-11/12 md:w-2/3 max-w-lg mt-32">
+            <!-- contenedor, parte white -->
+                    <div class="relative py-8 px-5 md:px-10 bg-white rounded-xl border ">
+
+                <!-- Aquí podes meter código -->
+                <div>
+                    <h1 class="mt-5 text-center font-bold text-2xl">Restablecer Contraseña</h1>
+                </div>
+                <fieldset>
+                    <p class="text-center mt-4">
+                        Ingrese su nueva contraseña.
+                    </p>
+                </fieldset>
+                <div class="grid container row-span-1 place-content-center mt-6 max-w-40">
+                    <label for="inputField" class="form-label !font-medium !mt-5">Nueva Contraseña</label>
+                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                    <label for="inputField" class="form-label !font-medium !mt-5">Confirmar Contraseña</label>
+                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                </div>
+                <div class="flex justify-center items-center mt-10 mb-10">
+                    <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                    <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    <div class="mt-80 text-slate-200"></div>
+</div>
+  </form>
+  {{endif showFomrEmail}}
