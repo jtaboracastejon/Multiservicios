@@ -69,6 +69,7 @@ function validateForm() {
 
 function savePromo(){
     if(validateForm()){
+        modalHandler(true, 'waiting4PaypalModal', 'paymentNotyModal');
         $.ajax({
             type: "POST",
             url: "index.php?page=promotions_promotions",

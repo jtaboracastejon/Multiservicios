@@ -3,7 +3,10 @@
 {{include dashboard/dashboard}}
 <div class="p-10 bg-multiLightGray col-span-4" id="barrelContainer">
     <div class="bg-white rounded-lg p-10">
-        <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Orden #{{orderId}}</p>
+        <div class="inline-flex items-center">
+            <a href="index.php?page=cart_cart" class="-ml-5 mr-10"><i class="fa-solid fa-chevron-left "></i> </a>
+            <p class="text-black-400 text-xl font-bold lg:text-2xl">Orden #{{orderId}}</p>
+        </div>
     </div>
     <div class="bg-white rounded-lg p-10 mt-4">
         <div class="p-10">
