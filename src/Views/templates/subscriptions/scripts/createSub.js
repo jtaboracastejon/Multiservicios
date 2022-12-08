@@ -12,7 +12,7 @@ function processPayment(){
             startdate: startDate.innerHTML,
             enddate: endDate.innerHTML,
             price : price.innerHTML,
-            cant : cant.innerHTML,
+            cant : 1,
         },
         success: function (response) {
             if(response == "error"){

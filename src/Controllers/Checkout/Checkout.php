@@ -19,7 +19,7 @@ class Checkout extends PublicController{
             array_map(
                 function ($item) use ($PayPalOrder) {
                     $tax = number_format(floatval($item["price"] * 0.15),2);
-                    $PayPalOrder->addItem($item["name"], $item["description"], $item["sku"], $item["price"], $tax, $item["quantity"], "DIGITAL_GOODS");
+                    $PayPalOrder->addItem($item["name"].' '.$item["description"], $item["description"], $item["sku"], $item["price"], $tax, $item["quantity"], "DIGITAL_GOODS");
                 },
                 $arrCart
             );
