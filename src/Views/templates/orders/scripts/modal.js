@@ -104,3 +104,53 @@ function rejectOrder(){
     });
 }
 
+function cancelarOrder(){
+    $.ajax({
+        url: window.location.href,
+        type: 'POST',
+        data: {
+            idorder: id,
+            step: 'cancel'
+        },
+        success: function (response) {
+            if (response == 'success') {
+                sweetAlert('Orden cancelada', 'La orden ha sido cancelada', 'error');
+                setTimeout(function () {
+                    window.location.href = "index.php?page=orders_providerdash";
+                }, 2000);
+            } else {
+                alert(response);
+                sweetAlert('Error', 'Ha ocurrido un error, por favor intentelo mas tarde', 'error');
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }
+        }
+    });
+}
+
+function finalizarOrder(){
+    $.ajax({
+        url: window.location.href,
+        type: 'POST',
+        data: {
+            idorder: id,
+            step: 'finish'
+        },
+        success: function (response) {
+            if (response == 'success') {
+                sweetAlert('Orden finalizada', 'La orden ha sido finalizada', 'success');
+                setTimeout(function () {
+                    window.location.href = "index.php?page=orders_providerdash";
+                }, 2000);
+            } else {
+                alert(response);
+                sweetAlert('Error', 'Ha ocurrido un error, por favor intentelo mas tarde', 'error');
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+        }
+    });
+}
+

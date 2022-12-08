@@ -19,6 +19,12 @@ class Nav {
                 "nav_label" => "MNT Servicios"
             );
         }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Orders\ProviderDash")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=orders_providerdash",
+                "nav_label" => "Lista de Ordenes"
+            );
+        }
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 

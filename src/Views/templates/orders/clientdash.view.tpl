@@ -6,7 +6,7 @@
             
 
                     {{if listorder}}
-                    <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Lista de ordenes</p>
+                    <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Lista de pedidos</p>
                     <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
                         <div class="overflow-x-auto relative rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 rounded-lg">
@@ -41,11 +41,11 @@
                                     <td class="py-4 px-6 text-left">
                                         <div class="flex item-center justify-center">
                                             {{if isPendiente}}
-                                            <div class="w-5 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                <button onclick="modalHandler(true, 'modalAceptOrder', null ,'{{descriptionwork}}', '{{idorder}}')">Revisar&nbsp;<i class="fas fa-check"></i></button>
-                                            </div>
+                                                <div class="w-5 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                                    <button onclick="modalHandler(true, 'modalRejectOrder', null ,'{{descriptionwork}}', '{{idorder}}')">Revisar<i class="fas fa-check"></i></button>
+                                                </div>
                                             {{endif isPendiente}}
-
+                    
                                             {{if isEnProceso}}
                                             <!--<div class="w-5 mr-2 transform hover:text-purple-500 hover:scale-110">
                                             <button onclick="modalHandler(true, 'modalAceptOrder', null ,'{{descriptionwork}}', '{{idorder}}')">Finalizar<i class="fas fa-check"></i></button>
@@ -82,11 +82,6 @@
                                 <label for="txtDireccion" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Dirección</label>
                                 <input type="text" name="txtDireccion" id="txtDireccion" disabled class="form-input !ml-10 !w-[40rem] !text-sm"
                                     value="{{clientDireccion}}">
-
-
-                                <label for="txtTelefono" class="form-label !ml-10 !font-semibold !text-sm">Numero de Telefono</label>
-                                <input type="text" name="txtTelefono" id="txtTelefono" disabled class="form-input !ml-10 !w-[40rem] !text-sm" 
-                                    value="{{clientTelefono}}">
 
                                 <label for="txtDescripcion" class="form-label !ml-10 !mt-2 !font-semibold !text-sm">Descripcion de la solicitud</label>
                                 <textarea type="text" cols="10" rows="5" name="txtDescripcion" id="txtDescripcion" disabled class="form-input !ml-10 !w-[40rem] !mb-10 !text-sm">

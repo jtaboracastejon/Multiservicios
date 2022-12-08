@@ -5,13 +5,9 @@ use Controllers\PrivateController;
 use Controllers\PublicController;
 use Views\Renderer;
 
-class ProviderDash extends PrivateController{
-    private $viewData = array(
-        "clientName" => "",
-        "clientDireccion" => "",
-        "clientTelefono" => "",
-        "clientProblema" => "",
-    );
+class ClientDash extends PublicController{
+    
+    private $viewData = [];
 
     public function run():void{
 
@@ -23,7 +19,7 @@ class ProviderDash extends PrivateController{
 
         \Utilities\Site::addEndScript("src/Views/templates/orders/scripts/modal.js");
         
-        Renderer::render("orders/providerdash", $this->viewData);
+        Renderer::render("orders/clientdash", $this->viewData);
     }
 
     private function onForm_loaded(){
@@ -32,8 +28,8 @@ class ProviderDash extends PrivateController{
             die();
         }
 
-        $order = \Dao\Orders\Orders::getOrdersByProviderId($_SESSION["login"]["userId"]);
-        
+        $order = \Dao\Orders\Orders::getOrdersByClientId($_SESSION["login"]["userId"]);   
+
         $newOrder = array_map(function($item){
             if($item["orderstatus"] == "PEN"){
                 $item["orderstatus"] = "Pendiente";
@@ -75,50 +71,16 @@ class ProviderDash extends PrivateController{
         else{
             $this->viewData["listorder"] = true;
         }
-
-
     }
 
     private function pre_render(){
-        
+
     }
 
     private function process_postBack(){
 
-        $step = $_POST["step"];
-
-        if($step == 'acept'){
-            $idorder = $_POST["idorder"];
-            $this->updateOrder($idorder, "EPR");
-        }
-        if($step == 'reject'){
-            $idorder = $_POST["idorder"];
-            $this->updateOrder($idorder, "REC");
-        }
-        if($step == 'finish'){
-            $idorder = $_GET["idorder"];
-            $this->updateOrder($idorder, "FIN");
-        }
-        if($step == 'cancel'){
-            $idorder = $_GET["idorder"];
-            $this->updateOrder($idorder, "CAN");
-        }
-        
     }
 
-    private function updateOrder($idorder, $status){
-        try {
-            $order["idorder"] = \Dao\Orders\Orders::getOrderById($idorder);
-            $order["status"] = $status;
-            \Dao\Orders\Orders::updateOrder($order);
-            
-            echo "success";
-            exit();
-            //code...
-        } catch (\Throwable $th) {
-            echo "error";
-            exit();
-        }
-    }
 }
+
 ?>

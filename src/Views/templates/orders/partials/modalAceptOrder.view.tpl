@@ -4,13 +4,11 @@
         <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded-3xl shadow-lg border border-gray-400">
                 <form action="">
-                   <div class="grid grid-cols-3">
-                    <a href="#" class="form-helperLink !border-l-4 !px-2 !mr-6 !border-multiDarkBlue !ml-6" id="userType"></a>                      
-                    <a href="#" class="form-helperLink !border-l-4 !px-2 !mr-6 !border-multiDarkBlue !ml-6" id="userType"></a>                      
+                <div class="flex justify-between">
+                    <h1 class="text-center font-bold">Tiene una solicitud para:</h1>
                     <button type="button" class="justify-self-end" onclick="modalHandler(false, 'modalAceptOrder')"><i class="fa-regular fa-circle-xmark"></i></button>
-                </div>
+                </div> 
                     <fieldset>
-                        <label for="txtUserProblema2" class="form-label !font-semibold !mt-5">Tiene una solicitud para el siguiente trabajo:</label>
                         <textarea name="txtUserProblema2" id="txtUserProblema2" class="form-input" cols="30" rows="10" placeholder="" readonly></textarea>
                     </fieldset>
                     <fieldset>

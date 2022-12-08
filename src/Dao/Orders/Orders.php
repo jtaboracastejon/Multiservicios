@@ -4,6 +4,7 @@ use Dao\Table;
 
 class Orders extends Table
 {
+    //Proveedor DAO
 
     public static function addOrder($iduser_cli, $iduser_prov, $idservice, $descriptionwork, $enddate){
         $insertStr = "INSERT INTO orders (iduser_cli, iduser_prov, idservice, descriptionwork, enddate) 
@@ -47,4 +48,16 @@ class Orders extends Table
         return self::executeNonQuery($updateStr, $updateParams);
     }
     
+
+    //Cliente DAO
+
+    public static function getOrdersByClientId($iduser_cli){
+        $selectStr = "SELECT o.*, s.*, o.status orderstatus FROM orders o
+        JOIN services s ON o.idservice = s.idservice
+        WHERE o.iduser_cli = :iduser_cli;";
+        $selectParams = [
+            "iduser_cli" => $iduser_cli
+        ];
+        return self::obtenerRegistros($selectStr, $selectParams);
+    }
 }
