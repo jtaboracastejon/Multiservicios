@@ -85,8 +85,8 @@ class UserDetail extends PublicController{
         $this->viewData["address"] = $_POST["address"];
         $this->viewData["phonenumber"] = $_POST["phonenumber"];
         $this->viewData["idworkzone"] = $_POST["idworkzone"];
-        $this->viewData["imgprofile"] = $_POST["imgprofile"];
-        $this->viewData["imgportada"] = $_POST["imgportada"];
+       // $this->viewData["imgprofile"] = $_POST["imgprofile"];
+    //$this->viewData["imgportada"] = $_POST["imgportada"];
         return true;
     }
 
@@ -112,7 +112,7 @@ class UserDetail extends PublicController{
 
     private function on_update_clicked()
     {
-      /*   if (($_FILES['imgprofile']['name']!="")){
+      if (($_FILES['imgprofile']['name']!="")){
 
             //get path server                
             $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/userprofile/";
@@ -123,19 +123,36 @@ class UserDetail extends PublicController{
             $temp_name = $_FILES['imgprofile']['tmp_name'];
             $path_filename_ext = $target_dir.$this->viewData["firstname"].".".$ext;
          
-        die($path_filename_ext);
             if (file_exists($path_filename_ext)) {
                 //echo "Sorry, file already exists.";
-                die("Sorry, file already exists.");
             }else{
                 move_uploaded_file($temp_name,$path_filename_ext);
                 //echo "Congratulations! File Uploaded Successfully.";
-                die("Sorry, file already exists.");
             }
 
-        $this->viewData["imgprofile"] = "../public/imgs/userprofile/".$this->viewData["firstname"].".".$ext;
+        $this->viewData["imgprofile"] = "../public/imgs/userprofile/".$this->viewData["firstname"]."_profile.".$ext;
         }
- */
+
+        if (($_FILES['imgportada']['name']!="")){
+
+            //get path server                
+            $target_dir = $_SERVER["DOCUMENT_ROOT"] . "/Multiservicios/public/imgs/userprofile/";
+            $file = $_FILES['imgportada']['name'];
+            $path = pathinfo($file);
+            $filename = $path['filename'];
+            $ext = $path['extension'];
+            $temp_name = $_FILES['imgportada']['tmp_name'];
+            $path_filename_ext = $target_dir.$this->viewData["firstname"].".".$ext;
+         
+            if (file_exists($path_filename_ext)) {
+                //echo "Sorry, file already exists.";
+            }else{
+                move_uploaded_file($temp_name,$path_filename_ext);
+                //echo "Congratulations! File Uploaded Successfully.";
+            }
+
+        $this->viewData["imgportada"] = "../public/imgs/userprofile/".$this->viewData["firstname"]."_portada.".$ext;
+        }
         $updateResult = \Dao\Mnt\UserDetails::UpdateUserDetails(
             $this->viewData["usercod"],
             $this->viewData["firstname"], 
