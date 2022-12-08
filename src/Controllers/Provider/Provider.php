@@ -102,7 +102,7 @@ class Provider extends PublicController
         ); 
         
         $dbImgs = \Dao\Providers\Providers::getImages($idprovider);
-        $this->viewData["imgsWork"] = $dbImgs;
+        $this->viewData["imgsWork"] = $this->viewData["imagenes"];
         $this->viewData["encoded"] = json_encode($this->viewData["imgsWork"]);
        
 

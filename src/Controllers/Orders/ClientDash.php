@@ -5,7 +5,7 @@ use Controllers\PrivateController;
 use Controllers\PublicController;
 use Views\Renderer;
 
-class ClientDash extends PublicController{
+class ClientDash extends PrivateController{
     
     private $viewData = [];
 

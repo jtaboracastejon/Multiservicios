@@ -34,7 +34,7 @@
                         {{foreach imgsWork}}
                         <input class="carousel-open js-targetInput" type="radio" id="" name="carousel" aria-hidden="true" hidden="" checked="">
                         <div class="carousel-item absolute opacity-0 rounded-t-lg">
-                            <img src="{{imgpath}}" class="object-cover object-center h-full w-full rounded-t-2xl" alt="">
+                            <img src="{{img}}" class="object-cover object-center h-full w-full rounded-t-2xl" alt="">
                         </div>
                         <label for="" class="prev multi-slidePrev js-targetPrevLabel"><i class="fa-solid fa-circle-arrow-left"></i></label>
                         <label for="" class="next multi-slideNext js-targetNextLabel"><i class="fa-solid fa-circle-arrow-right"></i></label>
@@ -272,7 +272,7 @@
     });
     const encoded = ({{encoded}});
     Object.keys(encoded).forEach(function(key) {
-        carouselIndicators.innerHTML += '<li class="inline-block mr-3"> <label for="carousel-' + key + '" class="carousel-bullet cursor-pointer block text-white"><img src="'+ encoded[key]['imgpath'] +'" class="h-10 hover:shadow-md"/></li>';
+        carouselIndicators.innerHTML += '<li class="inline-block mr-3"> <label for="carousel-' + key + '" class="carousel-bullet cursor-pointer block text-white"><img src="'+ encoded[key]['img'] +'" class="h-10 hover:shadow-md"/></li>';
     });
 
 </script>
