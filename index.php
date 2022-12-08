@@ -19,6 +19,11 @@ session_start();
 
 \Utilities\Site::configure();
 
+if(!isset($_SESSION["login"])){
+    $_SESSION["login"] = [
+        "isLogged" => false
+    ];
+}
 
 $pageRequest = \Utilities\Site::getPageRequest();
 
