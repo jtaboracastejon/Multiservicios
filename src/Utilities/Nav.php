@@ -20,6 +20,8 @@ class Nav {
             );
         }
         //Vista de mnt-providers
+        //vista mnt-userdetails
+        //vista mnt-workzones
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 

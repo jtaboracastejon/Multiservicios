@@ -1,7 +1,10 @@
-<div class="p-10 bg-multiLightGray col-span-4 ">
-    <div class="grid grid-cols-3 mt-6">
-        <div class="col-span-3 rounded-lg bg-white">
+<!--
+<div> Esto es para cerrar el dashboard-->
+    {{include dashboard/dashboard}}
+    <div class="p-10 bg-multiLightGray col-span-4" id="barrelContainer">
+        <div class="bg-white rounded-lg p-10">
             <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
+                <div class="overflow-x-auto relative rounded-lg">
 
                 <form action="index.php?page=mnt-userdetail&mode={{mode}}&iduserdetail={{iduserdetail}}" method="post"
                     enctype='multipart/form-data' class="text-justify">
@@ -9,15 +12,7 @@
                     </p>
                     <input type="hidden" name="usercod" id="usercod" {{if readOnly}}disabled{{endif readOnly}}
                         value="{{usercod}}" class="form-input !ml-10 !w-[40rem] !text-sm" placeholder="Ingresar nombre">
-                    <!--<fieldset>
-                        <label class="form-label !ml-10 !mt-2 !font-semibold !text-sm" for="select">Seleccione usuario a
-                            registrar</label>
-                        <select name="usercod" id="usercod" {{if readOnly}} disabled {{endif readOnly}}
-                            class="form-select !ml-10 !w-[25rem] !text-sm">
-                            {{foreach users}}
-                            <option value="{{usercod}}" {{selected}}>{{username}}</option>
-                            {{endfor users}}
-                        </select>-->
+        
                     <label for="firstname" class="form-label !ml-10 !font-semibold !text-sm">Nombres</label>
                     <input type="text" name="firstname" id="firstname" {{if readOnly}}disabled{{endif readOnly}}
                         value="{{firstname}}" class="form-input !ml-10 !w-[40rem] !text-sm"
@@ -67,10 +62,9 @@
                     <button id="btnCancelar" class="form-secondaryButton !mb-4">Cancelar</button>
 
                 </form>
+           </div>
             </div>
         </div>
     </div>
-
 </div>
 
-</div>
