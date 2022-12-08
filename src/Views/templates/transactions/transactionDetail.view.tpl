@@ -61,7 +61,7 @@
 
                 <h1 class="py-10 sm:py-20 text-3xl">{{totalOrder}} pagados en {{fechaDelPago}}</h1>
 
-                <div class="overflow-scroll">
+                <div class="">
                     <table class="min-w-full">
                         <thead class="text-bold">
                             <tr>
@@ -74,7 +74,7 @@
                                 <th scope="col" class="text-left w-1/5 sm:px-8 py-4">
                                     Precio unitario
                                 </th>
-                                <th scope="col" class="text-right w-1/5 sm:px-8 py-4">
+                                <th scope="col" class="text-center w-1/5 sm:px-8 py-4">
                                     Importe
                                 </th>
                             </tr>
@@ -91,13 +91,11 @@
                                 </td>
                                 <td class="sm:px-8 py-4">
                                     {{with unit_amount}}
-                                        {{currency_code}} {{value}}
+                                        {{value}} {{currency_code}}
                                     {{endwith unit_amount}}
                                 </td>
-                                <td class="sm:px-8 py-4 text-right">
-                                    {{with amount}}
-                                        {{currency_code}} {{value}}
-                                    {{endwith amount}}
+                                <td class="sm:px-8 py-4 text-center">
+                                    USD {{total}}
                                 </td>
                             </tr>
                             {{endfor items}}
@@ -108,8 +106,8 @@
                                 <td class="sm:px-8 py-4">
                                     Subtotal
                                 </td>
-                                <td class="sm:px-8 py-4 text-right">
-                                    $5000.00
+                                <td class="sm:px-8 py-4 text-center">
+                                    {{subTotal}} USD
                                 </td>
                             </tr>
                             <tr>
@@ -117,10 +115,21 @@
                                     &nbsp;
                                 </td>
                                 <td class="sm:px-8 py-4 bg-gray-50">
-                                    Amount paid
+                                    Impuestos
                                 </td>
-                                <td class="sm:px-8 py-4 text-right bg-gray-50">
-                                    $5000.00
+                                <td class="sm:px-8 py-4 text-center bg-gray-50">
+                                    {{orderTax}} USD 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="">
+                                    &nbsp;
+                                </td>
+                                <td class="sm:px-8 py-4">
+                                    Subtotal
+                                </td>
+                                <td class="sm:px-8 py-4 text-center">
+                                    {{totalOrder}}
                                 </td>
                             </tr>
                         </tbody>

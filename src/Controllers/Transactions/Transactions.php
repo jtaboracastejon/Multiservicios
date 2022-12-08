@@ -36,17 +36,16 @@ class Transactions extends PrivateController
             "create_time" => $response["result"]["create_time"],
         ];
         $this->viewData["totalOrder"] = $response["result"]["purchase_units"][0]["amount"]["value"] . " " . $response["result"]["purchase_units"][0]["amount"]["currency_code"];
+        $this->viewData["orderTax"] = $response["result"]["purchase_units"][0]["amount"]["breakdown"]["tax_total"]["value"];
+        $this->viewData["subTotal"] = $response["result"]["purchase_units"][0]["amount"]["breakdown"]["item_total"]["value"];
+        // die(var_dump($response["result"]["purchase_units"][0]["amount"]["breakdown"]["tax_total"]["value"]));
         $this->viewData["fechaDelPago"] = $this->obtenerFechaEnLetra($response["result"]["create_time"]);
         
         $this->viewData["items"] = $response["result"]["purchase_units"][0]["items"];
-        /* $orderDetail = [
-            "orderID" => $response["result"]["id"],
-            "payerDetails" => $response["result"]["payer"],
-            "name" => $response["result"]["purchase_units"][0]->shipping->name->full_name,
-            "address" => $response["result"]["purchase_units"][0]->shipping->address,
-        ]; */
-        // $orderDetail = \Utilities\Paypal\PayPalCapture::captureOrder($_GET["orderId"]);
-        // $this->viewData["orderDetail"] = json_encode($orderDetail, JSON_PRETTY_PRINT);
+        foreach($this->viewData["items"] as $key => $item){
+            $this->viewData["items"][$key]["total"] = $item["unit_amount"]["value"] * $item["quantity"];
+        }
+
         Renderer::render("transactions/transactionDetail", $this->viewData);
     }
 
