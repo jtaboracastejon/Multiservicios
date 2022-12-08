@@ -9,8 +9,7 @@ class Workzone extends Table
         join departments d on d.iddepto = wz.iddepto 
         join municipalities m on m.idmunicipality = wz.idmunicipality 
         where wz.status = 'DIS'";
-        $params = array(null);
-        return self::obtenerRegistros($sqlstr, $params);
+        return self::obtenerRegistros($sqlstr, []);
     }
 
     public static function addWorkZone(
