@@ -174,6 +174,53 @@
         return $tmpArray;
     }
 
+
+    public static function objectArrToAllFunctions(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "fncod",
+        $textKey = "fncod",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+
+    public static function objectArrToAllFunctions2(
+        $baseArray,
+        $codeName,
+        $textName,
+        $selectedName,
+        $selectedValue,
+        $codeKey = "fncod",
+        $textKey = "fncod",
+        $selectedKey = "selected"
+    ) {
+        $tmpArray = array();
+        foreach ($baseArray as $value) {
+            $tmpArray[] = array(
+                $codeKey => $value[$codeName],
+                $textKey => $value[$textName],
+                $selectedKey => ($selectedValue == $value[$selectedName])
+                    ? 'selected'
+                    : ''
+            );
+        }
+        return $tmpArray;
+    }
+
     public static function objectArrToAllServices(
         $baseArray,
         $codeName,

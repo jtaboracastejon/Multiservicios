@@ -1,3 +1,13 @@
+<!--
+<div> Esto es para cerrar el dashboard-->
+    {{include dashboard/dashboard}}
+    <div class="p-10 bg-multiLightGray col-span-4" id="barrelContainer">
+        <div class="bg-white rounded-lg p-10">
+            <p class="text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario Reseñas</p>
+            <div class="grid grid-rows-1 m-5 rounded-lg h-auto bg-white">
+                <div class="overflow-x-auto relative rounded-lg">
+
+
 <form class="text-justify" action="index.php?page=Mnt-User&mode={{mode}}&usercod={{usercod}}" method="post">
     <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl mb-2">Formulario que se pidio</p>
     <fieldset>
@@ -39,4 +49,11 @@
     </script>
 
 </form>
+
+
+ </div>
+            </div>
+        </div>
+    </div>
+</div>
 
