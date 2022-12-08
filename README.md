@@ -59,7 +59,7 @@ Nuestro proyecto nace de la necesidad de conectar personas para obtener relacion
 <br/>  
 
 
-## Connect with me  
+## Repositorio utilizado como base para el proyecto. 
 Aqui podras encontrar SimplePHPMVC, base utilizada para la creacion de nuestro proyecto.  
   
 
