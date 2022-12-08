@@ -105,9 +105,6 @@ let userType = document.getElementById("userType");
 
 function validationFormUnete() {
 
-    if(verificarEmail(txtEmailUnete, emailErrorUnete)){
-        return true;
-    }
     
     if (rbCliente.checked == false && rbProveedor.checked == false) {
         rbError.innerHTML = "Debe seleccionar una opcion";
@@ -118,7 +115,7 @@ function validationFormUnete() {
         rbProveedor.checked == true ? cbUsuarios = "PRV" : cbUsuarios = "CLI";
         rbProveedor.checked == true ? userType.innerHTML = "Proveedor" : userType.innerHTML = "Cliente";
     };
-
+    
     if (txtEmailUnete.value == "") {
         emailErrorUnete.innerHTML = "El campo no puede estar vacio";
         return true;
@@ -126,7 +123,10 @@ function validationFormUnete() {
     else {
         emailErrorUnete.innerHTML = "";
     }
-
+    
+    if(verificarEmail(txtEmailUnete, emailErrorUnete)){
+        return true;
+    }
 
     return false;
 }

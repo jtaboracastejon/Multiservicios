@@ -70,10 +70,12 @@ class ResetPassword extends PublicController{
         $user = \Dao\Security\Security::getUsuarioByEmail($email);
         if($user){
             $token = \Utilities\Security::generateRandomString(32);
-            $user["token"] = $token;
+            $tokenhash = \Dao\Security\Security::_hashPassword($token);
+
+            $user["token"] = $tokenhash;
             $user["tokenexp"] = date("Y-m-d H:i:s", strtotime("+1 hour"));
             \Dao\Security\Security::updateToken($user);
-            $url = \Utilities\Site::getPublicPath() . "/index.php?page=sec_resetpassword&token=$token";
+            $url = \Utilities\Site::getPublicPath() . "/index.php?page=sec_resetpassword&token=$tokenhash";
             $body = "<html>
             <body>
                 <h1>Hola " . $user['username'] . " </h1>
@@ -81,7 +83,7 @@ class ResetPassword extends PublicController{
             </body>
         </html>";
             \Utilities\Email::sendEmail($email, "Restablecer contraseña", $body, "multiservicios@gmail.com", "Multiservicios");
-            \Utilities\Site::redirectToWithMsg("index.php?page=login", "Se ha enviado un correo con las instrucciones para restablecer su contraseña");
+            \Utilities\Site::redirectToWithMsg("index.php?page=landing_landing", "Se ha enviado un correo con las instrucciones para restablecer su contraseña");
         }else{
             \Utilities\Site::redirectToWithMsg("index.php?page=sec_resetpassword", "El correo no existe");
         }
@@ -96,7 +98,7 @@ class ResetPassword extends PublicController{
             $user["tokenest"] = "USE";
             
             \Dao\Security\Security::updatePassword($user);
-            \Utilities\Site::redirectToWithMsg("index.php?page=sec_login", "Se ha restablecido su contraseña");
+            \Utilities\Site::redirectToWithMsg("index.php?page=landing_landing", "Se ha restablecido su contraseña");
         }else{
             \Utilities\Site::redirectToWithMsg("index.php?page=sec_resetpassword&token=" . $this->viewData["token"], "Las contraseñas no coinciden");
         }

@@ -1,5 +1,5 @@
 
-  {{if showFormPassword}}
+  {{if showFomrEmail}}
   <form class="grid" method="post" action="index.php?page=sec_resetpassword">
     <div class="bg-slate-200">
     <div class="text-slate-200"></div>
@@ -19,16 +19,16 @@
             </fieldset>
 
             <div class="grid grid-rows-1 ">
-                <label for="inputField" class="form-label !font-medium !mt-5">Correo
+                <label for="txtEmail" class="form-label !font-medium !mt-5">Correo
                     Electronico</label>
-                <input type="text" name="inputField" id="inputField" class="form-input " placeholder="Input Field">
+                <input type="email" name="txtEmail" id="txtEmail" class="form-input " placeholder="Ingrese el correo" value="{{txtEmail}}">
             </div>
             <p class="text-justify mt-6">
                 Asegurate de proporcionarnos la direccion con la que fue creada tu cuenta.
             </p>
 
             <div class="flex justify-center items-center mt-5">
-                <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                <button type="submit" class="form-primaryButton">Continuar</button>
                 <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
             </div>
         </div>
@@ -36,10 +36,10 @@
     <div class="mt-80 text-slate-200"></div>
 </div>
   </form>
-  {{endif showFormPassword}}
+  {{endif showFomrEmail}}
 
 
-  {{if showFomrEmail}}
+  {{if showFormPassword}}
   <form class="grid" method="post" action="index.php?page=sec_resetpassword&token={{token}}">
     <div class="bg-slate-200">
     <div class="text-slate-200"></div>
@@ -57,13 +57,13 @@
                     </p>
                 </fieldset>
                 <div class="grid container row-span-1 place-content-center mt-6 max-w-40">
-                    <label for="inputField" class="form-label !font-medium !mt-5">Nueva Contraseña</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
-                    <label for="inputField" class="form-label !font-medium !mt-5">Confirmar Contraseña</label>
-                    <input type="text" name="inputField" id="inputField" class="form-input" placeholder="Input Field">
+                    <label for="txtPassword" class="form-label !font-medium !mt-5">Nueva Contraseña</label>
+                    <input type="password" name="txtPassword" id="txtPassword" class="form-input" placeholder="Ingresar nueva contraseña" value="{{txtPassword}}">
+                    <label for="txtPassword2" class="form-label !font-medium !mt-5">Confirmar Contraseña</label>
+                    <input type="password" name="txtPassword2" id="txtPassword2" class="form-input" placeholder="Repita la contraseña" value="{{txtPassword2}}">
                 </div>
                 <div class="flex justify-center items-center mt-10 mb-10">
-                    <button type="button" class="form-primaryButton" onclick="">Continuar</button>
+                    <button type="submit" class="form-primaryButton">Continuar</button>
                     <button class="form-secondaryButton" onclick="modalHandler()">Cancelar</button>
                 </div>
             </div>
@@ -71,4 +71,4 @@
     <div class="mt-80 text-slate-200"></div>
 </div>
   </form>
-  {{endif showFomrEmail}}
+  {{endif showFormPassword}}
