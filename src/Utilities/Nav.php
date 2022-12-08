@@ -7,6 +7,12 @@ class Nav {
     public static function setNavContext(){
         $tmpNAVIGATION = array();
         $userID = \Utilities\Security::getUserId();
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Subscriptions\Subscriptions")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=subscriptions_subscriptions",
+                "nav_label" => "Conviértete en PRO"
+            );
+        }
         if (\Utilities\Security::isAuthorized($userID, "MntUsuarios")) {
             $tmpNAVIGATION[] = array(
                 "nav_url" => "index.php?page=mnt_usuarios",

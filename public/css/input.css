@@ -143,3 +143,7 @@
 .multi-dashboardBtn{
     @apply ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500;
 }
+
+.multi-bgModal{
+    @apply py-44 h-auto bg-black bg-opacity-80 transition duration-150 ease-in-out z-10 absolute top-0 right-0 -bottom-full left-0;
+}

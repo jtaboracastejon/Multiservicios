@@ -27,9 +27,9 @@ class Accept extends PublicController{
             if($item["triggerableTable"]=="promotions"){
                 \Dao\Promotions\Promotions::updatePromotionStatus($item["triggerId"], 'ACT');
             }
-            /* if($item["triggerableTable"]=="subscriptions"){
-                \Dao\Subscriptions\Subscriptions::updateSubscriptionStatus($item["triggerableId"], 'ACT');
-            } */
+            if($item["triggerableTable"]=="subscriptions"){
+                \Dao\Subscriptions\Subscriptions::updateSubscriptionStatus($item["triggerId"], 'ACT');
+            }
             \Dao\Cart\Transaction::insertCartToTransaction($orderId, $item);
             \Dao\Cart\Carts::deleteCartById($item["idcart"]);
         }
