@@ -1,9 +1,9 @@
 <?php
 namespace Controllers\Mnt;
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Views\Renderer;
 
-class Workzones extends PublicController
+class Workzones extends PrivateController
 {
     public function run() :void {
         $viewData = array();

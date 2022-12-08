@@ -1,9 +1,9 @@
 <?php
 namespace Controllers\Mnt;
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use DateTime;
 use Views\Renderer;
-class Provider extends PublicController{
+class Provider extends PrivateController{
 
     private $arrModeDsc = array(
         'INS' => 'Nuevo Proveedor',

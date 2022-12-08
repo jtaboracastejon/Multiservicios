@@ -1,10 +1,10 @@
 <?php 
 namespace Controllers\Mnt;
 
-use Controllers\PublicController;
+use Controllers\PrivateController;
 use Views\Renderer;
 
-class UserDetail extends PublicController{
+class UserDetail extends PrivateController{
     private $arrModeDsc = array(
         "INS" => "Agregando nuevo registro",
         "UPD" => "Editar registro existente",
