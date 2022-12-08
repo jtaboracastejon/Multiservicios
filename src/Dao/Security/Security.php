@@ -354,6 +354,14 @@ class Security extends \Dao\Table
             array("fncod" => $fncod, "rolescod" => $rolescod)
         );
     }
+
+    static public function getProviderByUserID($iduser){
+        $sqlstr = "SELECT * from providers p 
+        join user_details ud on p.idservice = ud.iduserdetail 
+        join services s on s.idservice = p.idservice
+        where ud.usercod =:iduser;";
+        return self::obtenerUnRegistro($sqlstr, array("iduser"=>$iduser));
+    }
     static public function getUnAssignedFeatures($rolescod)
     {
         

@@ -39,7 +39,7 @@ abstract class PublicController implements IController
                 \Utilities\Nav::setNavContext();
             }
         }
-    }
+    } 
     /**
      * Return name of instantiated class
      *

@@ -8,20 +8,26 @@ class Checkout extends PublicController{
     public function run():void
     {
         $viewData = array();
-        if ($this->isPostBack()) {
+        if(isset($_SESSION["invoice"])){
+            $arrCart = $_SESSION["invoice"];
+            $viewData = array();
             $PayPalOrder = new \Utilities\Paypal\PayPalOrder(
                 "test".(time() - 10000000),
-                "http://localhost/mvco/index.php?page=checkout_error",
-                "http://localhost/mvco/index.php?page=checkout_accept"
+                "http://localhost/Multiservicios/index.php?page=checkout_error",
+                "http://localhost/Multiservicios/index.php?page=checkout_accept"
             );
-            $PayPalOrder->addItem("Test", "TestItem1", "PRD1", 100, 15, 1, "DIGITAL_GOODS");
-            $PayPalOrder->addItem("Test 2", "TestItem2", "PRD2", 50, 7.5, 2, "DIGITAL_GOODS");
+            array_map(
+                function ($item) use ($PayPalOrder) {
+                    $tax = number_format(floatval($item["price"] * 0.15),2);
+                    $PayPalOrder->addItem($item["name"].' '.$item["description"], $item["description"], $item["sku"], $item["price"], $tax, $item["quantity"], "DIGITAL_GOODS");
+                },
+                $arrCart
+            );
             $response = $PayPalOrder->createOrder();
             $_SESSION["orderid"] = $response[1]->result->id;
             \Utilities\Site::redirectTo($response[0]->href);
             die();
         }
-
         \Views\Renderer::render("paypal/checkout", $viewData);
     }
 }

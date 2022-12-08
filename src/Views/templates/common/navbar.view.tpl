@@ -50,7 +50,7 @@
             <a class="multi-registerBtn" onclick="modalHandler1(true, 'modal1')">Unirse</a>
             {{endifnot isLogged}}
             {{if isLogged}}
-                <a class="multi-dashboardBtn mx-4" onclick="modalHandler1(true, 'modal1')">Acceder al Panel</a>
+                <a class="multi-dashboardBtnGd mx-4" href="index.php?page=dashboard-dashboard">Acceder al Panel</a>
             {{with login}}
                 <span class="text-white">{{userName}}<a href="index.php?page=sec_logout" class="mx-4"><i class="fas fa-sign-out-alt"></i></a></span>
             {{endwith login}}
