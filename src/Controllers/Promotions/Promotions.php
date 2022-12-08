@@ -17,7 +17,8 @@ class Promotions extends PrivateController{
         $this->pre_render();
         
 
-        \Utilities\Site::addEndScript("src/Views/templates/promotions/scripts/modal.js");
+        \Utilities\Site::addEndScript("src/Views/templates/promotions/scripts/createPromo.js");
+        \Utilities\Site::addEndScript("src/Views/templates/common/scripts/modal.js");
         Renderer::render('promotions/promotions', $this->viewData);
     }
 
