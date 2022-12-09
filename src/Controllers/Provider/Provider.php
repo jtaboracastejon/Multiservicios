@@ -119,7 +119,7 @@ class Provider extends PublicController
     private function process_postBack()
     {
         $usercod_cli = $_SESSION["login"]["userId"];
-        $usercod_pro = $this->viewData["idprovider"];
+        $usercod_pro = $this->viewData["usercod"];
         $idservice = $this->viewData["idservice"]; 
         $description = $_POST["description"];
         $enddate = date ("Y-m-d H:i:s", strtotime("+48 hours"));
