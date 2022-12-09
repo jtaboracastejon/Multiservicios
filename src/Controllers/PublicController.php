@@ -28,6 +28,21 @@ abstract class PublicController implements IController
      */
     public function __construct()
     {
+        
+
+        if(isset($_SESSION["idworkzone"])) {
+            
+        }
+        else{
+            $_SESSION["idworkzone"] = array(
+                "idworkzone" => "1",
+                "iddepto" => "1",
+                "idmunicipality" => "1",
+                "department" => "Atlántida",
+                "municipality" => "La Ceiba",
+            );
+        }
+        
         $this->name = get_class($this);
         if (\Utilities\Security::isLogged()){
             $layoutFile = \Utilities\Context::getContextByKey("PRIVATE_LAYOUT");
@@ -39,7 +54,7 @@ abstract class PublicController implements IController
                 \Utilities\Nav::setNavContext();
             }
         }
-    }
+    } 
     /**
      * Return name of instantiated class
      *
