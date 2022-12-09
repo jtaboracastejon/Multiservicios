@@ -140,6 +140,28 @@
     @apply w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600;
 }
 
+.multi-slidePrev{
+    @apply w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl text-white rounded-full leading-tight text-center z-10 inset-y-0 left-0 my-auto;
+}
+
+.multi-slideNext{
+    @apply w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl text-white rounded-full leading-tight text-center z-10 inset-y-0 right-0 my-auto;
+}
+.multi-horizontalSlide{
+    @apply w-80 h-36 max-w-xs overflow-hidden rounded-lg shadow-md hover:shadow-xl bg-no-repeat bg-cover bg-center;
+}
+
+.multi-maxChars {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.multi-dashboardBtn{
+    @apply ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500;
+}
+
 .multi-dashboardBtn{
     @apply ml-10 mr-10 mb-5 px-4 py-3 cursor-pointer text-black hover:text-white bg-gradient-to-r border-multiDarkBlue rounded-lg text-left text-sm hover:from-green-400 hover:to-blue-500;
 }

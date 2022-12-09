@@ -31,6 +31,18 @@ class Nav {
                 "nav_label" => "Promociones"
             );
         }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Orders\ProviderDash")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=orders_providerdash",
+                "nav_label" => "Lista de Ordenes"
+            );
+        }
+        if (\Utilities\Security::isAuthorized($userID, "Controllers\Orders\ClientDash")) {
+            $tmpNAVIGATION[] = array(
+                "nav_url" => "index.php?page=orders_clientdash",
+                "nav_label" => "Lista de Solicitudes"
+            );
+        }
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
     }
 

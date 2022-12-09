@@ -10,8 +10,6 @@ class Dashboard extends PublicController{
         $viewData = array(
             "variable" => "Version 1.0.0"
         );
-
-        
         Renderer::render("dashboard/dashboard", $viewData);
     }
 }
