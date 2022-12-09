@@ -29,17 +29,18 @@ class Transactions extends PrivateController
         $response = $client->execute(new OrdersGetRequest($_GET["orderId"]));
         $response= json_decode(json_encode($response), true);
         $this->viewData["orderId"] = $_GET["orderId"];
+        $this->viewData["date"] = $response["result"]["update_time"];
         $this->viewData["payerEmail"] = $response["result"]["payer"]["email_address"];
         $this->viewData["payerName"] = $response["result"]["payer"]["name"]["given_name"] . " " . $response["result"]["payer"]["name"]["surname"];
         $this->viewData["result"] = [
             "status" => $response["result"]["status"],
-            "create_time" => $response["result"]["create_time"],
+            "create_time" => $this->viewData["date"] ,
         ];
         $this->viewData["totalOrder"] = $response["result"]["purchase_units"][0]["amount"]["value"] . " " . $response["result"]["purchase_units"][0]["amount"]["currency_code"];
         $this->viewData["orderTax"] = $response["result"]["purchase_units"][0]["amount"]["breakdown"]["tax_total"]["value"];
         $this->viewData["subTotal"] = $response["result"]["purchase_units"][0]["amount"]["breakdown"]["item_total"]["value"];
         // die(var_dump($response["result"]["purchase_units"][0]["amount"]["breakdown"]["tax_total"]["value"]));
-        $this->viewData["fechaDelPago"] = $this->obtenerFechaEnLetra($response["result"]["create_time"]);
+        $this->viewData["fechaDelPago"] = $this->obtenerFechaEnLetra($this->viewData["date"]);
         
         $this->viewData["items"] = $response["result"]["purchase_units"][0]["items"];
         foreach($this->viewData["items"] as $key => $item){

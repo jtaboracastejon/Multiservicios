@@ -30,7 +30,7 @@
   <main>
     {{{page_content}}}
   </main>
-  <footer>
+  <footer class="mt-10">
     {{include common/footer}}
   </footer>
   {{foreach EndScripts}}

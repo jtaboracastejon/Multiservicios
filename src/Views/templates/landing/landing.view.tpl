@@ -28,13 +28,13 @@
     {{include common/barra}}
 </div>
 <div class="mx-10 mt-16">
-    <div class="font-bold text-xl">Visto recientemente en tu zona</div>
+    <div class="font-bold text-xl">Conoce nuestros proveedores</div>
 
     <div class="mt-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 2xl:gap-20">
         <!-- Inicia Tarjeta-->
         {{foreach cards}}
         <div class="border-[2px] border-multiDarkBlue">
-            <div class="z-0 grid h-56 bg-[url('{{imgportada}}')] bg-cover">
+            <div class="z-0 grid h-56 bg-[url('https://picsum.photos/500/500')] bg-cover">
                 <div class="z-10">
                     <div class="rounded-r-md w-32 shadow-md border-l-transparent bg-black bg-opacity-90 mt-5 p-1">
                         <span class="text-white font-medium text-sm">Patrocinado</span>
@@ -54,7 +54,7 @@
                 <div class="grid col-span-5 lg:col-span-3 m-3">
                     <div class="flex flex-row ">
                         <img class="w-12 h-12 m-2 justify-start rounded-full object-cover"
-                            src="{{imgprofile}}" alt=".">
+                           src="https://picsum.photos/500/500" alt=".">
                         <div class="flex flex-col my-auto">
                             <p class="text-xs font-medium">{{name}}</p>
                             <p class="text-xs">{{servicename}}</p>
@@ -90,7 +90,8 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
+            
+            <a href="index.php?page=provider-provider&idprovider={{idprovider}}" class="m-4 bg-green-600 rounded-2xl py-2 flex flex-row items-center justify-center ">
                 <i class="fa-solid fa-paper-plane text-white mr-4"></i>
                 <span href="" class="text-white font-semibold ">Contactar</span>
             </a>

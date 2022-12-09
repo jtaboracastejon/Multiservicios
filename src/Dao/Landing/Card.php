@@ -56,7 +56,7 @@ class Card extends Table{
         }
     }
     public static function getCardRandom($cantidad){
-        $selectSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        $selectSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate , p.idprovider
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
@@ -66,7 +66,7 @@ class Card extends Table{
     }
 
     public static function getCardRandomByService($cantidad, $idservice){
-        $selectSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        $selectSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate , p.idprovider
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
@@ -95,10 +95,17 @@ class Card extends Table{
         return (self::obtenerUnRegistro($selectSql, array("iduserdetail"=>$iduserdetail))) ? true : false;
     } */
 
+    public static function isPromotion($iduserdetail){
+        $selectSql = "SELECT * FROM providers p 
+        JOIN promotions pr on pr.idprovider  = p.idprovider 
+        where pr.enddate >= NOW() and p.iduserdetail = :iduserdetail;";
+        return (self::obtenerUnRegistro($selectSql, array("iduserdetail"=>$iduserdetail))) ? true : false;
+    }
+
     //Search Section
 
     public static function getCardByProvider($l1,$l2,$query){
-        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate, p.idprovider
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
@@ -113,7 +120,7 @@ class Card extends Table{
     }
 
     public static function getCardByService($l1,$l2,$query){
-        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate, p.idprovider
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice
@@ -128,7 +135,7 @@ class Card extends Table{
     }
 
     public static function getCardByQueryAndService($l1,$l2,$query,$service){
-        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate 
+        $strSql = "SELECT ud.iduserdetail, ud.firstname ,ud.lastname , s.servicename ,ud.imgprofile, ud.imgportada , p.decription ,p.datecreate, p.idprovider 
         FROM providers p 
         JOIN user_details ud ON ud.iduserdetail = p.iduserdetail
         JOIN services s ON s.idservice = p.idservice

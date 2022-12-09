@@ -12,6 +12,7 @@
         <div class="overflow-x-scroll scroll-smooth hide-scroll-bar p-10" id="services">
             <div class="flex flex-nowrap lg:ml-30 ml-10">
                 {{foreach services}}
+                <a href="index.php?page=Services-Search&service={{idservice}}">
                 <div class="inline-block inline-block px-3">
                         <div class="multi-horizontalSlide js-show-on-scroll" style="background-image: url('{{imagepath}}');">
                         <div class="w-full h-full bg-black bg-opacity-40 flex justify-center items-center">
@@ -19,6 +20,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
                 {{endfor services}} 
             </div>
         </div>

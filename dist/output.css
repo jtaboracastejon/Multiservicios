@@ -702,17 +702,12 @@ html {
   margin-right: 0.25rem;
 }
 
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-7 {
   margin-top: 1.75rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .ml-10 {
@@ -863,22 +858,6 @@ html {
   margin-right: 2.5rem;
 }
 
-.\!mb-0\.5 {
-  margin-bottom: 0.125rem !important;
-}
-
-.\!mb-0 {
-  margin-bottom: 0px !important;
-}
-
-.ml-24 {
-  margin-left: 6rem;
-}
-
-.ml-56 {
-  margin-left: 14rem;
-}
-
 .ml-9 {
   margin-left: 2.25rem;
 }
@@ -1011,10 +990,6 @@ html {
   height: 74px;
 }
 
-.\!h-7 {
-  height: 1.75rem !important;
-}
-
 .max-h-full {
   max-height: 100%;
 }
@@ -1109,14 +1084,6 @@ html {
 
 .w-\[1453\] {
   width: 1453;
-}
-
-.\!w-44 {
-  width: 11rem !important;
-}
-
-.\!w-64 {
-  width: 16rem !important;
 }
 
 .w-2\/5 {
@@ -1385,11 +1352,6 @@ html {
   border-top-right-radius: 1rem;
 }
 
-.rounded-r-lg {
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-}
-
 .rounded-tl-lg {
   border-top-left-radius: 0.5rem;
 }
@@ -1580,11 +1542,6 @@ html {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-multiDarkYellow {
-  --tw-bg-opacity: 1;
-  background-color: rgb(228 164 0 / var(--tw-bg-opacity));
-}
-
 .bg-multiSuccess {
   --tw-bg-opacity: 1;
   background-color: rgb(16 185 129 / var(--tw-bg-opacity));
@@ -1752,21 +1709,6 @@ html {
   padding-bottom: 1.25rem;
 }
 
-.\!px-2 {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-.\!py-1 {
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -1775,6 +1717,11 @@ html {
 .py-44 {
   padding-top: 11rem;
   padding-bottom: 11rem;
+}
+
+.\!px-2 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
 
 .pl-10 {
@@ -2034,11 +1981,6 @@ html {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.\!text-white {
-  --tw-text-opacity: 1 !important;
-  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
 
 .text-slate-400 {

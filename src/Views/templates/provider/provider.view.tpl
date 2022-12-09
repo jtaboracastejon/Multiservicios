@@ -49,7 +49,7 @@
         </div>
         <div class="basis-1/3 p-20">
             <div class="border-[2px] border-multiDarkBlue h-full">
-            <div class="z-0 grid h-2/4 bg-[url('../public/imgs/carpinteria.png')] bg-cover">
+            <div class="z-0 grid h-2/4 bg-[url('https://picsum.photos/500/500')] bg-cover">
                 <div class="z-10 grid place-items-end">
                     <div class="p-2 rounded-tl-lg bg-white text-center">
                         <div class="flex items-center justify-center">

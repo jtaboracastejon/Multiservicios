@@ -1,6 +1,4 @@
-<div class="">
-    {{include common/navbar}}
-</div>
+
 <div class="grid grid-cols-5 h-50 bg-blue-50">
     <div class="h-[80rem] mt-7">
         <p class="pl-10 pt-10 text-black-400 text-xl font-bold lg:text-2xl">Preguntas Frecuentes</p>

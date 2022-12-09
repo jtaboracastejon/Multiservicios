@@ -69,7 +69,7 @@ class Search extends PublicController{
                     $data_l[$key]["isVerified"] = \Dao\Landing\Card::isVerified($card["iduserdetail"]);
                     $data_l[$key]["name"] = \Utilities\multiUtilities::split_name($card["firstname"], $card["lastname"]);
                     $data_l[$key]["tiempoPlataforma"] = \Dao\Landing\Card::getTimeAgo($card["datecreate"]);
-                    //$data_l[$key]["isSuscripter"] = \Dao\Landing\Card::isSuscripter($card["iduserdetail"]);
+                    $data_l[$key]["isPromotion"] = \Dao\Landing\Card::isPromotion($card["iduserdetail"]);
                 }
 
                 $this->viewData["providers"] = $data_l;
@@ -97,6 +97,7 @@ class Search extends PublicController{
                     $data_l[$key]["isVerified"] = \Dao\Landing\Card::isVerified($card["iduserdetail"]);
                     $data_l[$key]["name"] = \Utilities\multiUtilities::split_name($card["firstname"], $card["lastname"]);
                     $data_l[$key]["tiempoPlataforma"] = \Dao\Landing\Card::getTimeAgo($card["datecreate"]);
+                    $data_l[$key]["isPromotion"] = \Dao\Landing\Card::isPromotion($card["iduserdetail"]);
                     //$data_l[$key]["isSuscripter"] = \Dao\Landing\Card::isSuscripter($card["iduserdetail"]);
                 }                
 

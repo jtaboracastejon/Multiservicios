@@ -16,6 +16,14 @@ class Transactions extends Table{
 
         return self::obtenerRegistros($sqlStr, $parameters);
     }
+
+    public static function getTransactionByOrderId($paypalOrderId){
+        $sqlStr = "SELECT * FROM transactions WHERE paypalOrderId = :paypalOrderId";
+        $params = [
+            "paypalOrderId" => $paypalOrderId
+        ];
+        return self::obtenerUnRegistro($sqlStr, $params);
+    }
 }
 
 ?>

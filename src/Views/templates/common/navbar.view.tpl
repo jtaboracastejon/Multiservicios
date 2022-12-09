@@ -16,7 +16,7 @@
 
         </div>
         <ul class="hidden lg:flex lg:mx-auto !ml-0 lg:flex lg:items-center lg:w-auto lg:space-x-6">
-            <li><a class="text-sm text-white font-semibold" href="#">Inicio</a></li>
+            <li><a class="text-sm text-white font-semibold" href="index.php?page=Landing_Landing">Inicio</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
                     viewBox="0 0 24 24">
@@ -24,7 +24,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-white font-semibold" href="#">Servicios</a></li>
+            <li><a class="text-sm text-white font-semibold" href="index.php?page=Services-Services">Servicios</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
                     viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-white font-semibold" href="#">Sobre</a></li>
+            <li><a class="text-sm text-white font-semibold" href="">Sobre</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
                     viewBox="0 0 24 24">
@@ -40,7 +40,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-white font-semibold" href="#">Contacto</a></li>
+            <li><a class="text-sm text-white font-semibold" href="index.php?page=About-About">FAQ</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
                     viewBox="0 0 24 24">
